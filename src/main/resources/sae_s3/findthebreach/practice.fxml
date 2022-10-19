@@ -5,43 +5,42 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane id="practice" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sae_s3.findthebreach.SceneController">
+<?import javafx.scene.text.Text?>
+<BorderPane id="practice" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sae_s3.findthebreach.SceneController">
+    <center>
+        <TextArea maxHeight="370" maxWidth="600">
+         <BorderPane.margin>
+            <Insets bottom="-168" left="517"/>
+         </BorderPane.margin></TextArea>
+    </center>
     <bottom>
         <HBox alignment="CENTER_LEFT">
-            <children>
-                <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@pictures/home_button.png" />
-                    </image>
-                </ImageView>
-                <Button onAction="#switchTo" styleClass="bar_button" userData="practice.fxml">
-                    <graphic>
-                        <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@./pictures/practice_button_on.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button styleClass="bar_button">
-                    <graphic>
-                        <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@./pictures/play_button.png" />
-                            </image>
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
-                        </ImageView>
-                    </graphic>
-                    <HBox.margin>
-                        <Insets />
-                    </HBox.margin>
-                </Button>
-            </children>
-         <BorderPane.margin>
-            <Insets bottom="30.0" left="160.0" />
-         </BorderPane.margin>
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="130.0" />
+            </BorderPane.margin>
+            <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                <Image url="@pictures/home_button.png" />
+            </ImageView>
+            <Button onAction="#switchTo" styleClass="bar_button" userData="practice.fxml">
+                <graphic>
+                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@./pictures/practice_button_on.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button styleClass="bar_button">
+                <graphic>
+                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                        <Image url="@./pictures/play_button.png" />
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
         </HBox>
     </bottom>
 </BorderPane>

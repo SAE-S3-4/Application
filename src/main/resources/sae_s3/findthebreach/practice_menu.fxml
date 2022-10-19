@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="practice_menu" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sae_s3.findthebreach.SceneController">
+    <bottom>
+        <HBox alignment="CENTER_LEFT">
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="130.0"/>
+            </BorderPane.margin>
+            <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                <Image url="@pictures/home_button.png"/>
+            </ImageView>
+            <Button onAction="#switchTo" styleClass="bar_button" userData="practice.fxml">
+                <graphic>
+                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@./pictures/practice_button_on.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button styleClass="bar_button">
+                <graphic>
+                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                        <HBox.margin>
+                            <Insets/>
+                        </HBox.margin>
+                        <Image url="@./pictures/play_button.png"/>
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets/>
+                </HBox.margin>
+            </Button>
+        </HBox>
+    </bottom>
+    <center>
+        <VBox alignment="CENTER">
+            <Button styleClass="bar_button">
+                <text>01 - Level 1</text>
+            </Button>
+            <Button styleClass="bar_button">
+                <text>02 - Level 2</text>
+            </Button>
+            <Button styleClass="bar_button">
+                <text>03 - Level 3</text>
+            </Button>
+            <Button styleClass="bar_button">
+                <text>04 - Level 4</text>
+            </Button>
+            <Button styleClass="bar_button">
+                <text>05 - Level 5</text>
+            </Button>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="300.0" top="150.0" />
+         </padding>
+        </VBox>
+    </center>
+</BorderPane>

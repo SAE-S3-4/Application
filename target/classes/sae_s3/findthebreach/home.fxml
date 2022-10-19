@@ -17,46 +17,38 @@
    <-->
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@pictures/home_button_on.png" />
-               </image>
-            </ImageView>
-            <Button styleClass="bar_button" onAction="#switchTo" userData="practice.fxml">
-               <graphic>
-                  <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@./pictures/practice_button.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button styleClass="bar_button">
-               <graphic>
-                  <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@./pictures/play_button.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button styleClass="bar_button">
-               <graphic>
-                  <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@./pictures/logout_button.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children>
+         <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
+            <Image url="@pictures/home_button_on.png"/>
+         </ImageView>
+         <Button styleClass="bar_button" onAction="#switchTo" userData="practice_menu.fxml">
+            <graphic>
+               <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@./pictures/practice_button.png"/>
+               </ImageView>
+            </graphic>
+         </Button>
+         <Button styleClass="bar_button">
+            <graphic>
+               <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
+                  <HBox.margin>
+                     <Insets/>
+                  </HBox.margin>
+                  <Image url="@./pictures/play_button.png"/>
+               </ImageView>
+            </graphic>
+         </Button>
+         <Button styleClass="bar_button">
+            <graphic>
+               <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@./pictures/logout_button.png"/>
+                  </image>
+                  <HBox.margin>
+                     <Insets/>
+                  </HBox.margin>
+               </ImageView>
+            </graphic>
+         </Button>
       </HBox>
    </bottom>
 </BorderPane>

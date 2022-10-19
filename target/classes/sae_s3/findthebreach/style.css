@@ -5,6 +5,13 @@
     -fx-background-size: 100% 100%;
 }
 
+#practice_menu {
+    -fx-background-image: url("./pictures/practice_menu_background.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100% 100%;
+}
+
 #practice {
     -fx-background-image: url("./pictures/practice_background.jpg");
     -fx-background-repeat: no-repeat;
@@ -15,6 +22,8 @@
 .bar_button {
     -fx-border-color: transparent;
     -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 40;
 }
 
 #home_button {

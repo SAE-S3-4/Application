@@ -18,8 +18,6 @@ public class SceneController {
 
     private static String data;
 
-    public static String getData() { return data; }
-
     @FXML
     public void switchTo(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource() ;
