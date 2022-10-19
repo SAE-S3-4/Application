@@ -21,7 +21,7 @@
             <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                 <Image url="@./pictures/practice_button_on.png"/>
             </ImageView>
-            <Button styleClass="bar_button">
+            <Button styleClass="bar_button" onAction="#switchTo" userData="game.fxml">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <HBox.margin>
