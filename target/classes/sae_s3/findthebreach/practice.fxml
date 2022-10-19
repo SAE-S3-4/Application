@@ -6,17 +6,21 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Text?>
+<?import sae_s3.findthebreach.TerminalPane?>
+
 <BorderPane id="practice" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sae_s3.findthebreach.PracticeController">
     <left>
         <Text fx:id="order" text=""/>
         <Text fx:id="instructions" text="" />
     </left>
-    <center>
-        <TextArea maxHeight="370" maxWidth="600">
-         <BorderPane.margin>
-            <Insets bottom="-168" left="517"/>
-         </BorderPane.margin></TextArea>
-    </center>
+    <right>
+        <HBox>
+            <BorderPane.margin>
+                <Insets top="180" left="10" right="125" bottom="30" />
+            </BorderPane.margin>
+            <TerminalPane/>
+        </HBox>
+    </right>
     <bottom>
         <HBox alignment="CENTER_LEFT">
             <BorderPane.margin>

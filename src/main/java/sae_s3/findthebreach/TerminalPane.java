@@ -16,7 +16,7 @@ public class TerminalPane extends BorderPane {
     public TerminalPane(){
         super();
 
-        ClientTerminal client = new ClientTerminal("127.0.0.1", 10007);
+        ClientTerminal client = new ClientTerminal("172.23.225.154", 10007);
         try {
             client.connect();
         } catch (IOException e) {
@@ -25,9 +25,11 @@ public class TerminalPane extends BorderPane {
         client.listen();
 
         TextField inputZone = new TextField("");
+        inputZone.setStyle("-fx-background-color: transparent");
 
         TextArea textField = new TextArea("Type help for more information");
         textField.setEditable(false);
+        textField.setStyle("-fx-background-color: transparent");
 
         inputZone.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
