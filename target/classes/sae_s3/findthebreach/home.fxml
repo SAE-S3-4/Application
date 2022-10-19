@@ -7,9 +7,8 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
-<BorderPane id="home" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sae_s3.findthebreach.SceneController">
+<BorderPane id="home" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sae_s3.findthebreach.HomeController">
    <!-->
    <top>
       <ToggleButton mnemonicParsing="false" text="ToggleButton" BorderPane.alignment="CENTER" />

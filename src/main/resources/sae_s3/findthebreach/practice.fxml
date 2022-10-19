@@ -6,7 +6,11 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Text?>
-<BorderPane id="practice" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sae_s3.findthebreach.SceneController">
+<BorderPane id="practice" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sae_s3.findthebreach.PracticeController">
+    <left>
+        <Text fx:id="order" text=""/>
+        <Text fx:id="instructions" text="" />
+    </left>
     <center>
         <TextArea maxHeight="370" maxWidth="600">
          <BorderPane.margin>
@@ -16,12 +20,16 @@
     <bottom>
         <HBox alignment="CENTER_LEFT">
             <BorderPane.margin>
-                <Insets bottom="20.0" left="130.0" />
+                <Insets bottom="20.0" left="92.0" />
             </BorderPane.margin>
-            <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                <Image url="@pictures/home_button.png" />
-            </ImageView>
-            <Button onAction="#switchTo" styleClass="bar_button" userData="practice.fxml">
+            <Button onAction="#switchTo" styleClass="bar_button" userData="home.fxml">
+                <graphic>
+                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@./pictures/home_button.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button onAction="#switchTo" styleClass="bar_button" userData="practice_menu.fxml">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <Image url="@./pictures/practice_button_on.png" />

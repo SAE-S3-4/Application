@@ -10,12 +10,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class SceneController {
-
+public class PracticeMenuController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
     private static String data;
 
     @FXML
@@ -30,5 +28,4 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
-
 }
