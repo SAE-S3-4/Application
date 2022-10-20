@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -9,42 +8,36 @@
 
 <?import javafx.scene.control.Button?>
 <BorderPane id="home" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sae_s3.findthebreach.HomeController">
-   <!-->
-   <top>
-      <ToggleButton mnemonicParsing="false" text="ToggleButton" BorderPane.alignment="CENTER" />
-   </top>
-   <-->
+   <right>
+      <HBox alignment="TOP_CENTER">
+         <BorderPane.margin>
+            <Insets top="20"/>
+         </BorderPane.margin>
+         <Button styleClass="bar_button" onAction="#switchTo" userData="login.fxml">
+            <graphic>
+               <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@./pictures/login_button.png"/>
+               </ImageView>
+            </graphic>
+         </Button>
+      </HBox>
+   </right>
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50" BorderPane.alignment="CENTER">
-         <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
-            <Image url="@pictures/home_button_on.png"/>
-         </ImageView>
-         <Button styleClass="bar_button" onAction="#switchTo" userData="practice_menu.fxml">
+         <Button styleClass="bar_button" onAction="#switchTo" userData="login.fxml">
             <graphic>
                <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                   <Image url="@./pictures/practice_button.png"/>
                </ImageView>
             </graphic>
          </Button>
-         <Button styleClass="bar_button" onAction="#switchTo" userData="game.fxml">
+         <Button styleClass="bar_button" onAction="#switchTo" userData="login.fxml">
             <graphic>
                <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                   <HBox.margin>
                      <Insets/>
                   </HBox.margin>
                   <Image url="@./pictures/play_button.png"/>
-               </ImageView>
-            </graphic>
-         </Button>
-         <Button styleClass="bar_button">
-            <graphic>
-               <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@./pictures/logout_button.png"/>
-                  </image>
-                  <HBox.margin>
-                     <Insets/>
-                  </HBox.margin>
                </ImageView>
             </graphic>
          </Button>

@@ -28,4 +28,9 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    public void quit(ActionEvent e) {
+        System.exit(0);
+    }
 }
