@@ -1,4 +1,4 @@
-package sae_s3.findthebreach;
+package fr.univ_amu.iut;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         stage.setTitle("Find the breach");

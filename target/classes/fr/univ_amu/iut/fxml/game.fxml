@@ -7,8 +7,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<?import sae_s3.findthebreach.TerminalPane?>
-<BorderPane id="game" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sae_s3.findthebreach.GameController">
+<?import fr.univ_amu.iut.TerminalPane?>
+<BorderPane id="game" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="fr.univ_amu.iut.GameController">
     <right>
         <HBox>
             <BorderPane.margin>
@@ -22,17 +22,17 @@
             <BorderPane.margin>
                 <Insets bottom="20.0" left="92.0" />
             </BorderPane.margin>
-            <Button onAction="#switchTo" styleClass="bar_button" userData="home.fxml">
+            <Button onAction="#switchTo" styleClass="bar_button" userData="fxml/home.fxml">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@./pictures/home_button.png" />
+                        <Image url="@../pictures/home_button.png" />
                     </ImageView>
                 </graphic>
             </Button>
-            <Button onAction="#switchTo" styleClass="bar_button" userData="practice_menu.fxml">
+            <Button onAction="#switchTo" styleClass="bar_button" userData="fxml/practice_menu.fxml">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@./pictures/practice_button.png" />
+                        <Image url="@../pictures/practice_button.png" />
                     </ImageView>
                 </graphic>
             </Button>
@@ -40,7 +40,7 @@
                 <HBox.margin>
                     <Insets />
                 </HBox.margin>
-                <Image url="@./pictures/play_button_on.png" />
+                <Image url="@../pictures/play_button_on.png" />
             </ImageView>
             <HBox.margin>
                 <Insets />

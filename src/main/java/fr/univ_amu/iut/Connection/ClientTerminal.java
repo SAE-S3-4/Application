@@ -1,4 +1,4 @@
-package sae_s3.findthebreach.Connection;
+package fr.univ_amu.iut.Connection;
 
 import java.io.*;
 import java.net.Socket;

@@ -1,4 +1,4 @@
-package sae_s3.findthebreach;
+package fr.univ_amu.iut;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

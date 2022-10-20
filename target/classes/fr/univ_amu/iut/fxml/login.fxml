@@ -5,7 +5,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Text?>
-<BorderPane id="login" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sae_s3.findthebreach.LoginController">
+<BorderPane id="login" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ_amu.iut.LoginController">
     <center>
         <VBox alignment="CENTER" spacing="20">
             <BorderPane.margin>

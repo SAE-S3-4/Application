@@ -1,4 +1,4 @@
-package sae_s3.findthebreach;
+package fr.univ_amu.iut;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomeController {
+public class GameController {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -27,10 +27,5 @@ public class HomeController {
         stage.setTitle("Find the breach");
         stage.setScene(scene);
         stage.show();
-    }
-
-    @FXML
-    public void quit(ActionEvent e) {
-        System.exit(0);
     }
 }

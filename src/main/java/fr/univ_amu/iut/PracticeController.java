@@ -1,4 +1,4 @@
-package sae_s3.findthebreach;
+package fr.univ_amu.iut;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,18 +6,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.awt.Desktop;
 
-public class LoginController {
+public class PracticeController {
     private Stage stage;
     private Scene scene;
     private Parent root;
     private static String data;
+    @FXML
+    Text order;
+
+    @FXML
+    private void changeOrder(ActionEvent event) {
+        Node node = (Node) event.getSource() ;
+        data = (String) node.getUserData();
+        order.setText("Test");
+    }
 
     @FXML
     public void switchTo(ActionEvent event) throws IOException {
@@ -30,10 +37,5 @@ public class LoginController {
         stage.setTitle("Find the breach");
         stage.setScene(scene);
         stage.show();
-    }
-    @FXML
-    public void openRegister(ActionEvent e) throws URISyntaxException, IOException {
-        Desktop desktop = Desktop.getDesktop();
-        Desktop.getDesktop().browse(new URI("https://google.com"));
     }
 }

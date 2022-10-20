@@ -4,6 +4,6 @@ module com.example.sae_s3 {
     requires java.desktop;
 
 
-    opens sae_s3.findthebreach to javafx.fxml;
-    exports sae_s3.findthebreach;
+    opens fr.univ_amu.iut to javafx.fxml;
+    exports fr.univ_amu.iut;
 }
