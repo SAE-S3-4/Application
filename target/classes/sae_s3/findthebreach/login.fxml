@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<BorderPane id="login" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sae_s3.findthebreach.LoginController">
+    <center>
+        <VBox alignment="CENTER" spacing="20">
+            <BorderPane.margin>
+                <Insets top="100" right="20"/>
+            </BorderPane.margin>
+            <VBox alignment="CENTER">
+                <Label id="text" text="Mail :"/>
+                <TextField id="loginForm" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
+            </VBox>
+            <VBox alignment="CENTER">
+                <Label id="text" text="Password :"/>
+                <PasswordField id="loginForm" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
+            </VBox>
+            <HBox alignment="CENTER" spacing="30">
+                <Button id="buttonLoginForm" text="Login"/>
+                <Button id="buttonLoginForm" text="Abort"/>
+            </HBox>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox>
+            <BorderPane.margin>
+                <Insets bottom="20" left="20"/>
+            </BorderPane.margin>
+            <Label id="text" text="You don't have an account ?"/>
+            <Button onAction="#openRegister" id="register" text="Register now !"/>
+        </HBox>
+    </bottom>
+</BorderPane>
