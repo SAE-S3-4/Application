@@ -26,6 +26,10 @@
     -fx-font-size: 40;
 }
 
+#game {
+    -fx-background-image: url("./pictures/game_background.jpg");
+}
+
 #login {
     -fx-background-image: url("./pictures/login_background.jpg");
     -fx-background-repeat: no-repeat;
