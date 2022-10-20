@@ -7,12 +7,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
+<?import sae_s3.findthebreach.TerminalPane?>
 <BorderPane id="game" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sae_s3.findthebreach.GameController">
     <right>
         <HBox>
             <BorderPane.margin>
                 <Insets top="180" left="10" right="125" bottom="30" />
             </BorderPane.margin>
+            <TerminalPane/>
         </HBox>
     </right>
     <bottom>
