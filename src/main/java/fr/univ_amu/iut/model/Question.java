@@ -1,9 +1,11 @@
 package fr.univ_amu.iut.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+@NamedQueries({
+        @NamedQuery(name = "Question.findAll", query = "SELECT q FROM Question q"),
+        @NamedQuery(name = "Question.getById", query = "SELECT q FROM Question q WHERE q.q_id = :q_id"),
+})
 
 @Entity
 public class Question {

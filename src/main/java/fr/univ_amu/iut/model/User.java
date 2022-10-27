@@ -2,6 +2,11 @@ package fr.univ_amu.iut.model;
 
 import jakarta.persistence.*;
 
+@NamedQueries({
+        @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+        @NamedQuery(name = "User.getById", query = "SELECT u FROM User u WHERE u.id = :id"),
+})
+
 @Entity
 public class User {
     @Id
@@ -59,16 +64,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", email='" + email + '\'' +
-                ", score=" + score +
-                ", password='" + password + '\'' +
-                '}';
     }
 }

@@ -2,6 +2,11 @@ package fr.univ_amu.iut.model;
 
 import jakarta.persistence.*;
 
+@NamedQueries({
+        @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a"),
+        @NamedQuery(name = "Admin.getById", query = "SELECT a FROM Admin a WHERE a.id_user = :id_user"),
+})
+
 @Entity
 public class Admin {
     @Id
