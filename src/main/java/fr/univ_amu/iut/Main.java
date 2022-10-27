@@ -1,15 +1,26 @@
 package fr.univ_amu.iut;
 
+import fr.univ_amu.iut.dao.DAOUtilisateurJDBC;
+import fr.univ_amu.iut.database.Database;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class Main extends Application {
+
+    private static Connection connection;   // On établie la connexion
+    private static DAOUtilisateurJDBC daoUtilisateurJDBC;
+
+
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, SQLException {
+        connection = Database.getDBConnection();
+        daoUtilisateurJDBC = new DAOUtilisateurJDBC();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
@@ -19,6 +30,9 @@ public class Main extends Application {
         stage.show();
     }
 
+    public static Connection getDBConnection() {
+        return connection;
+    }
     public static void main(String[] args) {
         launch();
     }

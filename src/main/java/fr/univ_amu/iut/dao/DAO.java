@@ -1,43 +1,28 @@
 package fr.univ_amu.iut.dao;
 
-import java.util.List;
+import java.sql.SQLException;
 
 public interface DAO<Entity, Key> {
 
     /**
-     * Permet la suppression d'un tuple de la base
-     *
-     * @param obj Objet à supprimer dans la base
-     */
-    boolean delete(Entity obj);
-
-    /**
-     * Permet de récupérer tous les objets d'une table
-     *
-     * @return liste de tous les objets contenus dans la base
-     */
-    List<Entity> findAll();
-
-    /**
-     * Permet de récupérer un objet via son ID
-     *
-     * @param id identifiant du tuple recherché
-     * @return le tuple recherché s'il existe
-     */
-    Entity getById(Key id);
-
-    /**
      * Permet de créer une entrée dans la base de données par rapport à un objet
-     *
+     * @return Entity
      * @param obj Objet à insérer dans la base
      */
-    Entity insert(Entity obj);
+    Entity insert(Entity obj) throws SQLException;
 
     /**
-     * Permet de mettre à jour les données d'un tuple dans la base à partir d'un
-     * objet passé en paramètre
-     *
+     * Permet la suppression d'un tuple de la base
+     * @return boolean
+     * @param obj Objet à supprimer dans la base
+     */
+    boolean delete(Entity obj) throws SQLException;
+
+    /**
+     * Permet de mettre à jour les données d'un tuple dans la base à partir d'un objet passé en paramètre
+     * @return boolean
      * @param obj Objet à mettre à jour dans la base
      */
-    boolean update(Entity obj);
+    boolean update(Entity obj) throws SQLException;
+
 }
