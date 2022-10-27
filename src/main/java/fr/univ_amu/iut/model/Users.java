@@ -3,12 +3,12 @@ package fr.univ_amu.iut.model;
 import jakarta.persistence.*;
 
 @NamedQueries({
-        @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-        @NamedQuery(name = "User.getById", query = "SELECT u FROM User u WHERE u.id = :id"),
+        @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
+        @NamedQuery(name = "Users.getById", query = "SELECT u FROM Users u WHERE u.id = :id"),
 })
 
 @Entity
-public class User {
+public class Users {
     @Id
     @GeneratedValue
     @Column(name = "ID_USER")

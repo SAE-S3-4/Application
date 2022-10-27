@@ -3,7 +3,7 @@ package fr.univ_amu.iut.dao.jdbc;
 
 import fr.univ_amu.iut.dao.DAOAdmin;
 import fr.univ_amu.iut.dao.DAOQuestion;
-import fr.univ_amu.iut.dao.DAOUser;
+import fr.univ_amu.iut.dao.DAOUsers;
 import fr.univ_amu.iut.dao.factory.DAOFactory;
 
 public class DAOFactoryJDBC implements DAOFactory {
@@ -14,5 +14,5 @@ public class DAOFactoryJDBC implements DAOFactory {
     public DAOQuestion createDAOQuestion(){return null;}
 
     @Override
-    public DAOUser createDAOUser(){return null;}
+    public DAOUsers createDAOUser(){return null;}
 }

@@ -1,0 +1,7 @@
+package fr.univ_amu.iut.dao;
+
+import fr.univ_amu.iut.model.Users;
+
+public interface DAOUsers extends DAO<Users, Integer> {
+
+}

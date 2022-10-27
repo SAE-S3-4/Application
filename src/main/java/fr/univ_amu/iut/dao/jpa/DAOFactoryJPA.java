@@ -27,5 +27,5 @@ public class DAOFactoryJPA implements DAOFactory{
     public DAOQuestion createDAOQuestion(){return new DAOQuestionJPA(getEntityManager());}
 
     @Override
-    public DAOUser createDAOUser(){return new DAOUserJPA(getEntityManager());}
+    public DAOUsers createDAOUser(){return new DAOUsersJPA(getEntityManager());}
 }

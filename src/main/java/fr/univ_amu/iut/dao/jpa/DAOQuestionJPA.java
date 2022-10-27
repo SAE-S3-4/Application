@@ -2,7 +2,6 @@ package fr.univ_amu.iut.dao.jpa;
 
 import fr.univ_amu.iut.dao.DAOQuestion;
 import fr.univ_amu.iut.model.Question;
-import fr.univ_amu.iut.model.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
