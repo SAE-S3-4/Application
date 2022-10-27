@@ -15,7 +15,7 @@ public class TerminalPane extends BorderPane {
     public TerminalPane(){
         super();
 
-        ClientTerminal client = new ClientTerminal("172.23.225.154", 10007);
+        ClientTerminal client = new ClientTerminal("localhost", 10007);
         try {
             client.connect();
         } catch (IOException e) {
