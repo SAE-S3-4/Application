@@ -1,8 +1,10 @@
 package fr.univ_amu.iut;
 
-import fr.univ_amu.iut.dao.DAOUtilisateurJDBC;
+import fr.univ_amu.iut.dao.DAOQuestionJDBC;
+import fr.univ_amu.iut.dao.DAOUsersJDBC;
 import fr.univ_amu.iut.database.Database;
-import fr.univ_amu.iut.database.Utilisateur;
+import fr.univ_amu.iut.database.Question;
+import fr.univ_amu.iut.database.User;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -10,19 +12,20 @@ import java.util.List;
 
 public class Test {
     private static Connection connection;   // On établie la connexion
-    private static DAOUtilisateurJDBC daoUtilisateurJDBC;
+    private static DAOUsersJDBC daoUtilisateurJDBC;
 
     public static void main(String[] args) throws SQLException {
         connection = Database.getDBConnection();
-        daoUtilisateurJDBC = new DAOUtilisateurJDBC();
+        daoUtilisateurJDBC = new DAOUsersJDBC();
 
-        DAOUtilisateurJDBC daoJDBC = Test.getDaoUtilisateurJDBC();
-        List<Utilisateur> listUtilisateur;
-        listUtilisateur = daoJDBC.findAll();    //Obtention du login
-        System.out.println(listUtilisateur);
+        DAOUsersJDBC daoJDBC = Test.getDaoUtilisateurJDBC();
+        List<User> listUsers;
+        listUsers = daoJDBC.findAll();
+
+        System.out.println(listUsers);
     }
 
-    public static DAOUtilisateurJDBC getDaoUtilisateurJDBC(){return daoUtilisateurJDBC;}
+    public static DAOUsersJDBC getDaoUtilisateurJDBC(){return daoUtilisateurJDBC;}
 
     public static Connection getDBConnection() {
         return connection;
