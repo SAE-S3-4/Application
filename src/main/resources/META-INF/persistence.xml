@@ -7,7 +7,7 @@
 
         <properties>
             <!-- database connection properties -->
-            <property name="jakarta.persistence.jdbc.url" value="postgres://lucky.db.elephantsql.com/xpirrwid"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgres://lucky.db.elephantsql.com/xpirrwid"/>
             <property name="jakarta.persistence.jdbc.user" value="xpirrwid"/>
             <property name="jakarta.persistence.jdbc.password" value="LkhxflJA_GDQQI_nqpkJBIbFBc955fiL"/>
 

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DAOUsersJDBC implements DAOUsers {
-    private final Connection connection = Test.getDBConnection();
+    private final Connection connection = Main.getDBConnection();
     private final PreparedStatement findAllUsers;
 
     public DAOUsersJDBC() throws SQLException {
