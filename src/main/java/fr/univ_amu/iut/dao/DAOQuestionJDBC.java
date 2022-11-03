@@ -1,5 +1,6 @@
 package fr.univ_amu.iut.dao;
 
+import fr.univ_amu.iut.Main;
 import fr.univ_amu.iut.Test;
 import fr.univ_amu.iut.database.Question;
 
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class DAOQuestionJDBC implements DAOQuestion {
 
-    private final Connection connection = Test.getDBConnection();
+    private final Connection connection = Main.getDBConnection();
     private final PreparedStatement findAllQuestions;
 
     /**
