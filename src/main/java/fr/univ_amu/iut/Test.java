@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class Test {
+    /*
     private static Connection connection;   // On établie la connexion
     private static DAOUsersJDBC daoUtilisateurJDBC;
 
@@ -30,4 +31,6 @@ public class Test {
     public static Connection getDBConnection() {
         return connection;
     }
+
+     */
 }
