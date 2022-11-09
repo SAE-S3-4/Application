@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Text?>
 <?import fr.univ_amu.iut.TerminalPane?>
 
-<BorderPane id="practice" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ_amu.iut.PracticeController">
+<fx:root id="practice" prefHeight="400.0"  prefWidth="600.0" type="javafx.scene.layout.BorderPane"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <Text fx:id="order" text=""/>
         <Text fx:id="instructions" text="" />
@@ -26,14 +26,15 @@
             <BorderPane.margin>
                 <Insets bottom="20.0" left="92.0" />
             </BorderPane.margin>
-            <Button onAction="#switchTo" styleClass="bar_button" userData="fxml/home.fxml">
+
+            <Button fx:id="homeBtn" styleClass="bar_button" userData="fxml/home.fxml">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <Image url="@../pictures/home_button.png" />
                     </ImageView>
                 </graphic>
             </Button>
-            <Button onAction="#switchTo" styleClass="bar_button" userData="fxml/practice_menu.fxml">
+            <Button fx:id="practiceMenuBtn" styleClass="bar_button" userData="fxml/practice_menu.fxml">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <Image url="@../pictures/practice_button_on.png" />
@@ -55,4 +56,4 @@
             </Button>
         </HBox>
     </bottom>
-</BorderPane>
+</fx:root>

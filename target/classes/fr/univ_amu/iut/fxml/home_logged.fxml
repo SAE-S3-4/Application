@@ -10,7 +10,7 @@
 <BorderPane id="home_logged" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ_amu.iut.HomeController">
     <bottom>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50" BorderPane.alignment="CENTER">
-            <Button styleClass="bar_button" onAction="#switchTo" userData="fxml/practice.fxml">
+            <Button styleClass="bar_button" onAction="#switchTo" userData="fxml/practice_menu.fxml">
                 <graphic>
                     <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                         <Image url="@../pictures/practice_button.png"/>

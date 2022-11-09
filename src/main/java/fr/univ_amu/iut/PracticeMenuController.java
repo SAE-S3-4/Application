@@ -28,4 +28,9 @@ public class PracticeMenuController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    public void switchToLevel(ActionEvent event) throws IOException{
+        Practice p1 = new Practice(1,event);
+    }
 }
