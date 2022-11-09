@@ -2,6 +2,7 @@ package fr.univ_amu.iut.dao;
 
 import fr.univ_amu.iut.Main;
 import fr.univ_amu.iut.Test;
+import fr.univ_amu.iut.database.Database;
 import fr.univ_amu.iut.database.Question;
 
 import java.sql.Connection;
@@ -32,14 +33,21 @@ public class DAOQuestionJDBC implements DAOQuestion {
         ResultSet resultSet = findAllQuestions.executeQuery();
 
         while(resultSet.next()) {
-            Question question = new Question();
-            question.setID(resultSet.getString(1));
-            question.setText(resultSet.getString(2));
-            questions.add(question);
+            questions.add(initQuestion(resultSet));
         }
         return questions;
     }
 
+    public Question findQuestionById(int id){
+        try {
+            PreparedStatement findQuestionById = connection.prepareStatement("SELECT * FROM QUESTION WHERE Q_ID = "+id);
+            ResultSet resultSet = findQuestionById.executeQuery();
+            resultSet.next();
+            return initQuestion(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     @Override
     public Question insert(Question obj) {
         return null;
@@ -53,5 +61,15 @@ public class DAOQuestionJDBC implements DAOQuestion {
     @Override
     public void update(Question obj) {
 
+    }
+
+    private Question initQuestion(ResultSet resultSet) throws SQLException {
+        Question question = new Question();
+        question.setID(resultSet.getInt(1));
+        question.setText(resultSet.getString(2));
+        question.setTitle(resultSet.getString(3));
+        question.setSuggestion(resultSet.getString(4));
+        question.setSolution(resultSet.getString(5));
+        return question;
     }
 }

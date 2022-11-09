@@ -11,25 +11,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class Test {
-    /*
-    private static Connection connection;   // On établie la connexion
-    private static DAOUsersJDBC daoUtilisateurJDBC;
 
     public static void main(String[] args) throws SQLException {
-        connection = Database.getDBConnection();
-        daoUtilisateurJDBC = new DAOUsersJDBC();
+        Connection connection = Database.getDBConnection();
+        DAOQuestionJDBC daoQuestionJDBC = new DAOQuestionJDBC();
 
-        DAOUsersJDBC daoJDBC = Test.getDaoUtilisateurJDBC();
-        List<User> listUsers;
-        listUsers = daoJDBC.findAll();
+        daoQuestionJDBC.findQuestionById(1);
 
-        System.out.println(listUsers);
-    }
-
-    public static DAOUsersJDBC getDaoUtilisateurJDBC(){return daoUtilisateurJDBC;}
-
-    public static Connection getDBConnection() {
-        return connection;
+        System.out.println(daoQuestionJDBC.findQuestionById(1));
     }
 
      */
