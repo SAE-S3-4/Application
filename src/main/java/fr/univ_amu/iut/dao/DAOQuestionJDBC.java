@@ -14,7 +14,7 @@ import java.util.List;
 
 public class DAOQuestionJDBC implements DAOQuestion {
 
-    private final Connection connection = Database.getDBConnection();
+    private final Connection connection = Main.getDBConnection();
     private final PreparedStatement findAllQuestions;
 
     /**
