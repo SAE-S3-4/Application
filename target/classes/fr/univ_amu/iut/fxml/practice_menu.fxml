@@ -11,7 +11,7 @@
             <BorderPane.margin>
                 <Insets bottom="20.0" left="110.0"/>
             </BorderPane.margin>
-            <Button onAction="#switchTo" styleClass="bar_button" userData="fxml/home.fxml">
+            <Button onAction="#switchTo" styleClass="bar_button" userData="fxml/home_logged.fxml">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <Image url="@../pictures/home_button.png"/>

@@ -27,7 +27,7 @@
                 <Insets bottom="20.0" left="92.0" />
             </BorderPane.margin>
 
-            <Button fx:id="homeBtn" styleClass="bar_button" userData="fxml/home.fxml">
+            <Button fx:id="homeBtn" styleClass="bar_button" userData="fxml/home_logged.fxml">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <Image url="@../pictures/home_button.png" />
