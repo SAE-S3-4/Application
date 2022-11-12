@@ -13,9 +13,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Main extends Application {
-    private static Connection connection;
-
-    private static DAOUsersJDBC daoUsersJDBC;
     @Override
     public void start(Stage stage) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/home.fxml"));
@@ -27,13 +24,9 @@ public class Main extends Application {
         stage.show();
     }
     public static void main(String[] args) throws SQLException {
-        connection = Database.getDBConnection();
-        daoUsersJDBC = new DAOUsersJDBC();
+        Database.initDBConnection();
+        DAOUsersJDBC.initDAOUsersJDBC();
+        DAOQuestionJDBC.initDAOQuestionsJDBC();
         launch();
-    }
-
-    public static DAOUsersJDBC getDaoUsersJDBC(){return daoUsersJDBC;}
-    public static Connection getDBConnection() {
-        return connection;
     }
 }

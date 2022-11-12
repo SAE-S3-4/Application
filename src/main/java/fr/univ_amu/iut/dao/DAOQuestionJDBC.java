@@ -14,8 +14,10 @@ import java.util.List;
 
 public class DAOQuestionJDBC implements DAOQuestion {
 
-    private final Connection connection = Main.getDBConnection();
+    private final Connection connection = Database.getConnetion();
     private final PreparedStatement findAllQuestions;
+
+    public static DAOQuestionJDBC daoQuestionJDBC;
 
     /**
      * Constructeur | Initialise tout les prepareStatement
@@ -26,6 +28,12 @@ public class DAOQuestionJDBC implements DAOQuestion {
         //Requête
         findAllQuestions = connection.prepareStatement("SELECT * FROM QUESTION");
     }
+
+    public static void initDAOQuestionsJDBC() throws SQLException {
+        daoQuestionJDBC = new DAOQuestionJDBC();
+    }
+
+    public static DAOQuestionJDBC getDAOQuestionsJDB(){return daoQuestionJDBC;}
 
     @Override
     public List<Question> findAll() throws SQLException {
