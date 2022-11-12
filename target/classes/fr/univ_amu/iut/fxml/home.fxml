@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 
 <?import javafx.scene.control.Button?>
-<BorderPane id="home" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ_amu.iut.HomeController">
+<BorderPane id="home" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ_amu.iut.SwitchController">
    <right>
       <HBox alignment="TOP_CENTER">
          <BorderPane.margin>

@@ -9,7 +9,7 @@ public class Database {
     private static final String CONNECT_URL = "jdbc:postgresql://lucky.db.elephantsql.com/xpirrwid";
     private static final String LOGIN = "xpirrwid";
     private static final String PASSWORD = "LkhxflJA_GDQQI_nqpkJBIbFBc955fiL";
-    private static Connection connection;
+    public static Connection connection;
 
     public static Connection getDBConnection(){
 
@@ -26,6 +26,14 @@ public class Database {
             return null;
         }
 
+    }
+
+    public static void initDBConnection(){
+        connection = getDBConnection();
+    }
+
+    public static Connection getConnetion(){
+        return connection;
     }
     public static boolean closeDBConnection() {
         try {

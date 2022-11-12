@@ -2,6 +2,7 @@ package fr.univ_amu.iut.dao;
 
 import fr.univ_amu.iut.Main;
 import fr.univ_amu.iut.Test;
+import fr.univ_amu.iut.database.Database;
 import fr.univ_amu.iut.database.User;
 
 import java.sql.Connection;
@@ -12,13 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DAOUsersJDBC implements DAOUsers {
-    private final Connection connection = Main.getDBConnection();
+    private final Connection connection = Database.getConnetion();
     private final PreparedStatement findAllUsers;
+
+    public static DAOUsersJDBC daoUsersJDBC;
 
     public DAOUsersJDBC() throws SQLException {
         //Requête
         findAllUsers = connection.prepareStatement("SELECT * FROM USERS");
     }
+
+    public static void initDAOUsersJDBC() throws SQLException {
+        daoUsersJDBC = new DAOUsersJDBC();
+    }
+
+    public static DAOUsersJDBC getDAOUsersJDB(){return daoUsersJDBC;}
 
     @Override
     public List<User> findAll() throws SQLException {
