@@ -1,5 +1,7 @@
 package fr.univ_amu.iut;
 
+import fr.univ_amu.iut.dao.DAOQuestionJDBC;
+import fr.univ_amu.iut.database.Question;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -8,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -20,9 +23,9 @@ public class PracticeController extends BorderPane {
     private Parent root;
     private static String data;
     @FXML
-    Text order;
+    Label title;
     @FXML
-    Text instructions;
+    Label text;
 
     @FXML
     Button homeBtn;
@@ -33,7 +36,10 @@ public class PracticeController extends BorderPane {
     @FXML
     Button playBtn;
 
+    private int level;
+
     public PracticeController(int level)  {
+        this.level = level;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/practice.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -43,6 +49,17 @@ public class PracticeController extends BorderPane {
             throw new RuntimeException(exception);
         }
         initActions();
+
+        Question question = DAOQuestionJDBC.getDAOQuestionsJDB().findQuestionById(level);
+        System.out.println(question);
+
+        showInstructions(question);
+        //showSuggestion(question);
+        //showSolution(question);
+
+        //TODO Ajouter ce code en bas au CSS
+        title.setStyle("-fx-text-fill: white");
+        text.setStyle("-fx-text-fill: white");
     }
 
     private void initActions(){
@@ -89,4 +106,23 @@ public class PracticeController extends BorderPane {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    public void showSolution(Question question){
+        title.setText(question.getTitle());
+        text.setText(question.getSolution());
+    }
+
+    @FXML
+    public void showSuggestion(Question question){
+        title.setText(question.getTitle());
+        text.setText(question.getSuggestion());
+    }
+
+    @FXML
+    public void showInstructions(Question question){
+        title.setText(question.getTitle());
+        text.setText(question.getText());
+    }
+
 }
