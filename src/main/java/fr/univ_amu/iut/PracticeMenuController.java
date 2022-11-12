@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static java.lang.Integer.parseInt;
+
 public class PracticeMenuController {
     private Stage stage;
     private Scene scene;
@@ -31,6 +33,7 @@ public class PracticeMenuController {
 
     @FXML
     public void switchToLevel(ActionEvent event) throws IOException{
-        Practice p1 = new Practice(1,event);
+        Node node = (Node) event.getSource() ;
+        new Practice(parseInt((String)node.getUserData()),event);
     }
 }

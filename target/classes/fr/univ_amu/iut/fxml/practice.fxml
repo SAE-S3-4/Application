@@ -5,13 +5,14 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.text.Text?>
 <?import fr.univ_amu.iut.TerminalPane?>
 
 <fx:root id="practice" prefHeight="400.0"  prefWidth="600.0" type="javafx.scene.layout.BorderPane"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <left>
-        <Text fx:id="order" text=""/>
-        <Text fx:id="instructions" text="" />
+        <VBox>
+            <Label fx:id="title"/>
+            <Label fx:id="text"/>
+        </VBox>
     </left>
     <right>
         <HBox>
