@@ -78,7 +78,7 @@ public class LoginController {
     }
 
     public List<User> initialiseDatabaseLogin() throws SQLException {
-        DAOUsersJDBC daoJDBC = DAOUsersJDBC.getDAOUsersJDB(); //TODO Effacer daoJDB et la remplacer en pas par DAOUsersJDBC.getDAOUsersJDB()
+        DAOUsersJDBC daoJDBC = DAOUsersJDBC.getDAOUsersJDBC(); //TODO Effacer daoJDB et la remplacer en pas par DAOUsersJDBC.getDAOUsersJDBC()
         List<User> listUsers;
         listUsers = daoJDBC.findAll();
         return listUsers;

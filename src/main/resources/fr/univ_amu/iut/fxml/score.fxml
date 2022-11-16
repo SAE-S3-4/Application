@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane id="score" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="fr.univ_amu.iut.ScoreBoardController">
+    <left>
+        <VBox alignment="CENTER_LEFT" spacing="10">
+            <BorderPane.margin>
+                <Insets left="92.0" top="50"/>
+            </BorderPane.margin>
+            <Label fx:id="first" id="text_score" text=""/>
+            <Label fx:id="second" id="text_score" text=""/>
+            <Label fx:id="third" id="text_score" text=""/>
+            <Label fx:id="fourth" id="text_score" text=""/>
+            <Label fx:id="fifth" id="text_score" text=""/>
+        </VBox>
+    </left>
+    <right>
+        <VBox alignment="CENTER">
+            <BorderPane.margin>
+                <Insets right="260" bottom="60"/>
+            </BorderPane.margin>
+            <Label fx:id="status" id="text_score" text="You won !"/>
+            <Label fx:id="name" id="text_score" text="Nilsou18"/>
+            <Label fx:id="time" id="text_score" text="10:24"/>
+        </VBox>
+    </right>
+    <bottom>
+        <HBox alignment="CENTER_LEFT">
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="92.0" />
+            </BorderPane.margin>
+            <Button fx:id="homeBtn" styleClass="bar_button" userData="fxml/home_logged.fxml">
+                <graphic>
+                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../pictures/home_button.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="practiceMenuBtn" styleClass="bar_button" userData="fxml/practice_menu.fxml">
+                <graphic>
+                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../pictures/practice_button.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="playBtn" styleClass="bar_button" userData="fxml/game.fxml">
+                <graphic>
+                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                        <Image url="@../pictures/play_button.png" />
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
+        </HBox>
+    </bottom>
+</BorderPane>

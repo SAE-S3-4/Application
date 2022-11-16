@@ -27,7 +27,7 @@ public class DAOUsersJDBC implements DAOUsers {
         daoUsersJDBC = new DAOUsersJDBC();
     }
 
-    public static DAOUsersJDBC getDAOUsersJDB(){return daoUsersJDBC;}
+    public static DAOUsersJDBC getDAOUsersJDBC(){return daoUsersJDBC;}
 
     @Override
     public List<User> findAll() throws SQLException {
