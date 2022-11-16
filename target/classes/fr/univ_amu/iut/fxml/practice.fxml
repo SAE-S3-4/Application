@@ -12,6 +12,7 @@
         <VBox>
             <Label fx:id="title"/>
             <Label fx:id="text"/>
+
         </VBox>
     </left>
     <right>
@@ -23,38 +24,49 @@
         </HBox>
     </right>
     <bottom>
-        <HBox alignment="CENTER_LEFT">
+        <HBox spacing="320" alignment="CENTER">
             <BorderPane.margin>
-                <Insets bottom="20.0" left="92.0" />
+                <Insets bottom="20" right="150" />
             </BorderPane.margin>
-
-            <Button fx:id="homeBtn" styleClass="bar_button" userData="fxml/home_logged.fxml">
-                <graphic>
-                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../pictures/home_button.png" />
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button fx:id="practiceMenuBtn" styleClass="bar_button" userData="fxml/practice_menu.fxml">
-                <graphic>
-                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../pictures/practice_button_on.png" />
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button fx:id="playBtn" styleClass="bar_button" userData="fxml/home.fxml">
-                <graphic>
-                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                        <HBox.margin>
-                            <Insets />
-                        </HBox.margin>
-                        <Image url="@../pictures/play_button.png" />
-                    </ImageView>
-                </graphic>
-                <HBox.margin>
-                    <Insets />
-                </HBox.margin>
-            </Button>
+            <HBox alignment="CENTER_LEFT">
+                <Button fx:id="homeBtn" styleClass="bar_button" userData="fxml/home_logged.fxml">
+                    <graphic>
+                        <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../pictures/home_button.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="practiceMenuBtn" styleClass="bar_button" userData="fxml/practice_menu.fxml">
+                    <graphic>
+                        <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../pictures/practice_button_on.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="playBtn" styleClass="bar_button" userData="fxml/home.fxml">
+                    <graphic>
+                        <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../pictures/play_button.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT">
+                <Button styleClass="bar_button">
+                    <graphic>
+                        <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../pictures/suggestion_button.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button styleClass="bar_button">
+                    <graphic>
+                        <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../pictures/solution_button.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
         </HBox>
     </bottom>
 </fx:root>
