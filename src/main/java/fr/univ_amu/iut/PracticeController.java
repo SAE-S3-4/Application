@@ -54,12 +54,11 @@ public class PracticeController extends BorderPane {
         System.out.println(question);
 
         showInstructions(question);
+        text.setWrapText(true);
+        text.setMaxWidth(360);
+        text.setMaxHeight(350);
         //showSuggestion(question);
         //showSolution(question);
-
-        //TODO Ajouter ce code en bas au CSS
-        title.setStyle("-fx-text-fill: white");
-        text.setStyle("-fx-text-fill: white");
     }
 
     private void initActions(){

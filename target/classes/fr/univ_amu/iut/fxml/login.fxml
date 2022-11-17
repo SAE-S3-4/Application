@@ -12,11 +12,11 @@
                 <Insets top="100" right="20"/>
             </BorderPane.margin>
             <VBox alignment="CENTER">
-                <Label id="text" text="Mail :"/>
+                <Label styleClass="textLogin" text="Mail :"/>
                 <TextField fx:id="email" id="loginForm" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
             </VBox>
             <VBox alignment="CENTER">
-                <Label id="text" text="Password :"/>
+                <Label styleClass="textLogin" text="Password :"/>
                 <PasswordField fx:id="password" id="loginForm" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
             </VBox>
             <HBox alignment="CENTER" spacing="30">
@@ -30,7 +30,7 @@
             <BorderPane.margin>
                 <Insets bottom="20" left="20"/>
             </BorderPane.margin>
-            <Label id="text" text="You don't have an account ?"/>
+            <Label styleClass="textLogin" text="You don't have an account ?"/>
             <Button onAction="#openRegister" id="register" text="Register now !"/>
         </HBox>
     </bottom>

@@ -79,6 +79,20 @@
     -fx-font-size: 40;
 }
 
-#text {
+.textLogin {
     -fx-text-fill: white;
+}
+
+.text {
+    -fx-text-fill: white;
+}
+
+.title{
+    -fx-text-fill: white;
+    -fx-font-size: 50;
+}
+
+.textLeft{
+    -fx-text-fill: white;
+    -fx-font-size: 15;
 }
