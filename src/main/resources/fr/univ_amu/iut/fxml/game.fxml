@@ -9,6 +9,15 @@
 
 <?import fr.univ_amu.iut.TerminalPane?>
 <BorderPane id="game" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="fr.univ_amu.iut.GameController">
+    <left>
+        <VBox>
+            <BorderPane.margin>
+                <Insets top="200" left="100"/>
+            </BorderPane.margin>
+            <Label styleClass="title"/>
+            <Label styleClass="textLeft"/>
+        </VBox>
+    </left>
     <right>
         <HBox>
             <BorderPane.margin>

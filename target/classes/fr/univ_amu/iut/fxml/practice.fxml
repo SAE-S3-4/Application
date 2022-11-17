@@ -10,9 +10,11 @@
 <fx:root id="practice" prefHeight="400.0"  prefWidth="600.0" type="javafx.scene.layout.BorderPane"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <VBox>
-            <Label fx:id="title"/>
-            <Label fx:id="text"/>
-
+            <BorderPane.margin>
+                <Insets top="200" left="100"/>
+            </BorderPane.margin>
+            <Label styleClass="title" fx:id="title"/>
+            <Label styleClass="textLeft" fx:id="text"/>
         </VBox>
     </left>
     <right>
