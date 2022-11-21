@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface DAOUsers extends DAO<User, String> {
     List<User> findAll() throws SQLException;
+
+    List<User> getLeaderBoard() throws SQLException;
 }

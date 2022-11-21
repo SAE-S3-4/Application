@@ -16,11 +16,14 @@ public class DAOUsersJDBC implements DAOUsers {
     private final Connection connection = Database.getConnetion();
     private final PreparedStatement findAllUsers;
 
+    private final PreparedStatement getFiveBestUsers;
+
     public static DAOUsersJDBC daoUsersJDBC;
 
     public DAOUsersJDBC() throws SQLException {
         //Requête
         findAllUsers = connection.prepareStatement("SELECT * FROM USERS");
+        getFiveBestUsers = connection.prepareStatement("SELECT NICKNAME, SCORE FROM USERS WHERE SCORE IS NOT NULL ORDER BY SCORE DESC LIMIT 5");
     }
 
     public static void initDAOUsersJDBC() throws SQLException {
@@ -45,6 +48,21 @@ public class DAOUsersJDBC implements DAOUsers {
         }
         return users;
     }
+
+    @Override
+    public ArrayList<User> getLeaderBoard() throws SQLException {
+        ArrayList<User> users = new ArrayList<>();
+        ResultSet resultSet = getFiveBestUsers.executeQuery();
+
+        while(resultSet.next()) {
+            User user = new User();
+            user.setNickname(resultSet.getString(1));
+            user.setScore(resultSet.getInt(2));
+            users.add(user);
+        }
+        return users;
+    }
+
 
     @Override
     public User insert(User obj) throws SQLException {
