@@ -24,7 +24,8 @@ public class LoginController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private static String data;
+    private String data;
+    public static User userLogged;
 
     private SwitchController sc = new SwitchController();
     @FXML
@@ -68,6 +69,7 @@ public class LoginController {
                 SwitchController s = new SwitchController();
                 s.switchTo(event);
                 connected = true;
+                userLogged = u;
             }
         }
         if(!connected){
