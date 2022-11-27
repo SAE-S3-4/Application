@@ -7,16 +7,28 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
+import java.awt.*;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
+
 
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/score.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        if (Taskbar.isTaskbarSupported()) {
+            var taskbar = Taskbar.getTaskbar();
+
+            if (taskbar.isSupported(Taskbar.Feature.ICON_IMAGE)) {
+                final Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
+                var dockIcon = defaultToolkit.getImage(getClass().getResource("pictures/logo.png"));
+                taskbar.setIconImage(dockIcon);
+            }
+
+        }
         scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         stage.setTitle("Find the breach");
         stage.setScene(scene);
