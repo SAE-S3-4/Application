@@ -1,7 +1,10 @@
 package fr.univ_amu.iut;
 
+import fr.univ_amu.iut.components.TerminalPane;
 import fr.univ_amu.iut.dao.DAOQuestionJDBC;
 import fr.univ_amu.iut.database.Question;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -36,7 +39,17 @@ public class PracticeController extends BorderPane {
     @FXML
     Button playBtn;
 
+    @FXML
+    TerminalPane terminalPane;
+
+    @FXML
+    Button suggestionBtn;
+
+    @FXML
+    Button solutionBtn;
+
     private int level;
+    private Question question;
 
     public PracticeController(int level)  {
         this.level = level;
@@ -50,15 +63,25 @@ public class PracticeController extends BorderPane {
         }
         initActions();
 
-        Question question = DAOQuestionJDBC.getDAOQuestionsJDB().findQuestionById(level);
+        question = DAOQuestionJDBC.getDAOQuestionsJDB().findQuestionById(level);
         System.out.println(question);
 
-        showInstructions(question);
+        showInstructions();
         text.setWrapText(true);
         text.setMaxWidth(360);
         text.setMaxHeight(350);
         //showSuggestion(question);
         //showSolution(question);
+        System.out.println(question.getSolution());
+
+        terminalPane.getTextField().textProperty().addListener((observable, oldValue, newValue) -> {
+            String newChunkedValue = newValue.substring(oldValue.length());
+            if(newChunkedValue.contains(question.getSolution())){
+                System.out.println("bonne reponse!");
+
+            }
+            //System.out.println(newValue.substring(oldValue.length()));
+        });
     }
 
     private void initActions(){
@@ -92,6 +115,18 @@ public class PracticeController extends BorderPane {
                 }
             }
         });
+
+        suggestionBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                showSuggestion();
+            }
+        });
+
+        solutionBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                showSolution();
+            }
+        });
     }
     @FXML
     public void switchTo(ActionEvent event) throws IOException {
@@ -107,19 +142,19 @@ public class PracticeController extends BorderPane {
     }
 
     @FXML
-    public void showSolution(Question question){
+    public void showSolution(){
         title.setText(question.getTitle());
         text.setText(question.getSolution());
     }
 
     @FXML
-    public void showSuggestion(Question question){
+    public void showSuggestion(){
         title.setText(question.getTitle());
         text.setText(question.getSuggestion());
     }
 
     @FXML
-    public void showInstructions(Question question){
+    public void showInstructions(){
         title.setText(question.getTitle());
         text.setText(question.getText());
     }

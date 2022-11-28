@@ -32,7 +32,7 @@ public class PracticeMenuController {
     }
 
     @FXML
-    public void switchToLevel(ActionEvent event) throws IOException{
+    public void switchToLevel(ActionEvent event){
         Node node = (Node) event.getSource() ;
         new Practice(parseInt((String)node.getUserData()),event);
     }

@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.util.List;
 
 public class TerminalPane extends BorderPane {
+    private TextArea textField;
+    private TextField inputZone;
+
     public TerminalPane(){
         super();
 
@@ -23,10 +26,10 @@ public class TerminalPane extends BorderPane {
         }
         client.listen();
 
-        TextField inputZone = new TextField("");
+        inputZone = new TextField("");
         inputZone.setStyle("-fx-background-color: transparent");
 
-        TextArea textField = new TextArea("Type help for more information");
+        textField = new TextArea("Type help for more information");
         textField.setEditable(false);
         textField.setStyle("-fx-background-color: transparent");
 
@@ -48,8 +51,10 @@ public class TerminalPane extends BorderPane {
                 }
             }
         });
-
         super.setCenter(textField);
         super.setBottom(inputZone);
+    }
+    public TextArea getTextField(){
+        return textField;
     }
 }
