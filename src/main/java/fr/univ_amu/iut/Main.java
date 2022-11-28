@@ -4,10 +4,13 @@ import fr.univ_amu.iut.dao.DAOQuestionJDBC;
 import fr.univ_amu.iut.dao.DAOUsersJDBC;
 import fr.univ_amu.iut.database.Database;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
+import javafx.stage.WindowEvent;
 
 import java.awt.*;
 import java.io.IOException;
@@ -21,14 +24,16 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         if (Taskbar.isTaskbarSupported()) {
             var taskbar = Taskbar.getTaskbar();
-
             if (taskbar.isSupported(Taskbar.Feature.ICON_IMAGE)) {
                 final Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
                 var dockIcon = defaultToolkit.getImage(getClass().getResource("pictures/logo.png"));
                 taskbar.setIconImage(dockIcon);
             }
-
         }
+        stage.setOnCloseRequest(t -> {
+            Platform.exit();
+            System.exit(0);
+        });
         scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         stage.setTitle("Find the breach");
         stage.setScene(scene);
