@@ -18,6 +18,7 @@ public class GameController {
 
     @FXML
     public void switchTo(ActionEvent event) throws IOException {
+        //TODO : Passer le ChronoLabel actuel en parametre à chaque changement
         Node node = (Node) event.getSource() ;
         data = (String) node.getUserData();
         root = FXMLLoader.load(getClass().getResource(data));

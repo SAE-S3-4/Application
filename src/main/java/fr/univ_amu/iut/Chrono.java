@@ -1,28 +1,32 @@
 package fr.univ_amu.iut;
 
+
 public class Chrono {
-    private long startTime=0;
-    private long actualTime = 0;
-    private long duree=0;
-
-    private String timeString = "";
-
+    private long startTime;
+    private long actualTime;
+    private long duration;
     private boolean run = true;
 
-    public void launch() {
-        startTime=System.currentTimeMillis();
-        duree=0;
+    public Chrono(long startTime) {
+        this.startTime = startTime;
+    }
 
-        Thread time = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (run) {
-                    try {
-                        timeString = getDurationTxt(getElapsedTime());
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+    public Chrono() {
+        this.startTime = System.currentTimeMillis();
+    }
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void launch() {
+        Thread time = new Thread(() -> {
+            while (run) {
+                try {
+                    duration = getElapsedTime();
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
             }
         });
@@ -31,16 +35,20 @@ public class Chrono {
 
     public long getElapsedTime() {
         actualTime=System.currentTimeMillis();
-        duree = actualTime - startTime;
-        return duree;
+        duration = actualTime - startTime;
+        return duration;
     }
 
     public long getDurationInSeconds() {
-        return duree/1000;
+        return duration/1000;
     }
 
     public void stop() {
         run = false;
+    }
+
+    public boolean isRun() {
+        return run;
     }
 
     public String getDurationTxt(long duree) {
@@ -48,7 +56,7 @@ public class Chrono {
     }
 
     public String getTimeString() {
-        return timeString;
+        return getDurationTxt(getDurationInSeconds());
     }
 
     public static String timeFormat(long timeS) {
@@ -82,7 +90,6 @@ public class Chrono {
         if(h<=0 && m<=0 && s<=0) {
             time="0:00:00";
         }
-
         return time;
     }
 }

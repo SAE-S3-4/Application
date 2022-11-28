@@ -1,6 +1,6 @@
-package fr.univ_amu.iut;
+package fr.univ_amu.iut.components;
 
-import fr.univ_amu.iut.Connection.ClientTerminal;
+import fr.univ_amu.iut.connection.ClientTerminal;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;

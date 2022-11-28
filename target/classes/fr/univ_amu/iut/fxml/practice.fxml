@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<?import fr.univ_amu.iut.TerminalPane?>
+<?import fr.univ_amu.iut.components.TerminalPane?>
 
 <fx:root id="practice" prefHeight="400.0"  prefWidth="600.0" type="javafx.scene.layout.BorderPane"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <left>

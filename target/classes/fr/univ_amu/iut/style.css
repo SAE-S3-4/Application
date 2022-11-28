@@ -79,6 +79,11 @@
     -fx-font-size: 40;
 }
 
+#chrono {
+    -fx-text-fill: white;
+    -fx-font-size: 50;
+}
+
 .textLogin {
     -fx-text-fill: white;
 }

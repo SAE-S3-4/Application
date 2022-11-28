@@ -25,9 +25,15 @@ public class Test {
 
         Chrono c =new Chrono();
         c.launch();
-        Thread.sleep(30000);
+        Thread.sleep(3000);
         System.out.println(c.getTimeString());
         c.stop();
+
+        Chrono c2 = new Chrono(c.getStartTime());
+        c2.launch();
+        Thread.sleep(3000);
+        System.out.println(c2.getTimeString());
+        c2.stop();
     }
 
 }
