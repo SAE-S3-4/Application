@@ -6,4 +6,6 @@ module com.example.sae_s3 {
     requires jakarta.persistence;
     opens fr.univ_amu.iut to javafx.fxml;
     exports fr.univ_amu.iut;
+    exports fr.univ_amu.iut.components;
+    opens fr.univ_amu.iut.components to javafx.fxml;
 }

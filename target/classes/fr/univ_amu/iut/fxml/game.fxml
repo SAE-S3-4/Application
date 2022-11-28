@@ -7,7 +7,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<?import fr.univ_amu.iut.TerminalPane?>
+<?import fr.univ_amu.iut.components.TerminalPane?>
+<?import fr.univ_amu.iut.components.ChronoLabel?>
 <BorderPane id="game" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="fr.univ_amu.iut.GameController">
     <left>
         <VBox>
@@ -21,7 +22,7 @@
     <right>
         <HBox>
             <BorderPane.margin>
-                <Insets top="180" left="10" right="125" bottom="30" />
+                <Insets top="115" left="10" right="125" bottom="30" />
             </BorderPane.margin>
             <TerminalPane/>
         </HBox>
@@ -72,4 +73,12 @@
             </HBox>
         </HBox>
     </bottom>
+    <top>
+        <HBox alignment="CENTER_LEFT">
+            <BorderPane.margin>
+                <Insets left="1075"/>
+            </BorderPane.margin>
+            <ChronoLabel/>
+        </HBox>
+    </top>
 </BorderPane>
