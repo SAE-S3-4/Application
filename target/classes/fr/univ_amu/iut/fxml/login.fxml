@@ -12,8 +12,8 @@
                 <Insets top="100" right="20"/>
             </BorderPane.margin>
             <VBox alignment="CENTER">
-                <Label styleClass="textLogin" text="Mail :"/>
-                <TextField fx:id="email" id="loginForm" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
+                <Label styleClass="textLogin" text="Nom d'utilisateur :"/>
+                <TextField fx:id="nickname" id="loginForm" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
             </VBox>
             <VBox alignment="CENTER">
                 <Label styleClass="textLogin" text="Password :"/>
