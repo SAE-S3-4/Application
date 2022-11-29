@@ -10,14 +10,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static java.lang.Integer.parseInt;
+
 public class SwitchController {
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     private static String data;
-
-    public static String getData() { return data; }
 
     @FXML
     public void switchTo(ActionEvent event) throws IOException {
@@ -31,5 +31,13 @@ public class SwitchController {
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    @FXML
+    public void switchToPlay(ActionEvent event) {
+        Node node = (Node) event.getSource() ;
+        String userData = ((String)(node.getUserData()));       //userData = id,pageFxml
+        String[] userDataArray = userData.split(",");     // ["id","pageFxml"]
+        new PlayController(parseInt(userDataArray[0]), userDataArray[1] ,event);
     }
 }

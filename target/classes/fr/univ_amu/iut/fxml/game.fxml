@@ -9,7 +9,8 @@
 
 <?import fr.univ_amu.iut.components.TerminalPane?>
 <?import fr.univ_amu.iut.components.ChronoLabel?>
-<BorderPane id="game" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+
+<fx:root id="game" prefHeight="400.0"  prefWidth="600.0" type="javafx.scene.layout.BorderPane"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <VBox>
             <BorderPane.margin>
@@ -81,4 +82,4 @@
             <ChronoLabel/>
         </HBox>
     </top>
-</BorderPane>
+</fx:root>

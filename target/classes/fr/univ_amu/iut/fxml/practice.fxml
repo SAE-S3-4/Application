@@ -45,7 +45,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="playBtn" styleClass="bar_button" userData="fxml/home.fxml">
+                <Button fx:id="playBtn" styleClass="bar_button" userData="10,game">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/play_button.png" />

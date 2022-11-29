@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane id="practice_menu" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ_amu.iut.PracticeMenuController">
+<BorderPane id="practice_menu" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ_amu.iut.SwitchController">
     <bottom>
         <HBox alignment="CENTER_LEFT">
             <BorderPane.margin>
@@ -38,19 +38,19 @@
     </bottom>
     <center>
         <VBox alignment="CENTER">
-            <Button styleClass="bar_button" onAction="#switchToLevel" userData="1">
+            <Button styleClass="bar_button" onAction="#switchToPlay" userData="1,practice">
                 <text>01 - Level 1</text>
             </Button>
-            <Button styleClass="bar_button" onAction="#switchToLevel" userData="2">
+            <Button styleClass="bar_button" onAction="#switchToPlay" userData="2,practice">
                 <text>02 - Level 2</text>
             </Button>
-            <Button styleClass="bar_button" onAction="#switchToLevel" userData="3">
+            <Button styleClass="bar_button" onAction="#switchToPlay" userData="3,practice">
                 <text>03 - Level 3</text>
             </Button>
-            <Button styleClass="bar_button" onAction="#switchToLevel" userData="4">
+            <Button styleClass="bar_button" onAction="#switchToPlay" userData="4,practice">
                 <text>04 - Level 4</text>
             </Button>
-            <Button styleClass="bar_button" onAction="#switchToLevel" userData="5">
+            <Button styleClass="bar_button" onAction="#switchToPlay" userData="5,practice">
                 <text>05 - Level 5</text>
             </Button>
          <opaqueInsets>

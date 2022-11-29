@@ -1,7 +1,5 @@
 package fr.univ_amu.iut.dao;
 
-import fr.univ_amu.iut.Main;
-import fr.univ_amu.iut.Test;
 import fr.univ_amu.iut.database.Database;
 import fr.univ_amu.iut.database.User;
 
