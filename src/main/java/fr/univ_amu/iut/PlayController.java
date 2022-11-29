@@ -1,5 +1,6 @@
 package fr.univ_amu.iut;
 
+import fr.univ_amu.iut.components.TerminalPane;
 import fr.univ_amu.iut.dao.DAOQuestionJDBC;
 import fr.univ_amu.iut.database.Question;
 import javafx.event.ActionEvent;
@@ -12,12 +13,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.text.Text;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PracticeController extends BorderPane {
+import static java.lang.Integer.parseInt;
+
+public class PlayController extends BorderPane {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -36,11 +39,24 @@ public class PracticeController extends BorderPane {
     @FXML
     Button playBtn;
 
-    private int level;
+    @FXML
+    TerminalPane terminalPane;
 
-    public PracticeController(int level)  {
+    @FXML
+    Button suggestionBtn;
+
+    @FXML
+    Button solutionBtn;
+    @FXML
+    HBox botBtns;
+
+    private int level;
+    private Question question;
+
+    public PlayController(int level, String page, ActionEvent event)  {
         this.level = level;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/practice.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/"+page+".fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
@@ -48,17 +64,42 @@ public class PracticeController extends BorderPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(this,1280, 720);
+        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        stage.setTitle("Find the breach");
+        stage.setScene(scene);
+        stage.show();
+
         initActions();
 
-        Question question = DAOQuestionJDBC.getDAOQuestionsJDB().findQuestionById(level);
+        question = DAOQuestionJDBC.getDAOQuestionsJDB().findQuestionById(level);
         System.out.println(question);
 
-        showInstructions(question);
+        showInstructions();
+
         text.setWrapText(true);
         text.setMaxWidth(360);
         text.setMaxHeight(350);
-        //showSuggestion(question);
-        //showSolution(question);
+
+        title.setWrapText(true);
+        title.setMaxWidth(360);
+        title.setMaxHeight(200);
+
+        System.out.println(question.getSolution());
+
+        terminalPane.getTextField().textProperty().addListener((observable, oldValue, newValue) -> {
+            String newChunkedValue = newValue.substring(oldValue.length());
+            if(newChunkedValue.contains(question.getSolution())){
+                Button nextQuestion = new Button("Passer à la prochaine Question");
+                nextQuestion.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override public void handle(ActionEvent e) {
+                            new PlayController(level+1,page,e);
+                    }
+                });
+                botBtns.getChildren().setAll(new Button(),nextQuestion);
+            }
+        });
     }
 
     private void initActions(){
@@ -85,11 +126,22 @@ public class PracticeController extends BorderPane {
 
         playBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                try {
-                    switchTo(e);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+                Node node = (Node) e.getSource() ;
+                String userData = ((String)(node.getUserData()));       //userData = id,pageFxml
+                String[] userDataArray = userData.split(",");     // ["id","pageFxml"]
+                new PlayController(parseInt(userDataArray[0]), userDataArray[1] ,e);
+            }
+        });
+
+        suggestionBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                showSuggestion();
+            }
+        });
+
+        solutionBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                showSolution();
             }
         });
     }
@@ -107,19 +159,19 @@ public class PracticeController extends BorderPane {
     }
 
     @FXML
-    public void showSolution(Question question){
+    public void showSolution(){
         title.setText(question.getTitle());
         text.setText(question.getSolution());
     }
 
     @FXML
-    public void showSuggestion(Question question){
+    public void showSuggestion(){
         title.setText(question.getTitle());
         text.setText(question.getSuggestion());
     }
 
     @FXML
-    public void showInstructions(Question question){
+    public void showInstructions(){
         title.setText(question.getTitle());
         text.setText(question.getText());
     }

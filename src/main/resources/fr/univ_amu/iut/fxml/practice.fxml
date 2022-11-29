@@ -22,7 +22,7 @@
             <BorderPane.margin>
                 <Insets top="180" left="10" right="125" bottom="30" />
             </BorderPane.margin>
-            <TerminalPane/>
+            <TerminalPane fx:id="terminalPane"/>
         </HBox>
     </right>
     <bottom>
@@ -45,7 +45,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="playBtn" styleClass="bar_button" userData="fxml/home.fxml">
+                <Button fx:id="playBtn" styleClass="bar_button" userData="10,game">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/play_button.png" />
@@ -53,15 +53,15 @@
                     </graphic>
                 </Button>
             </HBox>
-            <HBox alignment="CENTER_RIGHT">
-                <Button styleClass="bar_button">
+            <HBox fx:id="botBtns" alignment="CENTER_RIGHT">
+                <Button fx:id="suggestionBtn" styleClass="bar_button">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/suggestion_button.png" />
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button styleClass="bar_button">
+                <Button fx:id="solutionBtn" styleClass="bar_button">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/solution_button.png" />

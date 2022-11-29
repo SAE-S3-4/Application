@@ -1,6 +1,6 @@
 package fr.univ_amu.iut.components;
 
-import fr.univ_amu.iut.Chrono;
+import fr.univ_amu.iut.tools.Chrono;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

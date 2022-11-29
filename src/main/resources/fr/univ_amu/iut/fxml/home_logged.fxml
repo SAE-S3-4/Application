@@ -17,7 +17,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button styleClass="bar_button" onAction="#switchTo" userData="fxml/game.fxml">
+            <Button styleClass="bar_button" onAction="#switchToPlay" userData="10,game">
                 <graphic>
                     <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                         <HBox.margin>

@@ -9,14 +9,15 @@
 
 <?import fr.univ_amu.iut.components.TerminalPane?>
 <?import fr.univ_amu.iut.components.ChronoLabel?>
-<BorderPane id="game" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="fr.univ_amu.iut.GameController">
+
+<fx:root id="game" prefHeight="400.0"  prefWidth="600.0" type="javafx.scene.layout.BorderPane"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <VBox>
             <BorderPane.margin>
                 <Insets top="200" left="100"/>
             </BorderPane.margin>
-            <Label styleClass="title"/>
-            <Label styleClass="textLeft"/>
+            <Label styleClass="title" fx:id="title"/>
+            <Label styleClass="textLeft" fx:id="text"/>
         </VBox>
     </left>
     <right>
@@ -24,7 +25,7 @@
             <BorderPane.margin>
                 <Insets top="115" left="10" right="125" bottom="30" />
             </BorderPane.margin>
-            <TerminalPane/>
+            <TerminalPane fx:id="terminalPane"/>
         </HBox>
     </right>
     <bottom>
@@ -33,21 +34,21 @@
                 <Insets bottom="20" right="150" />
             </BorderPane.margin>
             <HBox alignment="CENTER_LEFT">
-                <Button onAction="#switchTo" styleClass="bar_button" userData="fxml/home_logged.fxml">
+                <Button fx:id="homeBtn" styleClass="bar_button" userData="fxml/home_logged.fxml">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/home_button.png" />
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button onAction="#switchTo" styleClass="bar_button" userData="fxml/practice_menu.fxml">
+                <Button fx:id="practiceMenuBtn" styleClass="bar_button" userData="fxml/practice_menu.fxml">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/practice_button.png" />
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button onAction="#switchTo" styleClass="bar_button" userData="fxml/home.fxml">
+                <Button fx:id="playBtn" styleClass="bar_button" userData="fxml/home.fxml">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/play_button_on.png" />
@@ -55,15 +56,15 @@
                     </graphic>
                 </Button>
             </HBox>
-            <HBox alignment="CENTER_RIGHT">
-                <Button styleClass="bar_button">
+            <HBox fx:id="botBtns" alignment="CENTER_RIGHT">
+                <Button fx:id="suggestionBtn" styleClass="bar_button">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/suggestion_button.png" />
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button styleClass="bar_button">
+                <Button fx:id="solutionBtn" styleClass="bar_button">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/solution_button.png" />
@@ -81,4 +82,4 @@
             <ChronoLabel/>
         </HBox>
     </top>
-</BorderPane>
+</fx:root>
