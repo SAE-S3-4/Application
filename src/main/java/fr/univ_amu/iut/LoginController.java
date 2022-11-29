@@ -72,7 +72,6 @@ public class LoginController {
         byte[] digest = md.digest(inputPassword.getBytes(UTF_8));
         BigInteger no = new BigInteger(1, digest);
         String hashPassword = no.toString(16);
-        System.out.println(hashPassword);
         Boolean connected = false;
 
         for (User u: users) {

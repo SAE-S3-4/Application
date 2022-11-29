@@ -84,6 +84,13 @@
     -fx-font-size: 50;
 }
 
+#nextQuestionButton {
+    -fx-border-color: transparent;
+    -fx-background-color: #636363;
+    -fx-text-fill: white;
+    -fx-pref-width: 250;
+}
+
 .textLogin {
     -fx-text-fill: white;
 }
