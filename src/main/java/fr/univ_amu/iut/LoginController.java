@@ -74,7 +74,10 @@ public class LoginController {
         String hashPassword = no.toString(16);
         System.out.println(hashPassword);
         Boolean connected = false;
-
+        if(users.isEmpty()){
+            Alert invalidInput = new Alert(Alert.AlertType.ERROR, "Pas d'utilisateurs dans la base");
+            invalidInput.show();
+        }
         for (User u: users) {
             if (inputNickname.equals(u.getNickname()) && hashPassword.equals(u.getPassword())) {
                 SwitchController s = new SwitchController();

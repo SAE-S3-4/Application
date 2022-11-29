@@ -1,5 +1,7 @@
 package fr.univ_amu.iut.database;
 
+import javafx.scene.control.Alert;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

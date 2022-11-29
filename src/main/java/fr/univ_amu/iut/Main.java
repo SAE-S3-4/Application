@@ -5,12 +5,13 @@ import fr.univ_amu.iut.dao.DAOUsersJDBC;
 import fr.univ_amu.iut.database.Database;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
+
+import javax.swing.*;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
-import javafx.stage.WindowEvent;
+
 
 import java.awt.*;
 import java.io.IOException;
@@ -42,6 +43,9 @@ public class Main extends Application {
     }
     public static void main(String[] args) throws SQLException {
         Database.initDBConnection();
+        if(Database.connection.equals(null)){
+
+        }
         DAOUsersJDBC.initDAOUsersJDBC();
         DAOQuestionJDBC.initDAOQuestionsJDBC();
         launch();
