@@ -8,11 +8,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Practice {
+    private Stage stage;
+    private Scene scene;
     public Practice (int level, ActionEvent event){
         PracticeController p1 = new PracticeController(level);
-
-        Stage stage;
-        Scene scene;
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(p1,1280, 720);

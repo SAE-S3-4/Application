@@ -14,7 +14,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -47,6 +50,8 @@ public class PracticeController extends BorderPane {
 
     @FXML
     Button solutionBtn;
+    @FXML
+    HBox botBtns;
 
     private int level;
     private Question question;
@@ -78,9 +83,14 @@ public class PracticeController extends BorderPane {
             String newChunkedValue = newValue.substring(oldValue.length());
             if(newChunkedValue.contains(question.getSolution())){
                 System.out.println("bonne reponse!");
-
+                Button nextQuestion = new Button("Passer à la prochaine Question");
+                nextQuestion.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override public void handle(ActionEvent e) {
+                            new Practice(level+1,e);
+                    }
+                });
+                botBtns.getChildren().set(1,nextQuestion);
             }
-            //System.out.println(newValue.substring(oldValue.length()));
         });
     }
 

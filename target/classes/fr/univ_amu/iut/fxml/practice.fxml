@@ -53,7 +53,7 @@
                     </graphic>
                 </Button>
             </HBox>
-            <HBox alignment="CENTER_RIGHT">
+            <HBox fx:id="botBtns" alignment="CENTER_RIGHT">
                 <Button fx:id="suggestionBtn" styleClass="bar_button">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
