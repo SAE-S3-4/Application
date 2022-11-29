@@ -89,6 +89,7 @@ public class PlayController extends BorderPane {
 
             if(newChunkedValue.contains(question.getSolution())) {
                 Button nextQuestion = new Button();
+                nextQuestion.setId("nextQuestionButton");
                 if (level<9){
                     nextQuestion.setText("Passer à la prochaine question");
                     nextQuestion.setOnAction(new EventHandler<ActionEvent>() {
@@ -124,7 +125,7 @@ public class PlayController extends BorderPane {
                         }
                     });
                 }
-                botBtns.getChildren().setAll(new Button(), nextQuestion);
+                botBtns.getChildren().setAll(nextQuestion);
             }
         });
         //TODO Creer une classe qui extend Button et lui implementer le setOnAction --> switchTo pour ne pas utiliser le mm controller de partout
