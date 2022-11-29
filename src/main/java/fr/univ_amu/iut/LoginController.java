@@ -12,13 +12,19 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.*;
+import java.awt.Desktop;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class LoginController {
     private Stage stage;
@@ -29,7 +35,7 @@ public class LoginController {
 
     private SwitchController sc = new SwitchController();
     @FXML
-    private TextField email;
+    private TextField nickname;
     @FXML
     private TextField password;
 
@@ -52,20 +58,25 @@ public class LoginController {
     }
 
     @FXML
-    public void secureSwitchTo(ActionEvent event) throws SQLException, IOException {
+    public void secureSwitchTo(ActionEvent event) throws SQLException, IOException, NoSuchAlgorithmException {
 
         List<User> users;
         users = initialiseDatabaseLogin();
 
         List<String> loginUsers;
         loginUsers = initialiseInputLogin();
-        String inputEmail = loginUsers.get(0);
+        String inputNickname = loginUsers.get(0);
         String inputPassword = loginUsers.get(1);
-
+        inputPassword += inputNickname; //ajout du salt
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        byte[] digest = md.digest(inputPassword.getBytes(UTF_8));
+        BigInteger no = new BigInteger(1, digest);
+        String hashPassword = no.toString(16);
+        System.out.println(hashPassword);
         Boolean connected = false;
 
         for (User u: users) {
-            if (inputEmail.equals(u.getEmail()) && inputPassword.equals(u.getPassword())) {
+            if (inputNickname.equals(u.getNickname()) && hashPassword.equals(u.getPassword())) {
                 SwitchController s = new SwitchController();
                 s.switchTo(event);
                 connected = true;
@@ -88,7 +99,7 @@ public class LoginController {
 
     public List<String> initialiseInputLogin() {
         List<String> login = new ArrayList<>();
-        login.add(email.getText());
+        login.add(nickname.getText());
         login.add(password.getText());
         return login;
     }
