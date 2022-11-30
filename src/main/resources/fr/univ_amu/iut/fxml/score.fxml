@@ -27,7 +27,7 @@
             </BorderPane.margin>
             <Label fx:id="status" id="text_score" text="You won !"/>
             <Label fx:id="name" id="text_score" text="Nilsou18"/>
-            <Label fx:id="time" id="text_score" text="10:24"/>
+            <Label fx:id="score" id="text_score" text="10:24"/>
         </VBox>
     </right>
     <bottom>
