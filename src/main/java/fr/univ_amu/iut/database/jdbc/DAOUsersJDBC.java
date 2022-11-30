@@ -1,8 +1,8 @@
-package fr.univ_amu.iut.dao;
+package fr.univ_amu.iut.database.jdbc;
 
 import fr.univ_amu.iut.database.Database;
 import fr.univ_amu.iut.database.User;
-import javafx.scene.control.Alert;
+import fr.univ_amu.iut.database.dao.DAOUsers;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

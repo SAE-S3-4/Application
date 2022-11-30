@@ -13,7 +13,7 @@
          <BorderPane.margin>
             <Insets top="20"/>
          </BorderPane.margin>
-         <Button styleClass="bar_button" onAction="#switchTo" userData="fxml/login.fxml">
+         <Button styleClass="bar_button" onAction="#switchToPane" userData="fxml/login.fxml">
             <graphic>
                <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../pictures/login_button.png"/>
@@ -24,14 +24,14 @@
    </right>
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50" BorderPane.alignment="CENTER">
-         <Button styleClass="bar_button" onAction="#switchTo" userData="fxml/login.fxml">
+         <Button styleClass="bar_button" onAction="#switchToPane" userData="fxml/login.fxml">
             <graphic>
                <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../pictures/practice_button.png"/>
                </ImageView>
             </graphic>
          </Button>
-         <Button styleClass="bar_button" onAction="#switchTo" userData="fxml/login.fxml">
+         <Button styleClass="bar_button" onAction="#switchToPane" userData="fxml/login.fxml">
             <graphic>
                <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                   <HBox.margin>

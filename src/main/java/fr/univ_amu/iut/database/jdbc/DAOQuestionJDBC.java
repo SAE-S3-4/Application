@@ -1,7 +1,8 @@
-package fr.univ_amu.iut.dao;
+package fr.univ_amu.iut.database.jdbc;
 
 import fr.univ_amu.iut.database.Database;
 import fr.univ_amu.iut.database.Question;
+import fr.univ_amu.iut.database.dao.DAOQuestion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

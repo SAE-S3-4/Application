@@ -1,7 +1,7 @@
 package fr.univ_amu.iut;
 
 import fr.univ_amu.iut.components.TerminalPane;
-import fr.univ_amu.iut.dao.DAOQuestionJDBC;
+import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
 import fr.univ_amu.iut.database.Question;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -128,7 +128,7 @@ public class PlayController extends BorderPane {
                 botBtns.getChildren().setAll(nextQuestion);
             }
         });
-        //TODO Creer une classe qui extend Button et lui implementer le setOnAction --> switchTo pour ne pas utiliser le mm controller de partout
+        //TODO Creer une classe qui extend Button et lui implementer le setOnAction --> switchToPane pour ne pas utiliser le mm controller de partout
         homeBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 try {

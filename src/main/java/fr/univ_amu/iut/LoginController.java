@@ -1,6 +1,6 @@
 package fr.univ_amu.iut;
 
-import fr.univ_amu.iut.dao.DAOUsersJDBC;
+import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
 import fr.univ_amu.iut.database.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -80,7 +79,7 @@ public class LoginController {
         for (User u: users) {
             if (inputNickname.equals(u.getNickname()) && hashPassword.equals(u.getPassword())) {
                 SwitchController s = new SwitchController();
-                s.switchTo(event);
+                s.switchToPane(event);
                 connected = true;
                 userLogged = u;
             }
