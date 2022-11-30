@@ -1,12 +1,10 @@
 package fr.univ_amu.iut;
 
-import fr.univ_amu.iut.dao.DAOQuestionJDBC;
-import fr.univ_amu.iut.dao.DAOUsersJDBC;
+import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
+import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
 import fr.univ_amu.iut.database.Database;
 import javafx.application.Application;
 import javafx.application.Platform;
-
-import javax.swing.*;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

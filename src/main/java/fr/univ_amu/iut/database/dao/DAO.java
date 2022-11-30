@@ -1,4 +1,4 @@
-package fr.univ_amu.iut.dao;
+package fr.univ_amu.iut.database.dao;
 
 import java.sql.SQLException;
 

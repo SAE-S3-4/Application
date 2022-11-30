@@ -1,4 +1,4 @@
-package fr.univ_amu.iut.dao;
+package fr.univ_amu.iut.database.dao;
 
 import fr.univ_amu.iut.database.Question;
 

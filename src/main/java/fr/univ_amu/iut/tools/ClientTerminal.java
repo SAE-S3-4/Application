@@ -1,4 +1,4 @@
-package fr.univ_amu.iut.connection;
+package fr.univ_amu.iut.tools;
 
 import java.io.*;
 import java.net.Socket;

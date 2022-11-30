@@ -1,6 +1,6 @@
 package fr.univ_amu.iut;
 
-import fr.univ_amu.iut.dao.DAOUsersJDBC;
+import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
 import fr.univ_amu.iut.database.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

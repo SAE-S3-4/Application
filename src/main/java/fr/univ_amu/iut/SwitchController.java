@@ -20,7 +20,7 @@ public class SwitchController {
     private static String data;
 
     @FXML
-    public void switchTo(ActionEvent event) throws IOException {
+    public void switchToPane(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource() ;
         data = (String) node.getUserData();
         root = FXMLLoader.load(getClass().getResource(data));
