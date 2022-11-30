@@ -1,4 +1,4 @@
-module com.example.sae_s3 {
+module fr.univ_amu.iut {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;

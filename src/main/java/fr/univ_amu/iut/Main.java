@@ -24,10 +24,10 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         if (Taskbar.isTaskbarSupported()) {
-            var taskbar = Taskbar.getTaskbar();
+            Taskbar taskbar = Taskbar.getTaskbar();
             if (taskbar.isSupported(Taskbar.Feature.ICON_IMAGE)) {
                 final Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
-                var dockIcon = defaultToolkit.getImage(getClass().getResource("pictures/logo.png"));
+                Image dockIcon = defaultToolkit.getImage(getClass().getResource("pictures/logo.png"));
                 taskbar.setIconImage(dockIcon);
             }
         }
