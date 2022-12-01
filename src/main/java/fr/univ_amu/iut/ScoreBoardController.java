@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static fr.univ_amu.iut.LoginController.userLogged;
+
 public class ScoreBoardController {
     @FXML
     Label first;
@@ -27,6 +29,12 @@ public class ScoreBoardController {
     @FXML
     Label fifth;
 
+    @FXML
+    Label score;
+
+    @FXML
+    Label name;
+
     private List<User> listUsers = initializePodium();
 
     public ScoreBoardController() throws SQLException {
@@ -39,9 +47,13 @@ public class ScoreBoardController {
 
     @FXML
     public void initialize() throws SQLException {
+        name.setText(userLogged.getNickname());
+        score.setText(String.valueOf(userLogged.getScore()));
         ArrayList<Label> podiumLines = new ArrayList<Label>(Arrays.asList(first,second,third,fourth,fifth));
-        for (int numLabel = 0; numLabel < 5; numLabel++) {
-            podiumLines.get(numLabel).setText((numLabel + 1) + " - " + listUsers.get(numLabel).getNickname() + " : " + listUsers.get(numLabel).getScore());
+        int numLabel = 0;
+        for (User u:listUsers) {
+            podiumLines.get(numLabel).setText((numLabel + 1) + " - " + u.getNickname() + " : " + u.getScore());
+            numLabel++;
         }
     }
 }
