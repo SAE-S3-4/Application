@@ -11,13 +11,20 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Custom widget used to simulate a linux console
+ */
 public class TerminalPane extends BorderPane {
     private TextArea textField;
     private TextField inputZone;
 
+    /**
+     * Constructor of the widget TerminalPane used to create a linux console
+     */
     public TerminalPane(){
         super();
 
+        // Initialize the connection
         ClientTerminal client = new ClientTerminal("localhost", 10007);
         try {
             client.connect();
@@ -26,6 +33,7 @@ public class TerminalPane extends BorderPane {
         }
         client.listen();
 
+        //Initialize the widgets
         inputZone = new TextField("");
         inputZone.setStyle("-fx-background-color: transparent");
 
@@ -37,15 +45,15 @@ public class TerminalPane extends BorderPane {
             @Override
             public void handle(KeyEvent ke) {
                 if (ke.getCode().equals(KeyCode.ENTER)) {
-                    //Envoie demande au serv
+                    //Send a request to the server
                     client.send(inputZone.getText());
-                    //Ecris dans le champ la commande envoyé
+                    //Write in the text field the command requested from the user
                     textField.appendText("\nUser : "+inputZone.getText());
-                    //Lis la reponse du serv
+                    //Read the server response
                     List<String> buffReceived = client.getBufferReceived();
-                    //Ecris la rep du serv dans la zone de txt
+                    //Write the server response in the text field
                     buffReceived.forEach((line) -> textField.appendText("\n"+line));
-                    //Reset
+                    //Reset the input zone for the next message
                     inputZone.setText("");
                     textField.setScrollTop(Double.MAX_VALUE);
                 }
@@ -54,6 +62,11 @@ public class TerminalPane extends BorderPane {
         super.setCenter(textField);
         super.setBottom(inputZone);
     }
+
+    /**
+     *
+     * @return the text field widget showing the communication between the client and the server
+     */
     public TextArea getTextField(){
         return textField;
     }

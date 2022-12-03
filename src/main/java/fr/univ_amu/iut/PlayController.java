@@ -20,6 +20,9 @@ import java.io.IOException;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * Class used as the controller of the "play" (Practice and Play) scenes
+ */
 public class PlayController extends BorderPane {
     private Stage stage;
     private Scene scene;
@@ -47,6 +50,13 @@ public class PlayController extends BorderPane {
     private Question question;
     private String page;
 
+    /**
+     * The controller used for the scenes where the user can play the game (practice and play)
+     *
+     * @param level
+     * @param page
+     * @param event
+     */
     public PlayController(int level, String page, ActionEvent event)  {
         this.level = level;
         this.page = page;
@@ -82,6 +92,9 @@ public class PlayController extends BorderPane {
         title.setMaxHeight(200);
     }
 
+    /**
+     * Method used to initialize the actions of every widget in the scene
+     */
     private void initActions(){
         terminalPane.getTextField().textProperty().addListener((observable, oldValue, newValue) -> {
             //Get all the old text - all the new text = what has been appended
@@ -170,6 +183,13 @@ public class PlayController extends BorderPane {
             }
         });
     }
+
+    /**
+     * Method used to switch between the scenes
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void switchTo(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource() ;
@@ -183,6 +203,13 @@ public class PlayController extends BorderPane {
         stage.show();
     }
 
+    /**
+     * Method used to switch between the "play" scenes
+     *
+     * @param event
+     * @param page
+     * @throws IOException
+     */
     @FXML
     public void switchTo(ActionEvent event,String page) throws IOException {
         Node node = (Node) event.getSource() ;
@@ -196,18 +223,27 @@ public class PlayController extends BorderPane {
         stage.show();
     }
 
+    /**
+     * Method used to set the title and text to the solution for the question
+     */
     @FXML
     public void showSolution(){
         title.setText(question.getTitle());
         text.setText(question.getSolution());
     }
 
+    /**
+     * Method used to set the title and text to the suggestion for the question
+     */
     @FXML
     public void showSuggestion(){
         title.setText(question.getTitle());
         text.setText(question.getSuggestion());
     }
 
+    /**
+     * Method used to set the title and text to the instructions for the question
+     */
     @FXML
     public void showInstructions(){
         title.setText(question.getTitle());

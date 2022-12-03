@@ -13,6 +13,11 @@ public class Database {
     private static final String PASSWORD = "LkhxflJA_GDQQI_nqpkJBIbFBc955fiL";
     public static Connection connection;
 
+    /**
+     * Method used to initialize and get the DB connection
+     *
+     * @return the DB connection
+     */
     public static Connection getDBConnection(){
 
         System.out.println("Connexion a " + CONNECT_URL);
@@ -30,10 +35,18 @@ public class Database {
 
     }
 
+    /**
+     * Method used to init the DB connection
+     */
     public static void initDBConnection(){
         connection = getDBConnection();
     }
 
+    /**
+     * Method used to return the current DB connection
+     *
+     * @return the current DB connection
+     */
     public static Connection getConnetion(){
         return connection;
     }

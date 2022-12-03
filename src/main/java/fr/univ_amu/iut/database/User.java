@@ -11,6 +11,14 @@ public class User {
 
     private String password;
 
+    /**
+     *
+     * @param id_user
+     * @param nickname
+     * @param email
+     * @param score
+     * @param password
+     */
     public User(int id_user, String nickname, String email, int score, String password) {
         this.id_user = id_user;
         this.nickname = nickname;
@@ -21,46 +29,95 @@ public class User {
 
     public User() {}
 
+    /**
+     *
+     * @return the user's ID
+     */
     public int getId_user() {
         return id_user;
     }
 
+    /**
+     *
+     * @return the user's nickname
+     */
     public String getNickname() {
         return nickname;
     }
 
+    /**
+     *
+     * @return the user's email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     *
+     * @return the user's score
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     *
+     * @return the user's password
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Method used to set the user's id
+     *
+     * @param id_user
+     */
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
 
+    /**
+     * Method used to set the user's nickname
+     *
+     * @param nickname
+     */
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
 
+    /**
+     * Method used to set the user's email
+     *
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * Method used to set the user's score
+     *
+     * @param score
+     */
     public void setScore(int score) {
         this.score = score;
     }
 
+    /**
+     * Method used to set the user's password
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return the User's information in a String format
+     */
     @Override
     public String toString() {
         return "User{" +

@@ -12,6 +12,9 @@ import java.io.IOException;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * Class used as a controller of home, home_logged, practice_menu giving them the switchTo methods
+ */
 public class SwitchController {
     private Stage stage;
     private Scene scene;
@@ -19,6 +22,12 @@ public class SwitchController {
 
     private static String data;
 
+    /**
+     * Method used to switch between the scenes
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void switchToPane(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource() ;
@@ -33,6 +42,11 @@ public class SwitchController {
 
     }
 
+    /**
+     * Method used to switch between the scenes where the player can play
+     *
+     * @param event
+     */
     @FXML
     public void switchToPlay(ActionEvent event) {
         Node node = (Node) event.getSource() ;

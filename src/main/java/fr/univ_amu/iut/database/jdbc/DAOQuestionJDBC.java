@@ -19,7 +19,7 @@ public class DAOQuestionJDBC implements DAOQuestion {
     public static DAOQuestionJDBC daoQuestionJDBC;
 
     /**
-     * Constructeur | Initialise tout les prepareStatement
+     * Constructor used to initialize the statements
      *
      * @throws SQLException
      */
@@ -28,12 +28,26 @@ public class DAOQuestionJDBC implements DAOQuestion {
         findAllQuestions = connection.prepareStatement("SELECT * FROM QUESTION");
     }
 
+    /**
+     * Method used to initialize the DAO
+     *
+     * @throws SQLException
+     */
     public static void initDAOQuestionsJDBC() throws SQLException {
         daoQuestionJDBC = new DAOQuestionJDBC();
     }
 
+    /**
+     *
+     * @return the current object
+     */
     public static DAOQuestionJDBC getDAOQuestionsJDB(){return daoQuestionJDBC;}
 
+    /**
+     *
+     * @return all the questions in the DB
+     * @throws SQLException
+     */
     @Override
     public List<Question> findAll() throws SQLException {
         List<Question> questions = new ArrayList<>();
@@ -45,6 +59,11 @@ public class DAOQuestionJDBC implements DAOQuestion {
         return questions;
     }
 
+    /**
+     *
+     * @param id
+     * @return the question based on it's ID from the DB
+     */
     public Question findQuestionById(int id){
         try {
             PreparedStatement findQuestionById = connection.prepareStatement("SELECT * FROM QUESTION WHERE Q_ID = "+id);
@@ -55,21 +74,42 @@ public class DAOQuestionJDBC implements DAOQuestion {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public Question insert(Question obj) {
         return null;
     }
 
+    /**
+     *
+     * @param obj
+     */
     @Override
     public void delete(Question obj) {
 
     }
 
+    /**
+     *
+     * @param obj
+     */
     @Override
     public void update(Question obj) {
 
     }
 
+    /**
+     * Method used to initialize a Question object using a result set
+     *
+     * @param resultSet
+     * @return
+     * @throws SQLException
+     */
     private Question initQuestion(ResultSet resultSet) throws SQLException {
         Question question = new Question();
         question.setID(resultSet.getInt(1));
