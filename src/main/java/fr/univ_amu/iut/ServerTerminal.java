@@ -4,15 +4,29 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * Class containing the server used to simulate a linux console
+ */
 public class ServerTerminal {
     private int port;
     private int nbClients;
 
+    /**
+     * Constructor for the server hosting the linux console used to play the games
+     *
+     * @param port
+     * @param nbClients
+     */
     public ServerTerminal(int port, int nbClients) {
         this.port = port;
         this.nbClients = nbClients;
     }
 
+    /**
+     * Method used to launch the server
+     *
+     * @throws IOException
+     */
     public void launch() throws IOException {
 
         ServerSocket server = new ServerSocket(port);
@@ -51,12 +65,11 @@ public class ServerTerminal {
                                 out.flush();
                             }
                         }
-                        //sortir de la boucle si le client a déconecté
+                        //Exit if the user disconnects
                         System.out.println("Client disconnected");
-                        //fermer le flux et la session socket
+                        //Close the flux if the user disconnects
                         out.close();
                         client.close();
-                        //server.close();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }

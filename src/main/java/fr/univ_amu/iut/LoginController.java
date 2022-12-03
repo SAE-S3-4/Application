@@ -25,19 +25,26 @@ import java.util.List;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+/**
+ * Class used as the controller of the login page
+ */
 public class LoginController {
     private Stage stage;
     private Scene scene;
     private Parent root;
     private String data;
     public static User userLogged;
-
-    private SwitchController sc = new SwitchController();
     @FXML
     private TextField nickname;
     @FXML
     private TextField password;
 
+    /**
+     * Method used to switch between scenes
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void switchTo(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource() ;
@@ -50,12 +57,28 @@ public class LoginController {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Method used to create a hyperlink to the register web page, clickable from the login page
+     *
+     * @param e
+     * @throws URISyntaxException
+     * @throws IOException
+     */
     @FXML
     public void openRegister(ActionEvent e) throws URISyntaxException, IOException {
         Desktop desktop = Desktop.getDesktop();
         Desktop.getDesktop().browse(new URI("https://google.com"));
     }
 
+    /**
+     * Method used to verify if the user is in the DataBase
+     *
+     * @param event
+     * @throws SQLException
+     * @throws IOException
+     * @throws NoSuchAlgorithmException
+     */
     @FXML
     public void secureSwitchTo(ActionEvent event) throws SQLException, IOException, NoSuchAlgorithmException {
 
@@ -66,7 +89,7 @@ public class LoginController {
         loginUsers = initialiseInputLogin();
         String inputNickname = loginUsers.get(0);
         String inputPassword = loginUsers.get(1);
-        inputPassword += inputNickname; //ajout du salt
+        inputPassword += inputNickname;             // adding the salt
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         byte[] digest = md.digest(inputPassword.getBytes(UTF_8));
         BigInteger no = new BigInteger(1, digest);
@@ -91,13 +114,19 @@ public class LoginController {
 
     }
 
+    /**
+     *
+     * @return the users in the DB
+     * @throws SQLException
+     */
     public List<User> initialiseDatabaseLogin() throws SQLException {
-        DAOUsersJDBC daoJDBC = DAOUsersJDBC.getDAOUsersJDBC(); //TODO Effacer daoJDB et la remplacer en pas par DAOUsersJDBC.getDAOUsersJDBC()
-        List<User> listUsers;
-        listUsers = daoJDBC.findAll();
-        return listUsers;
+        return DAOUsersJDBC.getDAOUsersJDBC().findAll();
     }
 
+    /**
+     *
+     * @return the list with the values in the text fields for the nickname and password
+     */
     public List<String> initialiseInputLogin() {
         List<String> login = new ArrayList<>();
         login.add(nickname.getText());

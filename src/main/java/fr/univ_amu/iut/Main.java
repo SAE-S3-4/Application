@@ -17,8 +17,17 @@ import java.sql.SQLException;
 
 
 public class Main extends Application {
+    /**
+     * Method used to launch the application
+     *
+     * @param stage the primary stage for this application, onto which
+     * the application scene can be set.
+     * Applications may create other stages, if needed, but they will not be
+     * primary stages.
+     * @throws IOException
+     */
     @Override
-    public void start(Stage stage) throws IOException, SQLException {
+    public void start(Stage stage) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         if (Taskbar.isTaskbarSupported()) {

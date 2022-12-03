@@ -13,6 +13,9 @@ import java.util.List;
 
 import static fr.univ_amu.iut.LoginController.userLogged;
 
+/**
+ * Class used as the controller of the leader board scene
+ */
 public class ScoreBoardController {
     @FXML
     Label first;
@@ -37,14 +40,30 @@ public class ScoreBoardController {
 
     private List<User> listUsers = initializePodium();
 
+    /**
+     * Constructor used to create the LeaderBoard scene
+     *
+     * @throws SQLException
+     */
     public ScoreBoardController() throws SQLException {
     }
 
+    /**
+     * Method used to get the 5 players with the highest score
+     *
+     * @return a list containing the 5 players with the highest score
+     * @throws SQLException
+     */
     public List<User> initializePodium() throws SQLException {
         ArrayList<User> usersSorted = DAOUsersJDBC.getDAOUsersJDBC().getLeaderBoard();
         return usersSorted;
     }
 
+    /**
+     * Method used to initialize the widgets in the scene with the correct values (the podium and the user logged score)
+     *
+     * @throws SQLException
+     */
     @FXML
     public void initialize() throws SQLException {
         name.setText(userLogged.getNickname());
