@@ -17,6 +17,8 @@ public class DAOUsersJDBC implements DAOUsers {
 
     private final PreparedStatement getFiveBestUsers;
 
+    private final PreparedStatement setScoreUser;
+
     public static DAOUsersJDBC daoUsersJDBC;
 
     /**
@@ -27,6 +29,7 @@ public class DAOUsersJDBC implements DAOUsers {
     public DAOUsersJDBC() throws SQLException {
         findAllUsers = connection.prepareStatement("SELECT * FROM USERS");
         getFiveBestUsers = connection.prepareStatement("SELECT NICKNAME, SCORE FROM USERS WHERE SCORE IS NOT NULL ORDER BY SCORE DESC LIMIT 5");
+        setScoreUser = connection.prepareStatement("UPDATE USERS SET SCORE = ? WHERE ID_USER = ?;");
     }
 
     /**
@@ -83,6 +86,20 @@ public class DAOUsersJDBC implements DAOUsers {
             users.add(user);
         }
         return users;
+    }
+
+    /**
+     *
+     * @throws SQLException
+     */
+    @Override
+    public void updateUserScore(User user) throws SQLException {
+        int idUser = user.getId_user();
+        int newUserScore = User.scoreCalculation();
+        setScoreUser.setInt(1, newUserScore);
+        setScoreUser.setInt(2, idUser);
+        System.out.println(setScoreUser);
+        setScoreUser.executeUpdate();
     }
 
 

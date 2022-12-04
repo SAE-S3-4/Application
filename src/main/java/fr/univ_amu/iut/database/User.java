@@ -1,5 +1,11 @@
 package fr.univ_amu.iut.database;
 
+import fr.univ_amu.iut.PlayController;
+import fr.univ_amu.iut.components.ChronoLabel;
+
+import static fr.univ_amu.iut.LoginController.userLogged;
+import static fr.univ_amu.iut.components.ChronoLabel.c;
+
 public class User {
     private int id_user;
 
@@ -103,6 +109,13 @@ public class User {
      */
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public static int scoreCalculation() {
+        int score = 1000;
+        score -= c.getDurationInSeconds();
+        userLogged.setScore(score);
+        return score;
     }
 
     /**

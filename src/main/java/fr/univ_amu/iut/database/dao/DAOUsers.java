@@ -9,4 +9,6 @@ public interface DAOUsers extends DAO<User, String> {
     List<User> findAll() throws SQLException;
 
     List<User> getLeaderBoard() throws SQLException;
+
+    void updateUserScore(User user) throws SQLException;
 }

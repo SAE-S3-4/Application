@@ -12,7 +12,7 @@ import javafx.util.Duration;
  * Custom widget used to create a custom-made Chronometer for the application
  */
 public class ChronoLabel extends Label {
-    private Chrono c;
+    public static Chrono c;
 
     /**
      * Constructor of the label containing the Chronometer
