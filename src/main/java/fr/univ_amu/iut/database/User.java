@@ -113,9 +113,7 @@ public class User {
 
     public static int scoreCalculation() {
         int score = 1000;
-        score -= (c.getDurationInSeconds())%5;
-        System.out.println(c.getDurationInSeconds());
-        System.out.println(score);
+        score -= c.getDurationInSeconds();
         userLogged.setScore(score);
         return score;
     }
