@@ -3,6 +3,7 @@ package fr.univ_amu.iut;
 import fr.univ_amu.iut.components.TerminalPane;
 import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
 import fr.univ_amu.iut.database.Question;
+import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,7 +18,10 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import static fr.univ_amu.iut.LoginController.userLogged;
+import static fr.univ_amu.iut.components.ChronoLabel.c;
 import static java.lang.Integer.parseInt;
 
 /**
@@ -126,7 +130,13 @@ public class PlayController extends BorderPane {
                         }
                     });
                 }else{
-                    nextQuestion.setText("Voir le LeaderBoard");
+                    nextQuestion.setText("Voir le tableau des scores");
+                    try {
+                        DAOUsersJDBC.getDAOUsersJDBC().updateUserScore(userLogged);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    c.stop();
                     nextQuestion.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent e) {
