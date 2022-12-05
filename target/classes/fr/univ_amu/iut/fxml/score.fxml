@@ -26,8 +26,8 @@
                 <Insets right="260" bottom="60"/>
             </BorderPane.margin>
             <Label fx:id="status" id="text_score" text="You won !"/>
-            <Label fx:id="name" id="text_score" text="Nilsou18"/>
-            <Label fx:id="score" id="text_score" text="10:24"/>
+            <Label fx:id="name" id="text_score" />
+            <Label fx:id="score" id="text_score" />
         </VBox>
     </right>
     <bottom>
@@ -35,21 +35,21 @@
             <BorderPane.margin>
                 <Insets bottom="20.0" left="92.0" />
             </BorderPane.margin>
-            <Button fx:id="homeBtn" styleClass="bar_button" userData="fxml/home_logged.fxml">
+            <Button fx:id="homeBtn" styleClass="bar_button" onAction="#switchToPane" userData="fxml/home_logged.fxml">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <Image url="@../pictures/home_button.png" />
                     </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="practiceMenuBtn" styleClass="bar_button" userData="fxml/practice_menu.fxml">
+            <Button fx:id="practiceMenuBtn" styleClass="bar_button" onAction="#switchToPane" userData="fxml/practice_menu.fxml">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <Image url="@../pictures/practice_button.png" />
                     </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="playBtn" styleClass="bar_button" userData="fxml/game.fxml">
+            <Button fx:id="playBtn" styleClass="bar_button" onAction="#switchToPlay" userData="10,game">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <HBox.margin>
