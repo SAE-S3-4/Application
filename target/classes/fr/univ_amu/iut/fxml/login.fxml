@@ -22,7 +22,7 @@
                 <PasswordField fx:id="password" id="loginForm" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
             </VBox>
             <HBox alignment="CENTER" spacing="30">
-                <Button id="buttonLoginForm" text="Login" onAction="#secureSwitchTo" userData="fxml/home_logged.fxml"/>
+                <Button fx:id="loginBtn" id="buttonLoginForm" text="Login" onAction="#secureSwitchTo" userData="fxml/home_logged.fxml"/>
                 <SwitchToPaneButton id="buttonLoginForm" text="Abort" userData="fxml/home.fxml"/>
             </HBox>
         </VBox>
