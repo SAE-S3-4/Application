@@ -10,7 +10,9 @@
 <?import fr.univ_amu.iut.components.TerminalPane?>
 <?import fr.univ_amu.iut.components.ChronoLabel?>
 
-<fx:root id="game" prefHeight="400.0"  prefWidth="600.0" type="javafx.scene.layout.BorderPane"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<?import fr.univ_amu.iut.components.SwitchToPaneButton?>
+
+<fx:root id="game" prefHeight="400.0" prefWidth="600.0" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <VBox>
             <BorderPane.margin>
@@ -34,27 +36,27 @@
                 <Insets bottom="20" right="150" />
             </BorderPane.margin>
             <HBox alignment="CENTER_LEFT">
-                <Button fx:id="homeBtn" styleClass="bar_button" userData="fxml/home_logged.fxml">
+                <SwitchToPaneButton fx:id="homeBtn" styleClass="bar_button" userData="fxml/home_logged.fxml">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/home_button.png" />
                         </ImageView>
                     </graphic>
-                </Button>
-                <Button fx:id="practiceMenuBtn" styleClass="bar_button" userData="fxml/practice_menu.fxml">
+                </SwitchToPaneButton>
+                <SwitchToPaneButton fx:id="practiceMenuBtn" styleClass="bar_button" userData="fxml/practice_menu.fxml">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/practice_button.png" />
                         </ImageView>
                     </graphic>
-                </Button>
-                <Button fx:id="playBtn" styleClass="bar_button" userData="fxml/home.fxml">
+                </SwitchToPaneButton>
+                <SwitchToPaneButton fx:id="playBtn" styleClass="bar_button" userData="fxml/home.fxml">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/play_button_on.png" />
                         </ImageView>
                     </graphic>
-                </Button>
+                </SwitchToPaneButton>
             </HBox>
             <HBox fx:id="botBtns" alignment="CENTER_RIGHT">
                 <Button fx:id="suggestionBtn" styleClass="bar_button">
