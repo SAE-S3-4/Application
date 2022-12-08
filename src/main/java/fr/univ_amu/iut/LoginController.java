@@ -53,25 +53,6 @@ public class LoginController {
     }
 
     /**
-     * Method used to switch between scenes
-     *
-     * @param event
-     * @throws IOException
-     */
-    @FXML
-    public void switchTo(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource() ;
-        data = (String) node.getUserData();
-        root = FXMLLoader.load(getClass().getResource(data));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,1280, 720);
-        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
-        stage.setTitle("Find the breach");
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    /**
      * Method used to create a hyperlink to the register web page, clickable from the login page
      *
      * @param e
