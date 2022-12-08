@@ -112,8 +112,8 @@ public class LoginController {
         User userDB;
         userDB = DAOUsersJDBC.getDAOUsersJDBC().initialiseDatabaseLoginByNickname(inputNickname);
         if (inputNickname.equals(userDB.getNickname()) && hashPassword.equals(userDB.getPassword())) {
-            SwitchController s = new SwitchController();
-            s.switchToPane(event);
+            SwitchTo switchTo = new SwitchTo();
+            switchTo.switchToPane(event);
             connected = true;
             userLogged = userDB;
         }
