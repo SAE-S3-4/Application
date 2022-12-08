@@ -19,6 +19,8 @@ public class DAOUsersJDBC implements DAOUsers {
 
     private final PreparedStatement setScoreUser;
 
+    private final PreparedStatement getUserByNickname;
+
     public static DAOUsersJDBC daoUsersJDBC;
 
     /**
@@ -30,6 +32,7 @@ public class DAOUsersJDBC implements DAOUsers {
         findAllUsers = connection.prepareStatement("SELECT * FROM USERS");
         getFiveBestUsers = connection.prepareStatement("SELECT NICKNAME, SCORE FROM USERS WHERE SCORE IS NOT NULL ORDER BY SCORE DESC LIMIT 5");
         setScoreUser = connection.prepareStatement("UPDATE USERS SET SCORE = ? WHERE ID_USER = ?;");
+        getUserByNickname = connection.prepareStatement("SELECT * FROM USERS WHERE NICKNAME=?;");
     }
 
     /**
@@ -69,6 +72,21 @@ public class DAOUsersJDBC implements DAOUsers {
         return users;
     }
 
+    @Override
+    public User initialiseDatabaseLoginByNickname(String Nickname) throws SQLException {
+        getUserByNickname.setString(1, Nickname);
+        ResultSet resultSet = getUserByNickname.executeQuery();
+        User user = new User();
+        while(resultSet.next()) {
+            user.setId_user(resultSet.getInt(1));
+            user.setNickname(resultSet.getString(2));
+            user.setEmail(resultSet.getString(3));
+            user.setScore(resultSet.getInt(4));
+            user.setPassword(resultSet.getString(5));
+        }
+        return user;
+    }
+
     /**
      *
      * @return the ArrayList of the users in the leader board
@@ -98,7 +116,6 @@ public class DAOUsersJDBC implements DAOUsers {
         int newUserScore = User.scoreCalculation();
         setScoreUser.setInt(1, newUserScore);
         setScoreUser.setInt(2, idUser);
-        System.out.println(setScoreUser);
         setScoreUser.executeUpdate();
     }
 
