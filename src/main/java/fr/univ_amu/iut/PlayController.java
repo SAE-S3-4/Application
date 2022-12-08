@@ -103,6 +103,7 @@ public class PlayController extends BorderPane {
         terminalPane.getTextField().textProperty().addListener((observable, oldValue, newValue) -> {
             //Get all the old text - all the new text = what has been appended
             String newChunkedValue = newValue.substring(oldValue.length());
+            SwitchTo switchTo = new SwitchTo();
 
             if(newChunkedValue.contains(question.getSolution())) {
                 Button nextQuestion = new Button();
@@ -123,7 +124,7 @@ public class PlayController extends BorderPane {
                         @Override
                         public void handle(ActionEvent e) {
                             try {
-                                switchTo(e,"practice_menu");
+                                switchTo.switchToPane(e,"practice_menu");
                             } catch (IOException ex) {
                                 throw new RuntimeException(ex);
                             }
@@ -141,7 +142,7 @@ public class PlayController extends BorderPane {
                         @Override
                         public void handle(ActionEvent e) {
                             try {
-                                switchTo(e,"score");
+                                switchTo.switchToPane(e,"score");
                             } catch (IOException ex) {
                                 throw new RuntimeException(ex);
                             }
@@ -149,35 +150,6 @@ public class PlayController extends BorderPane {
                     });
                 }
                 botBtns.getChildren().setAll(nextQuestion);
-            }
-        });
-        //TODO Creer une classe qui extend Button et lui implementer le setOnAction --> switchToPane pour ne pas utiliser le mm controller de partout
-        homeBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                try {
-                    switchTo(e);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-        });
-
-        practiceMenuBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                try {
-                    switchTo(e);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-        });
-
-        playBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                Node node = (Node) e.getSource() ;
-                String userData = ((String)(node.getUserData()));       //userData = id,pageFxml
-                String[] userDataArray = userData.split(",");     // ["id","pageFxml"]
-                new PlayController(parseInt(userDataArray[0]), userDataArray[1] ,e);
             }
         });
 
@@ -192,45 +164,6 @@ public class PlayController extends BorderPane {
                 showSolution();
             }
         });
-    }
-
-    /**
-     * Method used to switch between the scenes
-     *
-     * @param event
-     * @throws IOException
-     */
-    @FXML
-    public void switchTo(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource() ;
-        data = (String) node.getUserData();
-        root = FXMLLoader.load(getClass().getResource(data));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,1280, 720);
-        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
-        stage.setTitle("Find the breach");
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    /**
-     * Method used to switch between the "play" scenes
-     *
-     * @param event
-     * @param page
-     * @throws IOException
-     */
-    @FXML
-    public void switchTo(ActionEvent event,String page) throws IOException {
-        Node node = (Node) event.getSource() ;
-        data = (String) node.getUserData();
-        root = FXMLLoader.load(getClass().getResource("fxml/"+page+".fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,1280, 720);
-        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
-        stage.setTitle("Find the breach");
-        stage.setScene(scene);
-        stage.show();
     }
 
     /**

@@ -101,7 +101,7 @@ public class LoginController {
         }
         for (User u: users) {
             if (inputNickname.equals(u.getNickname()) && hashPassword.equals(u.getPassword())) {
-                SwitchController s = new SwitchController();
+                SwitchTo s = new SwitchTo();
                 s.switchToPane(event);
                 connected = true;
                 userLogged = u;
