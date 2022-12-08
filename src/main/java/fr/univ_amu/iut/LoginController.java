@@ -108,7 +108,7 @@ public class LoginController {
         byte[] digest = md.digest(inputPassword.getBytes(UTF_8));
         BigInteger no = new BigInteger(1, digest);
         String hashPassword = no.toString(16);
-
+        
         User userDB;
         userDB = DAOUsersJDBC.getDAOUsersJDBC().initialiseDatabaseLoginByNickname(inputNickname);
         if (inputNickname.equals(userDB.getNickname()) && hashPassword.equals(userDB.getPassword())) {

@@ -5,6 +5,8 @@
 
 <?import javafx.geometry.Insets?>
 
+<?import fr.univ_amu.iut.components.SwitchToPaneButton?>
+
 <BorderPane id="login" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ_amu.iut.LoginController">
     <center>
         <VBox alignment="CENTER" spacing="20">
@@ -21,7 +23,7 @@
             </VBox>
             <HBox alignment="CENTER" spacing="30">
                 <Button fx:id="loginBtn" id="buttonLoginForm" text="Login" onAction="#secureSwitchTo" userData="fxml/home_logged.fxml"/>
-                <Button id="buttonLoginForm" text="Abort" onAction="#switchTo" userData="fxml/home.fxml"/>
+                <SwitchToPaneButton id="buttonLoginForm" text="Abort" userData="fxml/home.fxml"/>
             </HBox>
         </VBox>
     </center>
