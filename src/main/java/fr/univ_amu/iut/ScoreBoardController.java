@@ -110,16 +110,4 @@ public class ScoreBoardController {
 
     }
 
-    /**
-     * Method used to switch between the scenes where the player can play
-     *
-     * @param event
-     */
-    @FXML
-    public void switchToPlay(ActionEvent event) {
-        Node node = (Node) event.getSource() ;
-        String userData = ((String)(node.getUserData()));       //userData = id,pageFxml
-        String[] userDataArray = userData.split(",");     // ["id","pageFxml"]
-        new PlayController(parseInt(userDataArray[0]), userDataArray[1] ,event);
-    }
 }

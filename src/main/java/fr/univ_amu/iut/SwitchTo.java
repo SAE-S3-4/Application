@@ -79,6 +79,11 @@ public class SwitchTo {
         Node node = (Node) event.getSource() ;
         String userData = ((String)(node.getUserData()));       //userData = id,pageFxml
         String[] userDataArray = userData.split(",");     // ["id","pageFxml"]
-        new PlayController(parseInt(userDataArray[0]), userDataArray[1] ,event);
+        switch (userDataArray[1]){
+            case "practice":
+                new PracticeController(parseInt(userDataArray[0]),event);
+            case "game":
+                new GameController(parseInt(userDataArray[0]),event);
+        }
     }
 }

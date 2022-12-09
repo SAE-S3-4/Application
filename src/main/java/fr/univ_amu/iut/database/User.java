@@ -1,8 +1,5 @@
 package fr.univ_amu.iut.database;
 
-import fr.univ_amu.iut.PlayController;
-import fr.univ_amu.iut.components.ChronoLabel;
-
 import static fr.univ_amu.iut.LoginController.userLogged;
 import static fr.univ_amu.iut.components.ChronoLabel.c;
 
