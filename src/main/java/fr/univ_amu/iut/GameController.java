@@ -1,5 +1,6 @@
 package fr.univ_amu.iut;
 
+import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
 import fr.univ_amu.iut.tools.PlayController;
 
 import javafx.event.ActionEvent;
@@ -8,8 +9,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static fr.univ_amu.iut.LoginController.userLogged;
+import static fr.univ_amu.iut.components.ChronoLabel.c;
 
 /**
  * Class used for the controller of the "game" page
@@ -80,6 +85,12 @@ public class GameController extends PlayController {
                 }else {
 
                     nextQuestion.setText("Passer au score board");
+                    c.stop();
+                    try {
+                        DAOUsersJDBC.getDAOUsersJDBC().updateUserScore(userLogged);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                     nextQuestion.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent e) {
