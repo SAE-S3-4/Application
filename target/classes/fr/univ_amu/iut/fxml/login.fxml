@@ -28,7 +28,7 @@
         </VBox>
     </center>
     <bottom>
-        <HBox>
+        <HBox alignment="CENTER_LEFT">
             <BorderPane.margin>
                 <Insets bottom="20" left="20"/>
             </BorderPane.margin>

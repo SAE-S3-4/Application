@@ -50,7 +50,7 @@
                         </ImageView>
                     </graphic>
                 </SwitchToPaneButton>
-                <SwitchToPaneButton fx:id="playBtn" styleClass="bar_button" userData="fxml/home.fxml">
+                <SwitchToPaneButton fx:id="playBtn" styleClass="bar_button">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/play_button_on.png" />
