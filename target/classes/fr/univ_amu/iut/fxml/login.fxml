@@ -32,8 +32,8 @@
             <BorderPane.margin>
                 <Insets bottom="20" left="20"/>
             </BorderPane.margin>
-            <Label styleClass="textLogin" text="You don't have an account ?"/>
-            <Button onAction="#openRegister" id="register" text="Register now !"/>
+            <Label styleClass="textLogin" text="Vous n'avez pas de compte ?"/>
+            <Button onAction="#openRegister" id="register" text="Inscrivez-vous !"/>
         </HBox>
     </bottom>
 </BorderPane>
