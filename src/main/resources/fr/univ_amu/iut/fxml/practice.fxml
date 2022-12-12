@@ -14,7 +14,7 @@
     <left>
         <VBox>
             <BorderPane.margin>
-                <Insets top="200" left="100"/>
+                <Insets top="195" left="100"/>
             </BorderPane.margin>
             <Label styleClass="title" fx:id="title"/>
             <Label styleClass="textLeft" fx:id="text"/>
