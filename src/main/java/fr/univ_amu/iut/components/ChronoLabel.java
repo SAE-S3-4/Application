@@ -5,6 +5,7 @@ import fr.univ_amu.iut.tools.Chrono;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
+
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
