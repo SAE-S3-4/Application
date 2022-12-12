@@ -23,6 +23,7 @@ public class PracticeController extends PlayController {
      */
     public PracticeController(int level, ActionEvent event) {
         super(level, "practice", event);
+        this.level = level;
     }
 
     /**
@@ -43,7 +44,8 @@ public class PracticeController extends PlayController {
                     nextQuestion.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent e) {
-                            PracticeController.super.initLevel(level+1);
+                            level = level+1;
+                            PracticeController.super.initLevel(level);
                             getBotBtns().getChildren().setAll(PracticeController.super.getSuggestionBtn(),PracticeController.super.getSolutionBtn());
                         }
                     });

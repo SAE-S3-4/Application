@@ -22,6 +22,7 @@ public class GameController extends PlayController {
      */
     public GameController(int level, ActionEvent event) {
         super(level, "game", event);
+        this.level = level;
     }
 
     /**
@@ -42,7 +43,8 @@ public class GameController extends PlayController {
                     nextQuestion.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent e) {
-                            GameController.super.initLevel(level+1);
+                            level = level+1;
+                            GameController.super.initLevel(level);
                             getBotBtns().getChildren().setAll(GameController.super.getSuggestionBtn(),GameController.super.getSolutionBtn());
                         }
                     });
