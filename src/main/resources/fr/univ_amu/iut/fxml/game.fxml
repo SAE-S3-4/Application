@@ -81,7 +81,7 @@
             <BorderPane.margin>
                 <Insets left="1075"/>
             </BorderPane.margin>
-            <ChronoLabel/>
+            <ChronoLabel fx:id="chronoGame"/>
         </HBox>
     </top>
 </fx:root>
