@@ -15,6 +15,7 @@ public class DAOQuestionJDBC implements DAOQuestion {
 
     private final Connection connection = Database.getConnetion();
     private final PreparedStatement findAllQuestions;
+    private final PreparedStatement getTotalNumberOfQuestions;
 
     public static DAOQuestionJDBC daoQuestionJDBC;
 
@@ -26,6 +27,7 @@ public class DAOQuestionJDBC implements DAOQuestion {
     public DAOQuestionJDBC() throws SQLException {
         //Requête
         findAllQuestions = connection.prepareStatement("SELECT * FROM QUESTION");
+        getTotalNumberOfQuestions = connection.prepareStatement("SELECT COUNT(*) FROM QUESTION");
     }
 
     /**
@@ -118,5 +120,15 @@ public class DAOQuestionJDBC implements DAOQuestion {
         question.setSuggestion(resultSet.getString(4));
         question.setSolution(resultSet.getString(5));
         return question;
+    }
+
+    public int getGetTotalNumberOfQuestions() {
+        try {
+            ResultSet resultSet = getTotalNumberOfQuestions.executeQuery();
+            resultSet.next();
+            return resultSet.getInt(1);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
