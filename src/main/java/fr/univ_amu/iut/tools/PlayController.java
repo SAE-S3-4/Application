@@ -59,7 +59,6 @@ public abstract class  PlayController extends BorderPane {
         initLevel(level);
 
         setSolution();
-
         //Text Style
         text.setWrapText(true);
         text.setMaxWidth(360);
@@ -84,6 +83,7 @@ public abstract class  PlayController extends BorderPane {
         setQuestion(level);
         initActions();
         showInstructions();
+        terminalPane.setReponse(question.getSolution());
     }
 
     /**

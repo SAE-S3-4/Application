@@ -15,6 +15,7 @@ import java.util.List;
  * Custom widget used to simulate a linux console
  */
 public class TerminalPane extends BorderPane {
+    private String reponse;
     private TextArea textField;
     private TextField inputZone;
 
@@ -45,6 +46,11 @@ public class TerminalPane extends BorderPane {
             @Override
             public void handle(KeyEvent ke) {
                 if (ke.getCode().equals(KeyCode.ENTER)) {
+                    if (inputZone.getText().contains(reponse)){
+                        textField.appendText("\nUser : "+inputZone.getText()+"\nBonne reponse !");
+                        inputZone.setText("");
+                        return;
+                    }
                     //Send a request to the server
                     client.send(inputZone.getText());
                     //Write in the text field the command requested from the user
@@ -70,4 +76,5 @@ public class TerminalPane extends BorderPane {
     public TextArea getTextField(){
         return textField;
     }
+    public void setReponse(String reponse){this.reponse = reponse;}
 }
