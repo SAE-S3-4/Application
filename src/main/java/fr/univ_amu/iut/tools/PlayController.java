@@ -101,13 +101,18 @@ public abstract class  PlayController extends BorderPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        //Set the current window to the new node created
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(this,1280, 720);
-        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
-        stage.setTitle("Find the breach");
-        stage.setScene(scene);
-        stage.show();
+
+        try {
+            //Set the current window to the new node created
+            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(this,1280, 720);
+            scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+            stage.setTitle("Find the breach");
+            stage.setScene(scene);
+            stage.show();
+        }catch (NullPointerException e){
+            //Catch a NullPointerException coming from the fact that the stage could be null, or result null
+        }
     }
 
     /**
