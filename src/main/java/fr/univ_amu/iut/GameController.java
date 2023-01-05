@@ -1,5 +1,6 @@
 package fr.univ_amu.iut;
 
+import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
 import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
 import fr.univ_amu.iut.tools.PlayController;
 
@@ -26,7 +27,7 @@ public class GameController extends PlayController {
     @FXML
     Button solutionBtn;
     private int level;
-    private final int MAX_GAME_QUESTIONS = 20;
+    private final int MAX_GAME_QUESTIONS = DAOQuestionJDBC.daoQuestionJDBC.getGetTotalNumberOfQuestions();
 
     /**
      * Constructor of the GameController
