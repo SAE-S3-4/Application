@@ -46,17 +46,25 @@ public class TerminalPane extends BorderPane {
             @Override
             public void handle(KeyEvent ke) {
                 if (ke.getCode().equals(KeyCode.ENTER)) {
-                    if (inputZone.getText().contains(reponse)){
-                        textField.appendText("\nUser : "+inputZone.getText()+"\nBonne reponse !");
-                        inputZone.setText("");
-                        return;
-                    }
                     //Send a request to the server
                     client.send(inputZone.getText());
                     //Write in the text field the command requested from the user
                     textField.appendText("\nUser : "+inputZone.getText());
                     //Read the server response
                     List<String> buffReceived = client.getBufferReceived();
+
+                    if (inputZone.getText().contains(reponse)){
+                        textField.appendText("\nBonne reponse !");
+                        inputZone.setText("");
+                        for (String line : buffReceived) {
+                            if(!line.equals("Command does not exist")){
+                                textField.appendText("\n"+line);
+                            }
+                        }
+                        textField.setScrollTop(Double.MAX_VALUE);
+                        return;
+                    }
+
                     //Write the server response in the text field
                     buffReceived.forEach((line) -> textField.appendText("\n"+line));
                     //Reset the input zone for the next message
