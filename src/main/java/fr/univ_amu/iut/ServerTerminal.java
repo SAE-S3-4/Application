@@ -10,6 +10,10 @@ import java.net.Socket;
 public class ServerTerminal {
     private int port;
     private int nbClients;
+    private BufferedWriter out;
+    private BufferedReader in;
+    private Socket client;
+
 
     /**
      * Constructor for the server hosting the linux console used to play the games
@@ -35,10 +39,10 @@ public class ServerTerminal {
 
         for (int i = 1; i <= nbClients; i++) {
 
-            Socket client = server.accept();
+            client = server.accept();
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
+            in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
 
             Thread receive = new Thread(new Runnable() {
                 String msg;
@@ -78,6 +82,15 @@ public class ServerTerminal {
             receive.start();
         }
         server.close();
+    }
+
+    public void stop(){
+        try {
+            out.close();
+            client.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void main(String[] args) throws IOException {
