@@ -1,5 +1,6 @@
 package fr.univ_amu.iut;
 
+import fr.univ_amu.iut.components.TerminalPane;
 import fr.univ_amu.iut.tools.PlayController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -65,21 +66,6 @@ public class PracticeController extends PlayController {
                     });
                 }
                 getBotBtns().getChildren().setAll(nextQuestion);
-            }
-        });
-    }
-
-    @Override
-    public void initActions(){
-        getSuggestionBtn().setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                showSuggestion();
-            }
-        });
-
-        getSolutionBtn().setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                showSolution();
             }
         });
     }
