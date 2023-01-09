@@ -39,8 +39,6 @@ public abstract class  PlayController extends BorderPane {
     Button solutionBtn;
     @FXML
     HBox botBtns;
-    @FXML
-    HBox topHbox;
     private int level;
     private Question question;
     private String page;
@@ -196,14 +194,6 @@ public abstract class  PlayController extends BorderPane {
      */
     public Button getSuggestionBtn() {
         return suggestionBtn;
-    }
-
-    /**
-     *
-     * @return the top Hbox
-     */
-    public HBox getTopHbox(){
-        return topHbox;
     }
 
 }

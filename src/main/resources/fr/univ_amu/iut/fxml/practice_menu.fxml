@@ -22,7 +22,7 @@
             <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../pictures/practice_button_on.png"/>
             </ImageView>
-            <SwitchToPlayButton styleClass="bar_button" userData="16,game">
+            <SwitchToPlayButton styleClass="bar_button" userData="10,game">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <HBox.margin>
@@ -42,16 +42,16 @@
             <SwitchToPlayButton id="level1Btn" styleClass="bar_button" userData="1,practice">
                 <text>01 - Level 1</text>
             </SwitchToPlayButton>
-            <SwitchToPlayButton id="level2Btn" styleClass="bar_button" userData="4,practice">
+            <SwitchToPlayButton id="level2Btn" styleClass="bar_button" userData="2,practice">
                 <text>02 - Level 2</text>
             </SwitchToPlayButton>
-            <SwitchToPlayButton id="level3Btn" styleClass="bar_button" userData="7,practice">
+            <SwitchToPlayButton id="level3Btn" styleClass="bar_button" userData="3,practice">
                 <text>03 - Level 3</text>
             </SwitchToPlayButton>
-            <SwitchToPlayButton id="level4Btn" styleClass="bar_button" userData="10,practice">
+            <SwitchToPlayButton id="level4Btn" styleClass="bar_button" userData="4,practice">
                 <text>04 - Level 4</text>
             </SwitchToPlayButton>
-            <SwitchToPlayButton id="level5Btn" styleClass="bar_button" userData="13,practice">
+            <SwitchToPlayButton id="level5Btn" styleClass="bar_button" userData="5,practice">
                 <text>05 - Level 5</text>
             </SwitchToPlayButton>
          <opaqueInsets>
