@@ -51,7 +51,7 @@
                     </ImageView>
                 </graphic>
             </SwitchToPaneButton>
-            <SwitchToPlayButton fx:id="playBtn" styleClass="bar_button" userData="10,game">
+            <SwitchToPlayButton fx:id="playBtn" styleClass="bar_button" userData="16,game">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <HBox.margin>

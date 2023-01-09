@@ -19,7 +19,7 @@
                     </ImageView>
                 </graphic>
             </SwitchToPaneButton>
-            <SwitchToPlayButton id="switchToPaneButtonGameLogged" styleClass="bar_button" userData="10,game">
+            <SwitchToPlayButton id="switchToPaneButtonGameLogged" styleClass="bar_button" userData="16,game">
                 <graphic>
                     <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                         <HBox.margin>

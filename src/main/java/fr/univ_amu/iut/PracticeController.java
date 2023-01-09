@@ -4,6 +4,7 @@ import fr.univ_amu.iut.tools.PlayController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 
@@ -13,6 +14,7 @@ import java.io.IOException;
 public class PracticeController extends PlayController {
     private int level;
     private final int MAX_PRACTICE_QUESTIONS = 15;
+    private Label levelLabel;
 
     /**
      * Constructor of PracticeController
@@ -23,6 +25,10 @@ public class PracticeController extends PlayController {
     public PracticeController(int level, ActionEvent event) {
         super(level, "practice", event);
         this.level = level;
+
+        //setting up the level Label
+        levelLabel = new Label("Niveau : "+((level-1)/3+1));
+        getTopHbox().getChildren().add(levelLabel);
     }
 
     /**
@@ -45,6 +51,7 @@ public class PracticeController extends PlayController {
                         public void handle(ActionEvent e) {
                             level = level+1;
                             PracticeController.super.initLevel(level);
+                            updateLevelLabel();
                             getBotBtns().getChildren().setAll(PracticeController.super.getSuggestionBtn(),PracticeController.super.getSolutionBtn());
                         }
                     });
@@ -82,5 +89,12 @@ public class PracticeController extends PlayController {
                 showSolution();
             }
         });
+    }
+
+    /**
+     * Method used to update the levelLabel
+     */
+    public void updateLevelLabel(){
+        levelLabel.setText("Niveau : "+((level-1)/3+1));
     }
 }

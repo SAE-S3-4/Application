@@ -48,7 +48,7 @@
                         </ImageView>
                     </graphic>
                 </SwitchToPaneButton>
-                <SwitchToPlayButton fx:id="playBtn" styleClass="bar_button" userData="10,game">
+                <SwitchToPlayButton fx:id="playBtn" styleClass="bar_button" userData="16,game">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/play_button.png" />
@@ -74,4 +74,11 @@
             </HBox>
         </HBox>
     </bottom>
+    <top>
+        <HBox fx:id="topHbox" alignment="CENTER_LEFT">
+            <BorderPane.margin>
+                <Insets left="1075"/>
+            </BorderPane.margin>
+        </HBox>
+    </top>
 </fx:root>
