@@ -1,5 +1,7 @@
 package fr.univ_amu.iut.database;
 
+import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
+
 import static fr.univ_amu.iut.LoginController.userLogged;
 import static fr.univ_amu.iut.components.ChronoLabel.c;
 
@@ -108,8 +110,12 @@ public class User {
         this.score = score;
     }
 
+    /**
+     * Method used to calculate the user's score
+     *
+     */
     public static int scoreCalculation() {
-        int score = 1000;
+        int score = 1000 * (DAOQuestionJDBC.daoQuestionJDBC.getGetTotalNumberOfQuestions()-15);
         score -= c.getDurationInSeconds();
         userLogged.setScore(score);
         return score;

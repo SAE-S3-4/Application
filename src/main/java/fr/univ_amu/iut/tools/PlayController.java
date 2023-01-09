@@ -127,19 +127,7 @@ public abstract class  PlayController extends BorderPane {
     /**
      * Method used to initialize the actions of every widget in the scene
      */
-    private void initActions(){
-        suggestionBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                showSuggestion();
-            }
-        });
-
-        solutionBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                showSolution();
-            }
-        });
-    }
+    public abstract void initActions();
 
     /**
      * Method used to set the title and text to the solution for the question
