@@ -69,19 +69,4 @@ public class PracticeController extends PlayController {
             }
         });
     }
-
-    @Override
-    public void initActions(){
-        getSuggestionBtn().setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                showSuggestion();
-            }
-        });
-
-        getSolutionBtn().setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                showSolution();
-            }
-        });
-    }
 }

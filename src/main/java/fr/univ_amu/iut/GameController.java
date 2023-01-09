@@ -110,20 +110,4 @@ public class GameController extends PlayController {
             }
         });
     }
-    @Override
-    public void initActions(){
-        getSuggestionBtn().setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                userLogged.setScore(userLogged.getScore()-50);
-                showSuggestion();
-            }
-        });
-
-        getSolutionBtn().setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                userLogged.setScore(userLogged.getScore()-200);
-                showSolution();
-            }
-        });
-    }
 }
