@@ -12,14 +12,14 @@
 <BorderPane id="home_logged" xmlns="http://javafx.com/javafx/17" >
     <bottom>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50" BorderPane.alignment="CENTER">
-            <SwitchToPaneButton styleClass="bar_button" userData="fxml/practice_menu.fxml">
+            <SwitchToPaneButton id="switchToPaneButtonPracticeLogged" styleClass="bar_button" userData="fxml/practice_menu.fxml">
                 <graphic>
                     <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                         <Image url="@../pictures/practice_button.png"/>
                     </ImageView>
                 </graphic>
             </SwitchToPaneButton>
-            <SwitchToPlayButton styleClass="bar_button" userData="10,game">
+            <SwitchToPlayButton id="switchToPaneButtonGameLogged" styleClass="bar_button" userData="10,game">
                 <graphic>
                     <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                         <HBox.margin>

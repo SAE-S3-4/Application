@@ -14,7 +14,7 @@
          <BorderPane.margin>
             <Insets top="20"/>
          </BorderPane.margin>
-         <SwitchToPaneButton styleClass="bar_button" userData="fxml/login.fxml">
+         <SwitchToPaneButton id="switchToPaneButtonLogin" styleClass="bar_button" userData="fxml/login.fxml">
             <graphic>
                <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../pictures/login_button.png"/>
@@ -25,14 +25,14 @@
    </right>
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50" BorderPane.alignment="CENTER">
-         <SwitchToPaneButton styleClass="bar_button" userData="fxml/login.fxml">
+         <SwitchToPaneButton id="switchToPaneButtonPractice" styleClass="bar_button" userData="fxml/login.fxml">
             <graphic>
                <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../pictures/practice_button.png"/>
                </ImageView>
             </graphic>
          </SwitchToPaneButton>
-         <SwitchToPaneButton styleClass="bar_button" userData="fxml/login.fxml">
+         <SwitchToPaneButton id="switchToPaneButtonGame" styleClass="bar_button" userData="fxml/login.fxml">
             <graphic>
                <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                   <HBox.margin>
