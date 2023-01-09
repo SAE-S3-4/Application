@@ -19,6 +19,7 @@ import java.util.concurrent.TimeoutException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.testfx.api.FxAssert.verifyThat;
+import static org.testfx.util.NodeQueryUtils.hasText;
 import static org.testfx.util.NodeQueryUtils.isVisible;
 
 @ExtendWith(ApplicationExtension.class)
@@ -68,5 +69,23 @@ public class TestHome {
     @Test
     public void shouldHaveButtonGame() {
         verifyThat("#switchToPaneButtonGame", isVisible());
+    }
+    
+    @Test
+    public void loginButtonShouldRedirectToLogin(FxRobot robot){
+        robot.clickOn("#switchToPaneButtonLogin");
+        verifyThat("#buttonLogin_login", isVisible());
+    }
+
+    @Test
+    public void practiceButtonUnloggedShouldRedirectToLogin(FxRobot robot){
+        robot.clickOn("#switchToPaneButtonPractice");
+        verifyThat("#buttonLogin_login", isVisible());
+    }
+
+    @Test
+    public void gameButtonUnloggedShouldRedirectToLogin(FxRobot robot){
+        robot.clickOn("#switchToPaneButtonGame");
+        verifyThat("#buttonLogin_login", isVisible());
     }
 }

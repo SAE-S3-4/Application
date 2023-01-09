@@ -27,7 +27,7 @@
             <BorderPane.margin>
                 <Insets top="115" left="10" right="125" bottom="30" />
             </BorderPane.margin>
-            <TerminalPane fx:id="terminalPane"/>
+            <TerminalPane fx:id="terminalPane" id="terminalPane"/>
         </HBox>
     </right>
     <bottom>
@@ -81,7 +81,7 @@
             <BorderPane.margin>
                 <Insets left="1075"/>
             </BorderPane.margin>
-            <ChronoLabel fx:id="chronoGame"/>
+            <ChronoLabel id="chrono" fx:id="chronoGame"/>
         </HBox>
     </top>
 </fx:root>

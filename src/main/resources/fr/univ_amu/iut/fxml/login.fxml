@@ -14,16 +14,16 @@
                 <Insets top="100" right="20"/>
             </BorderPane.margin>
             <VBox alignment="CENTER">
-                <Label styleClass="textLogin" text="Nom d'utilisateur :"/>
-                <TextField fx:id="nickname" id="loginForm" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
+                <Label id="textLogin_Username" text="Nom d'utilisateur :"/>
+                <TextField fx:id="nickname" id="loginForm_nickname" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
             </VBox>
             <VBox alignment="CENTER">
-                <Label styleClass="textLogin" text="Mot de passe :"/>
-                <PasswordField fx:id="password" id="loginForm" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
+                <Label id="textLogin_Password" text="Mot de passe :"/>
+                <PasswordField fx:id="password" id="loginForm_password" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
             </VBox>
             <HBox alignment="CENTER" spacing="30">
-                <Button fx:id="loginBtn" id="buttonLoginForm" text="Login" onAction="#secureSwitchTo" userData="fxml/home_logged.fxml"/>
-                <SwitchToPaneButton id="buttonLoginForm" text="Abort" userData="fxml/home.fxml"/>
+                <Button fx:id="loginBtn" id="buttonLogin_login" text="Se connecter" onAction="#secureSwitchTo" userData="fxml/home_logged.fxml"/>
+                <SwitchToPaneButton id="buttonAbort_login" text="Abandonner" userData="fxml/home.fxml"/>
             </HBox>
         </VBox>
     </center>

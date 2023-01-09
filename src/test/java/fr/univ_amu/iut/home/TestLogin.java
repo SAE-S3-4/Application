@@ -1,7 +1,11 @@
 package fr.univ_amu.iut.home;
 
 import fr.univ_amu.iut.Main;
+import fr.univ_amu.iut.database.Database;
+import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
+import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
 import javafx.application.Platform;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
@@ -14,11 +18,13 @@ import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
+import java.sql.SQLException;
 import java.util.concurrent.TimeoutException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.testfx.api.FxAssert.verifyThat;
+import static org.testfx.util.NodeQueryUtils.hasText;
 import static org.testfx.util.NodeQueryUtils.isVisible;
 
 @ExtendWith(ApplicationExtension.class)
@@ -59,21 +65,68 @@ public class TestLogin {
     @Test
     public void shouldHaveAbortButton(FxRobot robot) {
         robot.clickOn("#switchToPaneButtonLogin");
-        assertThat()
+        verifyThat("#buttonAbort_login", hasText("Abandonner"));
     }
 
     @Test
-    public void shouldHaveLoginButton() {
-
+    public void abortButtonIsShowing(FxRobot robot) {
+        robot.clickOn("#switchToPaneButtonLogin");
+        verifyThat("#buttonAbort_login", isVisible());
     }
 
     @Test
-    public void shouldHaveEMailTextField() {
-
+    public void shouldHaveLoginButton(FxRobot robot) {
+        robot.clickOn("#switchToPaneButtonLogin");
+        verifyThat("#buttonLogin_login", hasText("Se connecter"));
     }
 
     @Test
-    public void shouldHavePasswordField() {
+    public void loginButtonIsShowing(FxRobot robot) {
+        robot.clickOn("#switchToPaneButtonLogin");
+        verifyThat("#buttonLogin_login", isVisible());
+    }
 
+    @Test
+    public void shouldHaveEMailLabel(FxRobot robot) {
+        robot.clickOn("#switchToPaneButtonLogin");
+        assertThat("#textLogin_Username".equals("<Label[id=textLogin_Username, styleClass=label]'Nom d'utilisateur :'>"));
+        verifyThat("#textLogin_Username", isVisible());
+    }
+
+    @Test
+    public void shouldHavePasswordLabel(FxRobot robot) {
+        robot.clickOn("#switchToPaneButtonLogin");
+        assertThat("#textLogin_Password".equals("<Label[id=textLogin_Password, styleClass=label]'Mot de passe :'>"));
+        verifyThat("#textLogin_Password", isVisible());
+    }
+
+    @Test
+    public void shouldLogin(FxRobot robot){
+        robot.clickOn("#switchToPaneButtonLogin");
+        robot.clickOn("#loginForm_nickname");
+        robot.write("a");
+        robot.clickOn("#loginForm_password");
+        robot.write("a");
+        Database.initDBConnection();
+        try {
+            DAOUsersJDBC.initDAOUsersJDBC();
+            DAOQuestionJDBC.initDAOQuestionsJDBC();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        robot.clickOn("#buttonLogin_login");
+        verifyThat("#switchToPaneButtonGameLogged", isVisible());
+    }
+
+    @Test
+    public void shouldAbortConnection(FxRobot robot){
+        robot.clickOn("#switchToPaneButtonLogin");
+        robot.clickOn("#loginForm_nickname");
+        //TODO: Changer utilisateur
+        robot.write("a");
+        robot.clickOn("#loginForm_password");
+        robot.write("a");
+        robot.clickOn("#buttonAbort_login");
+        verifyThat("#switchToPaneButtonGame", isVisible());
     }
 }
