@@ -77,7 +77,7 @@
         </HBox>
     </bottom>
     <top>
-        <HBox fx:id="topHbox" alignment="CENTER_LEFT">
+        <HBox alignment="CENTER_LEFT">
             <BorderPane.margin>
                 <Insets left="1075"/>
             </BorderPane.margin>
