@@ -28,6 +28,7 @@ public class PracticeController extends PlayController {
 
         //setting up the level Label
         levelLabel = new Label("Niveau : "+((level-1)/3+1));
+        levelLabel.setId("levelNumber");
         getTopHbox().getChildren().add(levelLabel);
     }
 

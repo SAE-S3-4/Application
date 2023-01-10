@@ -10,7 +10,7 @@
 <?import fr.univ_amu.iut.components.SwitchToPaneButton?>
 <?import fr.univ_amu.iut.components.SwitchToPlayButton?>
 
-<fx:root id="practice" prefHeight="400.0" prefWidth="600.0" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="practice" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <VBox>
             <BorderPane.margin>
@@ -23,7 +23,7 @@
     <right>
         <HBox>
             <BorderPane.margin>
-                <Insets top="180" left="10" right="125" bottom="30" />
+                <Insets top="92" left="10" right="125" bottom="30" />
             </BorderPane.margin>
             <TerminalPane fx:id="terminalPane"/>
         </HBox>
@@ -75,9 +75,9 @@
         </HBox>
     </bottom>
     <top>
-        <HBox fx:id="topHbox" alignment="CENTER_LEFT">
+        <HBox fx:id="topHbox" alignment="CENTER_RIGHT">
             <BorderPane.margin>
-                <Insets left="1075"/>
+                <Insets top="60" right="350"/>
             </BorderPane.margin>
         </HBox>
     </top>
