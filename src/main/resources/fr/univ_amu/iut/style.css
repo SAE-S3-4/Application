@@ -25,13 +25,6 @@
     -fx-background-size: 100% 100%;
 }
 
-.bar_button {
-    -fx-border-color: transparent;
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-font-size: 40;
-}
-
 #game {
     -fx-background-image: url("pictures/game_background.jpg");
     -fx-background-repeat: no-repeat;
@@ -44,6 +37,20 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: 100% 100%;
+}
+
+#score {
+    -fx-background-image: url("pictures/score_background.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100% 100%;
+}
+
+.bar_button {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 40;
 }
 
 #loginForm_nickname, #loginForm_password {
@@ -65,13 +72,6 @@
     -fx-border-color: transparent;
     -fx-background-color: transparent;
     -fx-text-fill: blue;
-}
-
-#score {
-    -fx-background-image: url("pictures/score_background.jpg");
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: 100% 100%;
 }
 
 #text_score {
@@ -107,4 +107,8 @@
 .textLeft{
     -fx-text-fill: white;
     -fx-font-size: 15;
+}
+
+#levelNumber{
+    -fx-font-size: 20;
 }
