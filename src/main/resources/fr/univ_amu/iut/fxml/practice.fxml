@@ -16,8 +16,8 @@
             <BorderPane.margin>
                 <Insets top="195" left="100"/>
             </BorderPane.margin>
-            <Label styleClass="title" fx:id="title"/>
-            <Label styleClass="textLeft" fx:id="text"/>
+            <Label id="title" styleClass="title" fx:id="title"/>
+            <Label id="text" styleClass="textLeft" fx:id="text"/>
         </VBox>
     </left>
     <right>
@@ -25,7 +25,7 @@
             <BorderPane.margin>
                 <Insets top="92" left="10" right="125" bottom="30" />
             </BorderPane.margin>
-            <TerminalPane fx:id="terminalPane"/>
+            <TerminalPane id="teminalPane" fx:id="terminalPane"/>
         </HBox>
     </right>
     <bottom>
@@ -34,21 +34,21 @@
                 <Insets bottom="20" right="150" />
             </BorderPane.margin>
             <HBox alignment="CENTER_LEFT">
-                <SwitchToPaneButton fx:id="homeBtn" styleClass="bar_button" userData="fxml/home_logged.fxml">
+                <SwitchToPaneButton id="homeBtn" fx:id="homeBtn" styleClass="bar_button" userData="fxml/home_logged.fxml">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/home_button.png" />
                         </ImageView>
                     </graphic>
                 </SwitchToPaneButton>
-                <SwitchToPaneButton fx:id="practiceMenuBtn" styleClass="bar_button" userData="fxml/practice_menu.fxml">
+                <SwitchToPaneButton id="practiceMenuBtn" fx:id="practiceMenuBtn" styleClass="bar_button" userData="fxml/practice_menu.fxml">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/practice_button_on.png" />
                         </ImageView>
                     </graphic>
                 </SwitchToPaneButton>
-                <SwitchToPlayButton fx:id="playBtn" styleClass="bar_button" userData="16,game">
+                <SwitchToPlayButton id="playBtn" fx:id="playBtn" styleClass="bar_button" userData="16,game">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/play_button.png" />
@@ -57,14 +57,14 @@
                 </SwitchToPlayButton>
             </HBox>
             <HBox fx:id="botBtns" alignment="CENTER_RIGHT">
-                <Button fx:id="suggestionBtn" styleClass="bar_button">
+                <Button id="suggestionBtn" fx:id="suggestionBtn" styleClass="bar_button">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/suggestion_button.png" />
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="solutionBtn" styleClass="bar_button">
+                <Button id="solutionBtn" fx:id="solutionBtn" styleClass="bar_button">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/solution_button.png" />
