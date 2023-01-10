@@ -37,10 +37,12 @@ public class TerminalPane extends BorderPane {
         //Initialize the widgets
         inputZone = new TextField("");
         inputZone.setStyle("-fx-background-color: transparent");
+        inputZone.setId("terminalInputZone");
 
         textField = new TextArea("Ecrire help pour plus d'informations");
         textField.setEditable(false);
         textField.setStyle("-fx-background-color: transparent");
+        textField.setId("terminalTxtField");
 
         inputZone.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
