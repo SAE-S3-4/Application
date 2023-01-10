@@ -38,7 +38,7 @@ public class TerminalPane extends BorderPane {
         inputZone = new TextField("");
         inputZone.setStyle("-fx-background-color: transparent");
 
-        textField = new TextArea("Type help for more information");
+        textField = new TextArea("Ecrire help pour plus d'informations");
         textField.setEditable(false);
         textField.setStyle("-fx-background-color: transparent");
 

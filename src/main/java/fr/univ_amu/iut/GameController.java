@@ -85,7 +85,7 @@ public class GameController extends PlayController {
                     });
                 }else {
 
-                    nextQuestion.setText("Passer au score board");
+                    nextQuestion.setText("Aller au Tableau des Scores");
                     c.stop();
                     try {
                         DAOUsersJDBC.getDAOUsersJDBC().updateUserScore(userLogged);
