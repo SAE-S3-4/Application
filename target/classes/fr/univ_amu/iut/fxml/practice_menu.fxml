@@ -40,19 +40,19 @@
     <center>
         <VBox alignment="CENTER">
             <SwitchToPlayButton id="level1Btn" styleClass="bar_button" userData="1,practice">
-                <text>01 - Level 1</text>
+                <text>01 - Niveau 1</text>
             </SwitchToPlayButton>
             <SwitchToPlayButton id="level2Btn" styleClass="bar_button" userData="4,practice">
-                <text>02 - Level 2</text>
+                <text>02 - Niveau 2</text>
             </SwitchToPlayButton>
             <SwitchToPlayButton id="level3Btn" styleClass="bar_button" userData="7,practice">
-                <text>03 - Level 3</text>
+                <text>03 - Niveau 3</text>
             </SwitchToPlayButton>
             <SwitchToPlayButton id="level4Btn" styleClass="bar_button" userData="10,practice">
-                <text>04 - Level 4</text>
+                <text>04 - Niveau 4</text>
             </SwitchToPlayButton>
             <SwitchToPlayButton id="level5Btn" styleClass="bar_button" userData="13,practice">
-                <text>05 - Level 5</text>
+                <text>05 - Niveau 5</text>
             </SwitchToPlayButton>
          <opaqueInsets>
             <Insets />

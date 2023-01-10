@@ -27,7 +27,7 @@
             <BorderPane.margin>
                 <Insets right="260" bottom="60"/>
             </BorderPane.margin>
-            <Label fx:id="status" id="text_score" text="You won !"/>
+            <Label fx:id="status" id="text_score" text="T'as gagné !"/>
             <Label fx:id="name" id="text_score" />
             <Label fx:id="score" id="text_score" />
         </VBox>

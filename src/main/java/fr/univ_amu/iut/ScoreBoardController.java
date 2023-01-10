@@ -70,10 +70,9 @@ public class ScoreBoardController {
     /**
      * Method used to initialize the widgets in the scene with the correct values (the podium and the user logged score)
      *
-     * @throws SQLException
      */
     @FXML
-    public void initialize() throws SQLException {
+    public void initialize() {
         name.setText(userLogged.getNickname());
         score.setText(String.valueOf(userLogged.getScore()));
         ArrayList<Label> podiumLines = new ArrayList<Label>(Arrays.asList(first,second,third,fourth,fifth));
@@ -82,32 +81,6 @@ public class ScoreBoardController {
             podiumLines.get(numLabel).setText((numLabel + 1) + " - " + u.getNickname() + " : " + u.getScore());
             numLabel++;
         }
-    }
-
-
-    /**
-     * Method used to switch between the scenes
-     *
-     * @param event
-     * @throws IOException
-     */
-    @FXML
-    public void switchToPane(ActionEvent event) throws IOException {
-        Stage stage;
-        Scene scene;
-        Parent root;
-        String data;
-
-        Node node = (Node) event.getSource() ;
-        data = (String) node.getUserData();
-        root = FXMLLoader.load(getClass().getResource(data));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,1280, 720);
-        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
-        stage.setTitle("Find the breach");
-        stage.setScene(scene);
-        stage.show();
-
     }
 
 }
