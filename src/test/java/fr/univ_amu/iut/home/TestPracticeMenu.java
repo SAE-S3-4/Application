@@ -20,8 +20,6 @@ import org.testfx.framework.junit5.Start;
 import java.sql.SQLException;
 import java.util.concurrent.TimeoutException;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.isVisible;
 

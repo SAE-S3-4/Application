@@ -1,8 +1,6 @@
 package fr.univ_amu.iut.home;
 
 import fr.univ_amu.iut.Main;
-import fr.univ_amu.iut.ServerTerminal;
-import fr.univ_amu.iut.components.TerminalPane;
 import fr.univ_amu.iut.database.Database;
 import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
 import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
@@ -19,7 +17,6 @@ import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.concurrent.TimeoutException;
 

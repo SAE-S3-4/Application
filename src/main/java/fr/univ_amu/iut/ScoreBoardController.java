@@ -2,16 +2,8 @@ package fr.univ_amu.iut;
 
 import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
 import fr.univ_amu.iut.database.User;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
@@ -19,7 +11,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static fr.univ_amu.iut.LoginController.userLogged;
-import static java.lang.Integer.parseInt;
 
 /**
  * Class used as the controller of the leader board scene

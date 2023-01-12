@@ -1,16 +1,12 @@
 package fr.univ_amu.iut.tools;
 
-import fr.univ_amu.iut.SwitchTo;
 import fr.univ_amu.iut.components.TerminalPane;
 import fr.univ_amu.iut.database.Question;
 import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
-import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
