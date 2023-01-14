@@ -32,6 +32,9 @@ Pour lancer l'application via un IDE ouvrez simplement le fichier Main.java, et 
 ```java
 public static void main(String[] args) throws SQLException {
 ```
+Pour que l'application fonctionne, le ServerTerminal doit également être lancé. 
+Nous l'hébergeons déjà, si l'application montre une erreur au lancement d'un niveau ou du jeu, 
+veuillez modifier l'ip du serveur, le port en fonction de votre infrastructure et l'héberger sur votre ordinateur ou sur un serveur.
 ## Utilisation 🎮
 
 - Accueil
