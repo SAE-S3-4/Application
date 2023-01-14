@@ -76,7 +76,7 @@ Vous faites maintenant votre recherche de l'utilisateur qui a laissé une trace.
 Les boutons indice et solution apparaissent qu'au bout de 5 minutes et 10 minutes respectivement.
 Votre score est calculé en fonction du temps écoulé et des bonus utilisés.
 
-![Image page jeu](readmePictures/game.jpg  "Page jeu")
+![Image page jeu](readmePictures/play.jpg  "Page jeu")
 
 - Tableau des scores
 
