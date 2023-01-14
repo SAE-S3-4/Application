@@ -26,7 +26,7 @@ public class TerminalPane extends BorderPane {
         super();
 
         // Initialize the connection
-        ClientTerminal client = new ClientTerminal("localhost", 10007);
+        ClientTerminal client = new ClientTerminal("findthebreach.sytes.net", 10013);
         try {
             client.connect();
         } catch (IOException e) {
@@ -86,5 +86,11 @@ public class TerminalPane extends BorderPane {
     public TextArea getTextField(){
         return textField;
     }
+
+    /**
+     * Function used to set the question response to check it
+     *
+     * @param reponse
+     */
     public void setReponse(String reponse){this.reponse = reponse;}
 }
