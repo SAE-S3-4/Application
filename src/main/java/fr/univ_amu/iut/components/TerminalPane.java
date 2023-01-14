@@ -30,6 +30,7 @@ public class TerminalPane extends BorderPane {
         try {
             client.connect();
         } catch (IOException e) {
+            System.out.println("Connexion avec le serveur inexistante, veuillez essayer de relancer l'application ou demander un redemarrage du serveur");
             throw new RuntimeException(e);
         }
         client.listen();
