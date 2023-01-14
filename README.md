@@ -28,9 +28,9 @@ Application fonctionnelle sur :
 
 ![Mac OS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
-Pour lancer l'application via un IDE ouvrez simplement le fichier Main.java, et exécuter cette ligne :
+Pour lancer l'application via un IDE ouvrez simplement le fichier Main.java, et exécuter la methode "main" :
 ```java
-public static void main(String[] args) throws SQLException {
+public static void main(String[] args) {
 ```
 Pour que l'application fonctionne, le ServerTerminal doit également être lancé. 
 Nous l'hébergeons déjà, si l'application montre une erreur au lancement d'un niveau ou du jeu, 

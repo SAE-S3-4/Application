@@ -48,13 +48,18 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.show();
     }
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         Database.initDBConnection();
         if(Database.connection.equals(null)){
 
         }
-        DAOUsersJDBC.initDAOUsersJDBC();
-        DAOQuestionJDBC.initDAOQuestionsJDBC();
+        try {
+            DAOUsersJDBC.initDAOUsersJDBC();
+            DAOQuestionJDBC.initDAOQuestionsJDBC();
+        } catch (SQLException e) {
+            System.out.println("Erreur dans l'initialisation des DAOs");
+            throw new RuntimeException(e);
+        }
         launch();
     }
 }
