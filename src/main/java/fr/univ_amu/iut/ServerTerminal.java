@@ -82,7 +82,7 @@ public class ServerTerminal {
 
     public static void main(String[] args) throws IOException {
 
-        ServerTerminal server = new ServerTerminal(10007,1000);
+        ServerTerminal server = new ServerTerminal(10013,10000);
         server.launch();
 
     }
