@@ -55,7 +55,7 @@ public class LoginController {
      */
     @FXML
     public void openRegister(ActionEvent e) throws IOException, URISyntaxException {
-        Desktop.getDesktop().browse(new URI("https://google.com"));
+        Desktop.getDesktop().browse(new URI("https://findthebreach.ddns.net"));
     }
 
     /**
