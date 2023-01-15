@@ -41,7 +41,7 @@ public class PracticeController extends PlayController {
             //Get all the old text - all the new text = what has been appended
             String newChunkedValue = newValue.substring(oldValue.length());
 
-            if(newChunkedValue.contains(getQuestion().getSolution())) {
+            if(newChunkedValue.equals("\nUser : "+getQuestion().getSolution())) {
                 Button nextQuestion = new Button();
                 nextQuestion.setId("nextQuestionButton");
 

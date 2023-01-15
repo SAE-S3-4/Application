@@ -27,13 +27,4 @@
             </HBox>
         </VBox>
     </center>
-    <bottom>
-        <HBox alignment="CENTER_LEFT">
-            <BorderPane.margin>
-                <Insets bottom="20" left="20"/>
-            </BorderPane.margin>
-            <Label styleClass="textLogin" text="Vous n'avez pas de compte ?"/>
-            <Button onAction="#openRegister" id="register" text="Inscrivez-vous !"/>
-        </HBox>
-    </bottom>
 </BorderPane>

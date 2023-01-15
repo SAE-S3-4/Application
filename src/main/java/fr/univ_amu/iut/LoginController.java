@@ -28,10 +28,6 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * Class used as the controller of the login page
  */
 public class LoginController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    private String data;
     public static User userLogged;
     @FXML
     private TextField nickname;
@@ -41,21 +37,12 @@ public class LoginController {
     @FXML
     private Button loginBtn;
 
+    /**
+     * Method used initialize the login button as the default button when the user presses ENTER
+     */
     @FXML
     public void initialize() {
         loginBtn.setDefaultButton(true);
-    }
-
-    /**
-     * Method used to create a hyperlink to the register web page, clickable from the login page
-     *
-     * @param e
-     * @throws URISyntaxException
-     * @throws IOException
-     */
-    @FXML
-    public void openRegister(ActionEvent e) throws IOException, URISyntaxException {
-        Desktop.getDesktop().browse(new URI("https://google.com"));
     }
 
     /**

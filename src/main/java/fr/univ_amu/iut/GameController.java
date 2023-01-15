@@ -69,7 +69,7 @@ public class GameController extends PlayController {
         getTerminalPane().getTextField().textProperty().addListener((observable, oldValue, newValue) -> {
             //Get all the old text - all the new text = what has been appended
             String newChunkedValue = newValue.substring(oldValue.length());
-            if(newChunkedValue.contains(getQuestion().getSolution())) {
+            if(newChunkedValue.equals("\nUser : "+getQuestion().getSolution())) {
                 Button nextQuestion = new Button();
                 nextQuestion.setId("nextQuestionButton");
                 if (level<MAX_GAME_QUESTIONS){
