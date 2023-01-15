@@ -51,7 +51,7 @@ public class ClientTerminal {
             out.write(msg);
             out.newLine();
             out.flush();
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }

@@ -51,7 +51,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         Database.initDBConnection();
         if(Database.connection.equals(null)){
-
+            System.out.println("Pas de connection au serveur");
         }
         try {
             DAOUsersJDBC.initDAOUsersJDBC();
