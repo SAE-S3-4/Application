@@ -93,7 +93,7 @@ Vous pouvez redémarrer une partie, retourner vous entraîner ou quitter l'appli
 Pour améliorer notre projet, nous aurions pu chercher à perfectionner l'aspect sécurisation vis à vis du Terminal distant.
 La mise en place d'un mode multijoueur aurait été aussi une perspective d'évolution.
 
-### Lien du du projet GitHub 
+### Lien projet GitHub du site web
 
 Lien : https://github.com/amaury-vial/Site_SAE_S3
 
