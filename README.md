@@ -8,7 +8,7 @@ Votre mission est de les retrouver afin de les dénoncer à la police.
 ## Demandes ✍️
 
 - Jeu qui sert de support pour les cours
-- Site web pour administrer le contenu du jeu -> Site accessible sur https://findthebreach.ddns.net et code sur le Github :
+- Site web pour administrer le contenu du jeu -> Site accessible sur https://findthebreach.ddns.net et code sur le Github : https://github.com/amaury-vial/Site_SAE_S3
 - Utilisation des sockets
 
 ## Ce que nous avons réalisé ⚙️
@@ -92,10 +92,6 @@ Vous pouvez redémarrer une partie, retourner vous entraîner ou quitter l'appli
 
 Pour améliorer notre projet, nous aurions pu chercher à perfectionner l'aspect sécurisation vis à vis du Terminal distant.
 La mise en place d'un mode multijoueur aurait été aussi une perspective d'évolution.
-
-### Lien projet GitHub du site web
-
-Lien : https://github.com/amaury-vial/Site_SAE_S3
 
 ## Membres du projet 🧑‍💻
 
