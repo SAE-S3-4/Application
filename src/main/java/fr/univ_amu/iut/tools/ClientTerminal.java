@@ -1,5 +1,7 @@
 package fr.univ_amu.iut.tools;
 
+import javafx.scene.control.Alert;
+
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -35,10 +37,16 @@ public class ClientTerminal {
      * @throws UnknownHostException
      * @throws IOException
      */
-    public void connect() throws UnknownHostException, IOException {
-        socketClient = new Socket(hostname, port);
-        out = new BufferedWriter(new OutputStreamWriter(socketClient.getOutputStream()));
-        in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+    public void connect() {
+        try {
+            socketClient = new Socket(hostname, port);
+            out = new BufferedWriter(new OutputStreamWriter(socketClient.getOutputStream()));
+            in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+        } catch (IOException e) {
+            Alert serverNotOnline = new Alert(Alert.AlertType.ERROR, "Connexion avec le serveur inexistante \nContactez le support");
+            serverNotOnline.show();
+            throw new RuntimeException(e);
+        }
     }
 
     /**

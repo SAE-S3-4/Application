@@ -2,6 +2,7 @@ package fr.univ_amu.iut.components;
 
 import fr.univ_amu.iut.tools.ClientTerminal;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -27,12 +28,7 @@ public class TerminalPane extends BorderPane {
 
         // Initialize the connection
         ClientTerminal client = new ClientTerminal("findthebreach.sytes.net", 10013);
-        try {
-            client.connect();
-        } catch (IOException e) {
-            System.out.println("Connexion avec le serveur inexistante, veuillez essayer de relancer l'application ou demander un redemarrage du serveur");
-            throw new RuntimeException(e);
-        }
+        client.connect();
         client.listen();
 
         //Initialize the widgets
