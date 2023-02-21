@@ -3,6 +3,7 @@ package fr.univ_amu.iut;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.UUID;
 
 /**
  * Class containing the server used to simulate a linux console
@@ -10,6 +11,7 @@ import java.net.Socket;
 public class ServerTerminal {
     private int port;
     private int nbClients;
+    private String dockerId;
 
     /**
      * Constructor for the server hosting the linux console used to play the games
@@ -34,6 +36,9 @@ public class ServerTerminal {
         System.out.println("Bash server launched on port : " + port);
 
         for (int i = 1; i <= nbClients; i++) {
+            dockerId = UUID.randomUUID().toString();
+            //Creation of a docker container per client
+            Runtime.getRuntime().exec("docker run -it -d --rm --name " + dockerId + " terminal");
 
             Socket client = server.accept();
 
@@ -48,7 +53,8 @@ public class ServerTerminal {
                     try {
                         while ((msg = in.readLine()) != null) {
                             try {
-                                Process process = Runtime.getRuntime().exec(msg);
+                                //Execution of the command sent in the docker
+                                Process process = Runtime.getRuntime().exec("docker exec " + dockerId + " " + msg);
 
                                 BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
                                 String line = "";
@@ -65,6 +71,8 @@ public class ServerTerminal {
                                 out.flush();
                             }
                         }
+                        //Stop client docker
+                        Runtime.getRuntime().exec("docker stop " + dockerId);
                         //Exit if the user disconnects
                         System.out.println("Client disconnected");
                         //Close the flux if the user disconnects
