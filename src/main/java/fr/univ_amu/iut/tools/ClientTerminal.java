@@ -2,6 +2,8 @@ package fr.univ_amu.iut.tools;
 
 import javafx.scene.control.Alert;
 
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -13,9 +15,11 @@ import java.util.List;
  */
 public class ClientTerminal {
 
+    private static final String[] protocols = new String[]{"TLSv1.3"};
+    private static final String[] cipher_suites = new String[]{"TLS_AES_128_GCM_SHA256"};
     private String hostname;
     private int port;
-    private Socket socketClient;
+    private SSLSocket socketClient;
     private BufferedWriter out;
     private BufferedReader in;
     private List<String> txtReceived;
@@ -39,7 +43,13 @@ public class ClientTerminal {
      */
     public void connect() {
         try {
-            socketClient = new Socket(hostname, port);
+            SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            socketClient = (SSLSocket) factory.createSocket(hostname,port);
+
+            socketClient.setEnabledProtocols(protocols);
+            socketClient.setEnabledCipherSuites(cipher_suites);
+            socketClient.startHandshake();
+
             out = new BufferedWriter(new OutputStreamWriter(socketClient.getOutputStream()));
             in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
         } catch (IOException e) {

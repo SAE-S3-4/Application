@@ -1,14 +1,18 @@
 package fr.univ_amu.iut;
 
+import javax.net.ssl.SSLServerSocket;
+import javax.net.ssl.SSLServerSocketFactory;
+import javax.net.ssl.SSLSocket;
 import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.UUID;
 
 /**
  * Class containing the server used to simulate a linux console
  */
 public class ServerTerminal {
+
+    private static final String[] protocols = new String[]{"TLSv1.3"};
+    private static final String[] cipher_suites = new String[]{"TLS_AES_128_GCM_SHA256"};
     private int port;
     private int nbClients;
     private String dockerId;
@@ -31,7 +35,13 @@ public class ServerTerminal {
      */
     public void launch() throws IOException {
 
-        ServerSocket server = new ServerSocket(port);
+        SSLServerSocketFactory factory =
+                (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
+
+        SSLServerSocket server = (SSLServerSocket) factory.createServerSocket(port);
+
+        server.setEnabledProtocols(protocols);
+        server.setEnabledCipherSuites(cipher_suites);
 
         System.out.println("Bash server launched on port : " + port);
 
@@ -40,7 +50,7 @@ public class ServerTerminal {
             //Creation of a docker container per client
             Runtime.getRuntime().exec("docker run -it -d --rm --name " + dockerId + " terminal");
 
-            Socket client = server.accept();
+            SSLSocket client = (SSLSocket)server.accept();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
             BufferedWriter out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
