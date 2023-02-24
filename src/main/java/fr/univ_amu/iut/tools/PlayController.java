@@ -1,8 +1,7 @@
 package fr.univ_amu.iut.tools;
 
 import fr.univ_amu.iut.components.TerminalPane;
-import fr.univ_amu.iut.database.Question;
-import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
+import fr.univ_amu.iut.dao.beans.Questions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,7 +37,7 @@ public abstract class  PlayController extends BorderPane {
     @FXML
     HBox topHbox;
     private int level;
-    private Question question;
+    private Questions question;
     private String page;
 
     /**
@@ -81,7 +80,7 @@ public abstract class  PlayController extends BorderPane {
         setQuestion(level);
         initActions();
         showInstructions();
-        terminalPane.setReponse(question.getSolution());
+        terminalPane.setReponse(question.getAnswer());
     }
 
     /**
@@ -119,7 +118,7 @@ public abstract class  PlayController extends BorderPane {
      * @param level
      */
     public void setQuestion(int level){
-        question = DAOQuestionJDBC.getDAOQuestionsJDB().findQuestionById(level);
+        question = Daos.daoQuestions.getByRoomAndNum(Daos.daoRooms.getById(page),level);
     }
 
     /**
@@ -133,7 +132,7 @@ public abstract class  PlayController extends BorderPane {
     @FXML
     public void showSolution(){
         title.setText(question.getTitle());
-        text.setText(question.getSolution());
+        text.setText(question.getAnswer());
     }
 
     /**
@@ -151,7 +150,7 @@ public abstract class  PlayController extends BorderPane {
     @FXML
     public void showInstructions(){
         title.setText(question.getTitle());
-        text.setText(question.getText());
+        text.setText(question.getAssignement());
     }
 
     /**
@@ -166,7 +165,7 @@ public abstract class  PlayController extends BorderPane {
      *
      * @return the current Question
      */
-    public Question getQuestion() {
+    public Questions getQuestion() {
         return question;
     }
 

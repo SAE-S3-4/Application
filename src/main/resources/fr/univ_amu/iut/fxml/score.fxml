@@ -9,7 +9,7 @@
 <?import fr.univ_amu.iut.components.SwitchToPlayButton?>
 <?import fr.univ_amu.iut.components.SwitchToPaneButton?>
 
-<BorderPane id="score" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="fr.univ_amu.iut.ScoreBoardController">
+<fx:root id="score" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <VBox alignment="CENTER_LEFT" spacing="10">
             <BorderPane.margin>
@@ -51,7 +51,7 @@
                     </ImageView>
                 </graphic>
             </SwitchToPaneButton>
-            <SwitchToPlayButton fx:id="playBtn" styleClass="bar_button" userData="16,game">
+            <SwitchToPlayButton fx:id="playBtn" styleClass="bar_button" userData="1,game">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <HBox.margin>
@@ -66,4 +66,4 @@
             </SwitchToPlayButton>
         </HBox>
     </bottom>
-</BorderPane>
+</fx:root>

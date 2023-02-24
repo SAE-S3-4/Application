@@ -22,7 +22,7 @@
             <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../pictures/practice_button_on.png"/>
             </ImageView>
-            <SwitchToPlayButton styleClass="bar_button" userData="16,game">
+            <SwitchToPlayButton styleClass="bar_button" userData="1,game">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                         <HBox.margin>
