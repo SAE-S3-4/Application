@@ -48,7 +48,7 @@
                         </ImageView>
                     </graphic>
                 </SwitchToPaneButton>
-                <SwitchToPlayButton id="playBtn" fx:id="playBtn" styleClass="bar_button" userData="16,game">
+                <SwitchToPlayButton id="playBtn" fx:id="playBtn" styleClass="bar_button" userData="1,game">
                     <graphic>
                         <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../pictures/play_button.png" />

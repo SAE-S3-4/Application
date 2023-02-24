@@ -1,8 +1,6 @@
 package fr.univ_amu.iut;
 
-import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
-import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
-import fr.univ_amu.iut.database.Database;
+import fr.univ_amu.iut.tools.Daos;
 import javafx.application.Application;
 import javafx.application.Platform;
 
@@ -13,8 +11,6 @@ import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
-import java.sql.SQLException;
-
 
 public class Main extends Application {
     /**
@@ -49,17 +45,7 @@ public class Main extends Application {
         stage.show();
     }
     public static void main(String[] args) {
-        Database.initDBConnection();
-        if(Database.connection.equals(null)){
-            System.out.println("Pas de connection au serveur");
-        }
-        try {
-            DAOUsersJDBC.initDAOUsersJDBC();
-            DAOQuestionJDBC.initDAOQuestionsJDBC();
-        } catch (SQLException e) {
-            System.out.println("Erreur dans l'initialisation des DAOs");
-            throw new RuntimeException(e);
-        }
+        Daos.initDaos();
         launch();
     }
 }

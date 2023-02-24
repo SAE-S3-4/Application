@@ -1,21 +1,16 @@
 package fr.univ_amu.iut;
 
-import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
-import fr.univ_amu.iut.database.User;
+
+import fr.univ_amu.iut.dao.beans.Users;
+import fr.univ_amu.iut.tools.Daos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
-import java.awt.Desktop;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -28,7 +23,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * Class used as the controller of the login page
  */
 public class LoginController {
-    public static User userLogged;
+    public static Users userLogged;
     @FXML
     private TextField nickname;
     @FXML
@@ -70,9 +65,9 @@ public class LoginController {
         BigInteger no = new BigInteger(1, digest);
         String hashPassword = no.toString(16);
         
-        User userDB;
-        userDB = DAOUsersJDBC.getDAOUsersJDBC().initialiseDatabaseLoginByNickname(inputNickname);
-        if (inputNickname.equals(userDB.getNickname()) && hashPassword.equals(userDB.getPassword())) {
+        Users userDB;
+        userDB = Daos.daoUser.getById(nickname.getText());
+        if (inputNickname.equals(userDB.getId()) && hashPassword.equals(userDB.getPassword())) {
             SwitchTo switchTo = new SwitchTo();
             switchTo.switchToPane(event);
             connected = true;

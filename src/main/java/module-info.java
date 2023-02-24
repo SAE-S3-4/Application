@@ -10,4 +10,7 @@ module fr.univ_amu.iut {
     opens fr.univ_amu.iut.components to javafx.fxml;
     exports fr.univ_amu.iut.tools;
     opens fr.univ_amu.iut.tools to javafx.fxml;
+
+    exports fr.univ_amu.iut.dao.beans;
+    opens fr.univ_amu.iut.dao.beans;
 }

@@ -1,7 +1,7 @@
 package fr.univ_amu.iut;
 
-import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
-import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
+import fr.univ_amu.iut.dao.beans.Scores;
+import fr.univ_amu.iut.tools.Daos;
 import fr.univ_amu.iut.tools.PlayController;
 
 import javafx.event.ActionEvent;
@@ -9,8 +9,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,8 +24,10 @@ public class GameController extends PlayController {
 
     @FXML
     Button solutionBtn;
+
+    Scores userScore;
     private int level;
-    private final int MAX_GAME_QUESTIONS = DAOQuestionJDBC.daoQuestionJDBC.getGetTotalNumberOfQuestions();
+    private final long MAX_GAME_QUESTIONS = Daos.daoQuestions.findNumberQuestionsByRoom(Daos.daoRooms.getById("game"));
 
     /**
      * Constructor of the GameController
@@ -38,6 +38,7 @@ public class GameController extends PlayController {
     public GameController(int level, ActionEvent event) {
         super(level, "game", event);
         this.level = level;
+        userScore = Daos.daoScores.getByUserAndRoom(userLogged,Daos.daoRooms.getById("game"));
         initTimerButtons();
     }
 
@@ -69,7 +70,7 @@ public class GameController extends PlayController {
         getTerminalPane().getTextField().textProperty().addListener((observable, oldValue, newValue) -> {
             //Get all the old text - all the new text = what has been appended
             String newChunkedValue = newValue.substring(oldValue.length());
-            if(newChunkedValue.equals("\nUser : "+getQuestion().getSolution())) {
+            if(newChunkedValue.equals("\nUser : "+getQuestion().getAnswer())) {
                 Button nextQuestion = new Button();
                 nextQuestion.setId("nextQuestionButton");
                 if (level<MAX_GAME_QUESTIONS){
@@ -87,21 +88,14 @@ public class GameController extends PlayController {
 
                     nextQuestion.setText("Aller au Tableau des Scores");
                     c.stop();
-                    try {
-                        DAOUsersJDBC.getDAOUsersJDBC().updateUserScore(userLogged);
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
+                    //DAOUsersJDBC.getDAOUsersJDBC().updateUserScore(userLogged);
+                    Daos.daoUser.update(userLogged);
                     nextQuestion.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent e) {
+                            nextQuestion.setUserData("game,score");
                             SwitchTo switchTo = new SwitchTo();
-
-                            try {
-                                switchTo.switchToPane(e,"score");
-                            } catch (IOException ex) {
-                                throw new RuntimeException(ex);
-                            }
+                            switchTo.switchToController(e);
 
                         }
                     });
@@ -115,14 +109,14 @@ public class GameController extends PlayController {
     public void initActions(){
         getSuggestionBtn().setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                userLogged.setScore(userLogged.getScore()-50);
+                userScore.setScore(userScore.getScore()-50);
                 showSuggestion();
             }
         });
 
         getSolutionBtn().setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                userLogged.setScore(userLogged.getScore()-200);
+                userScore.setScore(userScore.getScore()-200);
                 showSolution();
             }
         });

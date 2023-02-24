@@ -18,7 +18,7 @@ public class SwitchToPlayButton extends Button {
         this.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent event) {
                 SwitchTo switchTo = new SwitchTo();
-                switchTo.switchToPlay(event);
+                switchTo.switchToController(event);
             }
         });
     }

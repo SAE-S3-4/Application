@@ -75,7 +75,7 @@ public class SwitchTo {
      * @param event
      * @throws IOException
      */
-    public void switchToPlay(ActionEvent event){
+    public void switchToController(ActionEvent event){
         Node node = (Node) event.getSource() ;
         String userData = ((String)(node.getUserData()));       //userData = id,pageFxml
         String[] userDataArray = userData.split(",");     // ["id","pageFxml"]
@@ -84,6 +84,8 @@ public class SwitchTo {
                 new PracticeController(parseInt(userDataArray[0]),event);
             case "game":
                 new GameController(parseInt(userDataArray[0]),event);
+            case "score":
+                new ScoreBoardController(userDataArray[0],event);
         }
     }
 }
