@@ -2,11 +2,12 @@ package fr.univ_amu.iut.tools;
 
 import javafx.scene.control.Alert;
 
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.*;
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.security.*;
+import java.security.cert.CertificateException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +44,14 @@ public class ClientTerminal {
      */
     public void connect() {
         try {
+            Security.setProperty("javax.net.ssl.trustStore","myTrustStore.jts");
+            System.setProperty("javax.net.ssl.trustStorePassword","password");
+            System.setProperty("javax.net.debug","all");
+
+            // Create SSL socket factory
             SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+
+            //SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
             socketClient = (SSLSocket) factory.createSocket(hostname,port);
 
             socketClient.setEnabledProtocols(protocols);

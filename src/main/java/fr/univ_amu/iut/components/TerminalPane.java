@@ -27,7 +27,7 @@ public class TerminalPane extends BorderPane {
         super();
 
         // Initialize the connection
-        ClientTerminal client = new ClientTerminal("findthebreach.sytes.net", 10013);
+        ClientTerminal client = new ClientTerminal("86.229.118.145", 10013);
         client.connect();
         client.listen();
 

@@ -1,9 +1,11 @@
 package fr.univ_amu.iut;
 
-import javax.net.ssl.SSLServerSocket;
-import javax.net.ssl.SSLServerSocketFactory;
-import javax.net.ssl.SSLSocket;
+import fr.univ_amu.iut.tools.ClientTerminal;
+
+import javax.net.ssl.*;
 import java.io.*;
+import java.security.*;
+import java.security.cert.CertificateException;
 import java.util.UUID;
 
 /**
@@ -35,8 +37,12 @@ public class ServerTerminal {
      */
     public void launch() throws IOException {
 
-        SSLServerSocketFactory factory =
-                (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
+        Security.setProperty("javax.net.ssl.keyStore","myKeyStore.jks");
+        System.setProperty("javax.net.ssl.keyStorePassword","password");
+        System.setProperty("javax.net.debug","all");
+
+        // Create SSL server socket factory
+        SSLServerSocketFactory factory = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
 
         SSLServerSocket server = (SSLServerSocket) factory.createServerSocket(port);
 
@@ -99,9 +105,7 @@ public class ServerTerminal {
     }
 
     public static void main(String[] args) throws IOException {
-
         ServerTerminal server = new ServerTerminal(10013,10000);
         server.launch();
-
     }
 }
