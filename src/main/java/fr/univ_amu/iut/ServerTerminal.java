@@ -37,7 +37,7 @@ public class ServerTerminal {
      */
     public void launch() throws IOException {
 
-        Security.setProperty("javax.net.ssl.keyStore","myKeyStore.jks");
+        System.setProperty("javax.net.ssl.keyStore","myKeyStore.jks");
         System.setProperty("javax.net.ssl.keyStorePassword","password");
         System.setProperty("javax.net.debug","all");
 

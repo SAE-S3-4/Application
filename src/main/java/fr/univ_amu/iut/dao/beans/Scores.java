@@ -21,11 +21,11 @@ public class Scores {
     int score;
 
     @OneToOne
-    @JoinColumn(name = "ID_USER")
+    @JoinColumn(name = "USER_ID")
     Users user;
 
     @OneToOne
-    @JoinColumn(name = "ROOM")
+    @JoinColumn(name = "ROOM_ID")
     Rooms room;
 
     public int getId() {

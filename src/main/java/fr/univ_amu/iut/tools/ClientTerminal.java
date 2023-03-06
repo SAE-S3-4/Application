@@ -44,7 +44,8 @@ public class ClientTerminal {
      */
     public void connect() {
         try {
-            Security.setProperty("javax.net.ssl.trustStore","myTrustStore.jts");
+            //Security.addProvider(new BouncyCasteProvider());
+            System.setProperty("javax.net.ssl.trustStore","myTrustStore.jts");
             System.setProperty("javax.net.ssl.trustStorePassword","password");
             System.setProperty("javax.net.debug","all");
 
