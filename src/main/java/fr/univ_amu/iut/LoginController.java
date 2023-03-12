@@ -1,7 +1,7 @@
 package fr.univ_amu.iut;
 
 
-import fr.univ_amu.iut.dao.beans.Users;
+import fr.univ_amu.iut.model.Users;
 import fr.univ_amu.iut.tools.Daos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -60,7 +60,7 @@ public class LoginController {
         inputPassword = loginUsers.get(1);
 
         inputPassword += inputNickname;             // adding the salt
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
         byte[] digest = md.digest(inputPassword.getBytes(UTF_8));
         BigInteger no = new BigInteger(1, digest);
         String hashPassword = no.toString(16);

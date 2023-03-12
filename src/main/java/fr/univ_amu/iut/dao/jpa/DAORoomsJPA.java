@@ -3,7 +3,7 @@ package fr.univ_amu.iut.dao.jpa;
 import fr.univ_amu.iut.dao.DAORooms;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import fr.univ_amu.iut.dao.beans.Rooms;
+import fr.univ_amu.iut.model.Rooms;
 
 import java.util.List;
 

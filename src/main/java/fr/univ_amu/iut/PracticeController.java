@@ -51,7 +51,7 @@ public class PracticeController extends PlayController {
                         @Override
                         public void handle(ActionEvent e) {
                             level = level+1;
-                            PracticeController.super.initLevel(level);
+                            PracticeController.super.initLevel(level,"practice");
                             updateLevelLabel();
                             getBotBtns().getChildren().setAll(PracticeController.super.getSuggestionBtn(),PracticeController.super.getSolutionBtn());
                         }

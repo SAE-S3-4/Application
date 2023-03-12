@@ -3,8 +3,8 @@ package fr.univ_amu.iut.dao.jpa;
 import fr.univ_amu.iut.dao.DAOQuestions;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import fr.univ_amu.iut.dao.beans.Questions;
-import fr.univ_amu.iut.dao.beans.Rooms;
+import fr.univ_amu.iut.model.Questions;
+import fr.univ_amu.iut.model.Rooms;
 
 import java.util.List;
 

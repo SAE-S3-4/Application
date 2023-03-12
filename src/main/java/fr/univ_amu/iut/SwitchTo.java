@@ -82,10 +82,13 @@ public class SwitchTo {
         switch (userDataArray[1]){
             case "practice":
                 new PracticeController(parseInt(userDataArray[0]),event);
+                break;
             case "game":
                 new GameController(parseInt(userDataArray[0]),event);
+                break;
             case "score":
                 new ScoreBoardController(userDataArray[0],event);
+                break;
         }
     }
 }

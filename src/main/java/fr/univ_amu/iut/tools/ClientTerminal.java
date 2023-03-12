@@ -2,9 +2,12 @@ package fr.univ_amu.iut.tools;
 
 import javafx.scene.control.Alert;
 
+import javax.net.ssl.*;
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.security.*;
+import java.security.cert.CertificateException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +16,11 @@ import java.util.List;
  */
 public class ClientTerminal {
 
+    private static final String[] protocols = new String[]{"TLSv1.3"};
+    private static final String[] cipher_suites = new String[]{"TLS_AES_128_GCM_SHA256"};
     private String hostname;
     private int port;
-    private Socket socketClient;
+    private SSLSocket socketClient;
     private BufferedWriter out;
     private BufferedReader in;
     private List<String> txtReceived;
@@ -39,7 +44,21 @@ public class ClientTerminal {
      */
     public void connect() {
         try {
-            socketClient = new Socket(hostname, port);
+            //Security.addProvider(new BouncyCasteProvider());
+            System.setProperty("javax.net.ssl.trustStore","myTrustStore.jts");
+            System.setProperty("javax.net.ssl.trustStorePassword","password");
+            System.setProperty("javax.net.debug","all");
+
+            // Create SSL socket factory
+            SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+
+            //SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            socketClient = (SSLSocket) factory.createSocket(hostname,port);
+
+            socketClient.setEnabledProtocols(protocols);
+            socketClient.setEnabledCipherSuites(cipher_suites);
+            socketClient.startHandshake();
+
             out = new BufferedWriter(new OutputStreamWriter(socketClient.getOutputStream()));
             in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
         } catch (IOException e) {

@@ -3,7 +3,7 @@ package fr.univ_amu.iut.dao.jpa;
 import fr.univ_amu.iut.dao.DAOUser;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import fr.univ_amu.iut.dao.beans.Users;
+import fr.univ_amu.iut.model.Users;
 
 import java.util.List;
 
