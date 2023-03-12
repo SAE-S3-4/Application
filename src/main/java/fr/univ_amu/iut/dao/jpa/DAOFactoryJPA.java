@@ -1,9 +1,6 @@
 package fr.univ_amu.iut.dao.jpa;
 
-import fr.univ_amu.iut.dao.DAOQuestions;
-import fr.univ_amu.iut.dao.DAORooms;
-import fr.univ_amu.iut.dao.DAOScores;
-import fr.univ_amu.iut.dao.DAOUser;
+import fr.univ_amu.iut.dao.*;
 import fr.univ_amu.iut.dao.factory.DAOFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -41,5 +38,9 @@ public class DAOFactoryJPA implements DAOFactory {
     @Override
     public DAOScores createDAOScores() {
         return new DAOScoresJPA(getEntityManager());
+    }
+    @Override
+    public DAOWhitelist createDAOWhitelist() {
+        return new DAOWhitelistJPA(getEntityManager());
     }
 }
