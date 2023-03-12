@@ -19,6 +19,13 @@
                     </ImageView>
                 </graphic>
             </SwitchToPaneButton>
+            <SwitchToPaneButton id="switchToPaneButtonRoomLogged" styleClass="bar_button" userData="fxml/join_room.fxml">
+                <graphic>
+                    <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../pictures/login_button.png"/>
+                    </ImageView>
+                </graphic>
+            </SwitchToPaneButton>
             <SwitchToPlayButton id="switchToPaneButtonGameLogged" styleClass="bar_button" userData="1,game">
                 <graphic>
                     <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">

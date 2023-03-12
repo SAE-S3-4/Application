@@ -29,6 +29,7 @@ public class GameController extends PlayController {
     public static Scores userScore;
     private int level;
     private final long MAX_GAME_QUESTIONS = Daos.daoQuestions.findNumberQuestionsByRoom(super.getCurrentRoom());
+    private String roomId;
 
     /**
      * Constructor of the GameController
@@ -36,8 +37,9 @@ public class GameController extends PlayController {
      * @param level
      * @param event
      */
-    public GameController(int level, ActionEvent event) {
-        super(level, "game", event);
+    public GameController(int level,String roomId, ActionEvent event) {
+        super(level,roomId, event);
+        this.roomId = roomId;
         this.level = level;
         initUserScore();
         initTimerButtons();
@@ -80,7 +82,7 @@ public class GameController extends PlayController {
                         @Override
                         public void handle(ActionEvent e) {
                             level = level+1;
-                            GameController.super.initLevel(level,"game");
+                            GameController.super.initLevel(level,roomId);
                             getBotBtns().getChildren().setAll(GameController.super.getSuggestionBtn(),GameController.super.getSolutionBtn());
                             initTimerButtons();
                         }
@@ -93,7 +95,7 @@ public class GameController extends PlayController {
                     nextQuestion.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent e) {
-                            nextQuestion.setUserData("game,score");
+                            nextQuestion.setUserData(roomId+",score");
                             SwitchTo switchTo = new SwitchTo();
                             switchTo.switchToController(e);
 

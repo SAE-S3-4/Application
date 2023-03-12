@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import fr.univ_amu.iut.components.SwitchToPaneButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import fr.univ_amu.iut.components.SwitchToPlayButton?>
+
+<BorderPane id="practice_menu" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ_amu.iut.JoinRoomController">
+    <bottom>
+        <HBox alignment="CENTER_LEFT">
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="110.0"/>
+            </BorderPane.margin>
+            <SwitchToPaneButton styleClass="bar_button" userData="fxml/home_logged.fxml">
+                <graphic>
+                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../pictures/home_button.png"/>
+                    </ImageView>
+                </graphic>
+            </SwitchToPaneButton>
+            <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../pictures/practice_button_on.png"/>
+            </ImageView>
+            <SwitchToPlayButton styleClass="bar_button" userData="1,game">
+                <graphic>
+                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                        <HBox.margin>
+                            <Insets/>
+                        </HBox.margin>
+                        <Image url="@../pictures/play_button.png"/>
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets/>
+                </HBox.margin>
+            </SwitchToPlayButton>
+        </HBox>
+    </bottom>
+    <center>
+        <VBox alignment="CENTER">
+            <Label id="" text="Code du Salon :"/>
+            <TextField fx:id="roomId" id="roomId" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
+            <Button fx:id="joinRoomBtn" id="joinRoomBtn" styleClass="nextQuestionButton" onAction="#joinRoom">
+                <text>Rejoinds le Salon</text>
+            </Button>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <padding>
+                <Insets left="300.0" top="150.0" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

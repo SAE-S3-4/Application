@@ -84,10 +84,13 @@ public class SwitchTo {
                 new PracticeController(parseInt(userDataArray[0]),event);
                 break;
             case "game":
-                new GameController(parseInt(userDataArray[0]),event);
+                new GameController(parseInt(userDataArray[0]),userDataArray[1],event);
                 break;
             case "score":
                 new ScoreBoardController(userDataArray[0],event);
+                break;
+            case "room":
+                new GameController(1,userDataArray[0],event);
                 break;
         }
     }
