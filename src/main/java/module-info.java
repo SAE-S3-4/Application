@@ -11,6 +11,6 @@ module fr.univ_amu.iut {
     exports fr.univ_amu.iut.tools;
     opens fr.univ_amu.iut.tools to javafx.fxml;
 
-    exports fr.univ_amu.iut.dao.beans;
-    opens fr.univ_amu.iut.dao.beans;
+    exports fr.univ_amu.iut.model;
+    opens fr.univ_amu.iut.model;
 }

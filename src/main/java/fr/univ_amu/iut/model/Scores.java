@@ -1,4 +1,4 @@
-package fr.univ_amu.iut.dao.beans;
+package fr.univ_amu.iut.model;
 
 import jakarta.persistence.*;
 
@@ -27,6 +27,16 @@ public class Scores {
     @OneToOne
     @JoinColumn(name = "ROOM_ID")
     Rooms room;
+
+    public Scores(){
+
+    }
+
+    public Scores(int score, Users user, Rooms room) {
+        this.score = score;
+        this.user = user;
+        this.room = room;
+    }
 
     public int getId() {
         return id;

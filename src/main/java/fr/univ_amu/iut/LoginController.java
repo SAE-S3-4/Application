@@ -1,7 +1,7 @@
 package fr.univ_amu.iut;
 
 
-import fr.univ_amu.iut.dao.beans.Users;
+import fr.univ_amu.iut.model.Users;
 import fr.univ_amu.iut.tools.Daos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

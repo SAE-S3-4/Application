@@ -1,8 +1,8 @@
 package fr.univ_amu.iut.dao;
 
-import fr.univ_amu.iut.dao.beans.Rooms;
-import fr.univ_amu.iut.dao.beans.Scores;
-import fr.univ_amu.iut.dao.beans.Users;
+import fr.univ_amu.iut.model.Rooms;
+import fr.univ_amu.iut.model.Scores;
+import fr.univ_amu.iut.model.Users;
 
 import java.util.List;
 

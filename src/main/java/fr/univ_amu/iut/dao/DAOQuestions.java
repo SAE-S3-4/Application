@@ -1,7 +1,7 @@
 package fr.univ_amu.iut.dao;
 
-import fr.univ_amu.iut.dao.beans.Questions;
-import fr.univ_amu.iut.dao.beans.Rooms;
+import fr.univ_amu.iut.model.Questions;
+import fr.univ_amu.iut.model.Rooms;
 
 import java.util.List;
 

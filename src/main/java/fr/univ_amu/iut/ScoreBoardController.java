@@ -1,7 +1,7 @@
 package fr.univ_amu.iut;
 
-import fr.univ_amu.iut.dao.beans.Rooms;
-import fr.univ_amu.iut.dao.beans.Scores;
+import fr.univ_amu.iut.model.Rooms;
+import fr.univ_amu.iut.model.Scores;
 import fr.univ_amu.iut.tools.Daos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +13,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,16 +59,13 @@ public class ScoreBoardController extends BorderPane {
 
         this.room = Daos.daoRooms.getById(page);
         this.podium = Daos.daoScores.getBestByRoom(this.room);
+
+        initialize();
     }
 
-    /**
-     * Method used to initialize the widgets in the scene with the correct values (the podium and the user logged score)
-     *
-     */
-    @FXML
     public void initialize() {
         name.setText(userLogged.getId());
-        score.setText(String.valueOf(Daos.daoScores.getByUserAndRoom(userLogged,room)));
+        score.setText(String.valueOf(GameController.userScore.getScore()));
         ArrayList<Label> podiumLines = new ArrayList<Label>(Arrays.asList(first,second,third,fourth,fifth));
         int numLabel = 0;
         for (Scores s:podium) {
@@ -90,7 +86,7 @@ public class ScoreBoardController extends BorderPane {
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
-            throw new RuntimeException(exception);
+            //Always catches an exception because java can't find files correctly
         }
 
         try {

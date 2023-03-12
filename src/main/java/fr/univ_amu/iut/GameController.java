@@ -1,6 +1,7 @@
 package fr.univ_amu.iut;
 
-import fr.univ_amu.iut.dao.beans.Scores;
+import fr.univ_amu.iut.components.SwitchToPlayButton;
+import fr.univ_amu.iut.model.Scores;
 import fr.univ_amu.iut.tools.Daos;
 import fr.univ_amu.iut.tools.PlayController;
 
@@ -25,9 +26,9 @@ public class GameController extends PlayController {
     @FXML
     Button solutionBtn;
 
-    Scores userScore;
+    public static Scores userScore;
     private int level;
-    private final long MAX_GAME_QUESTIONS = Daos.daoQuestions.findNumberQuestionsByRoom(Daos.daoRooms.getById("game"));
+    private final long MAX_GAME_QUESTIONS = Daos.daoQuestions.findNumberQuestionsByRoom(super.getCurrentRoom());
 
     /**
      * Constructor of the GameController
@@ -38,7 +39,7 @@ public class GameController extends PlayController {
     public GameController(int level, ActionEvent event) {
         super(level, "game", event);
         this.level = level;
-        userScore = Daos.daoScores.getByUserAndRoom(userLogged,Daos.daoRooms.getById("game"));
+        initUserScore();
         initTimerButtons();
     }
 
@@ -79,17 +80,16 @@ public class GameController extends PlayController {
                         @Override
                         public void handle(ActionEvent e) {
                             level = level+1;
-                            GameController.super.initLevel(level);
+                            GameController.super.initLevel(level,"game");
                             getBotBtns().getChildren().setAll(GameController.super.getSuggestionBtn(),GameController.super.getSolutionBtn());
                             initTimerButtons();
                         }
                     });
                 }else {
-
                     nextQuestion.setText("Aller au Tableau des Scores");
+                    userScore.setScore((int) (userScore.getScore()-(c.getDurationInSeconds()*10)));
                     c.stop();
-                    //DAOUsersJDBC.getDAOUsersJDBC().updateUserScore(userLogged);
-                    Daos.daoUser.update(userLogged);
+                    Daos.daoScores.insert(userScore);
                     nextQuestion.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent e) {
@@ -120,5 +120,9 @@ public class GameController extends PlayController {
                 showSolution();
             }
         });
+    }
+
+    public void initUserScore(){
+        userScore = new Scores((int) (1000 * (MAX_GAME_QUESTIONS)),userLogged,super.getCurrentRoom());
     }
 }

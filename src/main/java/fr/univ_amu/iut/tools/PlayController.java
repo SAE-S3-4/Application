@@ -1,7 +1,8 @@
 package fr.univ_amu.iut.tools;
 
 import fr.univ_amu.iut.components.TerminalPane;
-import fr.univ_amu.iut.dao.beans.Questions;
+import fr.univ_amu.iut.model.Questions;
+import fr.univ_amu.iut.model.Rooms;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,6 +40,7 @@ public abstract class  PlayController extends BorderPane {
     private int level;
     private Questions question;
     private String page;
+    private Rooms currentRoom;
 
     /**
      * The controller used for the scenes where the user can play the game (practice and play)
@@ -53,7 +55,7 @@ public abstract class  PlayController extends BorderPane {
 
         loadFXML(page,event);
 
-        initLevel(level);
+        initLevel(level,page);
 
         setSolution();
         //Text Style
@@ -76,11 +78,30 @@ public abstract class  PlayController extends BorderPane {
      *
      * @param level
      */
-    public void initLevel(int level){
+    public void initLevel(int level,String page){
+        setRoom(page);
         setQuestion(level);
         initActions();
         showInstructions();
         terminalPane.setReponse(question.getAnswer());
+    }
+
+    /**
+     * Method used to set the current room
+     *
+     * @param page
+     */
+    public void setRoom(String page){
+        currentRoom = Daos.daoRooms.getById(page);
+    }
+
+    /**
+     * Method used to get the current room
+     *
+     * @return currentRoom
+     */
+    public Rooms getCurrentRoom(){
+        return currentRoom;
     }
 
     /**
@@ -118,7 +139,7 @@ public abstract class  PlayController extends BorderPane {
      * @param level
      */
     public void setQuestion(int level){
-        question = Daos.daoQuestions.getByRoomAndNum(Daos.daoRooms.getById(page),level);
+        question = Daos.daoQuestions.getByRoomAndNum(currentRoom,level);
     }
 
     /**

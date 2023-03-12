@@ -1,4 +1,4 @@
-package fr.univ_amu.iut.dao.beans;
+package fr.univ_amu.iut.model;
 
 import jakarta.persistence.*;
 
