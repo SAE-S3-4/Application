@@ -18,6 +18,14 @@
     -fx-background-size: 100% 100%;
 }
 
+#join_room{
+    -fx-background-color: #7F95E4;
+    -fx-background-image: url("pictures/join_room_background.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100% 100%;
+}
+
 #practice {
     -fx-background-image: url("pictures/practice_background.jpg");
     -fx-background-repeat: no-repeat;
@@ -53,14 +61,14 @@
     -fx-font-size: 40;
 }
 
-#loginForm_nickname, #loginForm_password {
+#loginForm_nickname, #loginForm_password, #roomId {
     -fx-border-color: black;
     -fx-background-color: white;
-    -fx-border-radius: 20;
-    -fx-background-radius: 20;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
 }
 
-#buttonLogin_login, #buttonAbort_login {
+#buttonLogin_login, #buttonAbort_login, #joinRoomBtn {
     -fx-border-color: black;
     -fx-background-color: white;
     -fx-border-radius: 10;
@@ -68,10 +76,8 @@
     -fx-font-size: 20;
 }
 
-#register {
-    -fx-border-color: transparent;
-    -fx-background-color: transparent;
-    -fx-text-fill: blue;
+#join_room_form {
+    -fx-spacing: 25;
 }
 
 #text_score {
@@ -91,8 +97,9 @@
     -fx-pref-width: 250;
 }
 
-#textLogin_Username, #textLogin_Password {
+#textLogin_Username, #textLogin_Password, #labelRoomCode {
     -fx-text-fill: black;
+    -fx-font-size: 20;
 }
 
 .text {

@@ -9,7 +9,8 @@
 <?import javafx.scene.image.Image?>
 <?import fr.univ_amu.iut.components.SwitchToPlayButton?>
 
-<BorderPane id="practice_menu" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ_amu.iut.JoinRoomController">
+<?import javafx.scene.text.Font?>
+<BorderPane id="join_room" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ_amu.iut.JoinRoomController">
     <bottom>
         <HBox alignment="CENTER_LEFT">
             <BorderPane.margin>
@@ -22,9 +23,19 @@
                     </ImageView>
                 </graphic>
             </SwitchToPaneButton>
-            <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../pictures/practice_button.png"/>
-            </ImageView>
+            <SwitchToPlayButton styleClass="bar_button" userData="1,game">
+                <graphic>
+                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                        <HBox.margin>
+                            <Insets/>
+                        </HBox.margin>
+                        <Image url="@../pictures/practice_button.png"/>
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets/>
+                </HBox.margin>
+            </SwitchToPlayButton>
             <SwitchToPlayButton styleClass="bar_button" userData="1,game">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
@@ -41,17 +52,16 @@
         </HBox>
     </bottom>
     <center>
-        <VBox alignment="CENTER">
-            <Label id="" text="Code du Salon :"/>
+        <VBox alignment="CENTER" id="join_room_form">
+            <Label id="labelRoomCode" text="Code du Salon :"/>
             <TextField fx:id="roomId" id="roomId" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
-            <Button fx:id="joinRoomBtn" id="joinRoomBtn" styleClass="nextQuestionButton" onAction="#joinRoom">
-                <text>Rejoins le Salon</text>
+            <Button fx:id="joinRoomBtn" id="joinRoomBtn" styleClass="nextQuestionButton" onAction="#joinRoom" text="Rejoindre">
             </Button>
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
             <padding>
-                <Insets left="300.0" top="150.0" />
+                <Insets left="450.0" top="150.0" />
             </padding>
         </VBox>
     </center>
