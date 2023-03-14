@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -26,7 +23,7 @@
                 </graphic>
             </SwitchToPaneButton>
             <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../pictures/practice_button_on.png"/>
+                <Image url="@../pictures/practice_button.png"/>
             </ImageView>
             <SwitchToPlayButton styleClass="bar_button" userData="1,game">
                 <graphic>
@@ -48,7 +45,7 @@
             <Label id="" text="Code du Salon :"/>
             <TextField fx:id="roomId" id="roomId" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250"/>
             <Button fx:id="joinRoomBtn" id="joinRoomBtn" styleClass="nextQuestionButton" onAction="#joinRoom">
-                <text>Rejoinds le Salon</text>
+                <text>Rejoins le Salon</text>
             </Button>
             <opaqueInsets>
                 <Insets />

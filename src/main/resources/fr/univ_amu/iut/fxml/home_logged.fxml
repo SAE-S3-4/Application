@@ -22,7 +22,7 @@
             <SwitchToPaneButton id="switchToPaneButtonRoomLogged" styleClass="bar_button" userData="fxml/join_room.fxml">
                 <graphic>
                     <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../pictures/login_button.png"/>
+                        <Image url="@../pictures/multiplayer_button.png"/>
                     </ImageView>
                 </graphic>
             </SwitchToPaneButton>
