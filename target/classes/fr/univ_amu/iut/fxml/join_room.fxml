@@ -61,7 +61,7 @@
                 <Insets />
             </opaqueInsets>
             <padding>
-                <Insets left="400.0" top="150.0" />
+                <Insets left="450.0" top="150.0" />
             </padding>
         </VBox>
     </center>

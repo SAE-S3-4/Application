@@ -52,11 +52,12 @@ public class ServerTerminal {
         System.out.println("Bash server launched on port : " + port);
 
         for (int i = 1; i <= nbClients; i++) {
+            SSLSocket client = (SSLSocket)server.accept();
+
             dockerId = UUID.randomUUID().toString();
+
             //Creation of a docker container per client
             Runtime.getRuntime().exec("docker run -it -d --rm --name " + dockerId + " terminal");
-
-            SSLSocket client = (SSLSocket)server.accept();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
             BufferedWriter out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));

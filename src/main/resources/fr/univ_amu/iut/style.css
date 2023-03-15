@@ -68,7 +68,7 @@
     -fx-background-radius: 30;
 }
 
-#buttonLogin_login, #buttonAbort_login, #joinRoomBtn {
+#buttonLogin_login, #buttonAbort_login, #joinRoomBtn, .questionButton {
     -fx-border-color: black;
     -fx-background-color: white;
     -fx-border-radius: 10;
@@ -76,8 +76,46 @@
     -fx-font-size: 20;
 }
 
+#questionsButtonPane > .viewport {
+    -fx-background-color: transparent;
+}
+
+#questionsButtonPane {
+    -fx-background-color: transparent;
+}
+
+scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: black;
+    -fx-background-radius: 5em;
+}
+
+#levelsBox {
+    -fx-spacing: 10;
+}
+
 #join_room_form {
     -fx-spacing: 25;
+}
+
+#questionsButtonPane{
+    -fx-spacing: 10;
 }
 
 #text_score {
