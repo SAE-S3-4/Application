@@ -8,7 +8,7 @@ Votre mission est de les retrouver afin de les dénoncer à la police.
 ## Demandes ✍️
 
 - Jeu qui sert de support pour les cours
-- Site web pour administrer le contenu du jeu -> Site accessible sur https://findthebreach.ddns.net et code sur le Github : https://github.com/amaury-vial/Site_SAE_S3
+- Site web pour administrer le contenu du jeu -> Site accessible sur https://findthebreach.ddns.net et code sur le Github : https://github.com/SAE-S3-4/Site
 - Utilisation des sockets
 
 ## Ce que nous avons réalisé ⚙️
@@ -28,13 +28,16 @@ Application fonctionnelle sur :
 
 ![Mac OS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
-Pour lancer l'application via un IDE ouvrez simplement le fichier Main.java, et exécuter la methode "main" :
-```java
-public static void main(String[] args) {
-```
-Pour que l'application fonctionne, le ServerTerminal doit également être lancé. 
-Nous l'hébergeons déjà, si l'application montre une erreur au lancement d'un niveau ou du jeu, 
-veuillez modifier l'ip du serveur, le port en fonction de votre infrastructure et l'héberger sur votre ordinateur ou sur un serveur.
+___
+### Prérequis pour lancer l'application
+L'application a été réalisée à l'aide de la bibliothèque **JavaFx** qui n'est pas inclus dans le JDK proposé par ORACLE.
+Pour résoudre ce problème nous vous conseillons d'utiliser un JDK avec la bibliothèque **JavaFx** comme ceux proposés sur le site : https://bell-sw.com/pages/downloads/ dans la section JDK 17 LTS. Il suffit de télécharger le JDK 17 correspondant à votre système d'exploitation et apres vous allez pouvoir utiliser l'application sous son format *.jar* ou la compiler depuis un IDE.
+___
+### Lancer l'application depuis un IDE
+Pour lancer l'application via un IDE il suffit de compiler le projet ou éxecuter la methode main se trouvant dans la classe Main à la racine du projet.
+
+Pour que l'application fonctionne il faut éxecuter également le Serveur se trouvant sur le repertoire : https://github.com/SAE-S3-4/Serveur
+___
 ## Utilisation 🎮
 
 - Accueil
