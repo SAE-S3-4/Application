@@ -28,7 +28,6 @@ Application fonctionnelle sur :
 
 ![Mac OS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
-___
 ### Prérequis pour lancer l'application
 L'application a été réalisée à l'aide de la bibliothèque **JavaFx** qui n'est pas inclus dans le JDK proposé par ORACLE.
 Pour résoudre ce problème nous vous conseillons d'utiliser un JDK avec la bibliothèque **JavaFx** comme ceux proposés sur le site : https://bell-sw.com/pages/downloads/ dans la section JDK 17 LTS. Il suffit de télécharger le JDK 17 correspondant à votre système d'exploitation et apres vous allez pouvoir utiliser l'application sous son format *.jar* ou la compiler depuis un IDE.
@@ -37,7 +36,7 @@ ___
 Pour lancer l'application via un IDE il suffit de compiler le projet ou éxecuter la methode main se trouvant dans la classe Main à la racine du projet.
 
 Pour que l'application fonctionne il faut éxecuter également le Serveur se trouvant sur le repertoire : https://github.com/SAE-S3-4/Serveur
-___
+
 ## Utilisation 🎮
 
 - Accueil
