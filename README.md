@@ -8,7 +8,7 @@ Votre mission est de les retrouver afin de les dénoncer à la police.
 ## Demandes ✍️
 
 - Jeu qui sert de support pour les cours
-- Site web pour administrer le contenu du jeu -> Site accessible sur https://findthebreach.ddns.net et code sur le Github : https://github.com/amaury-vial/Site_SAE_S3
+- Site web pour administrer le contenu du jeu -> Site accessible sur https://findthebreach.ddns.net et code sur le Github : https://github.com/SAE-S3-4/Site
 - Utilisation des sockets
 
 ## Ce que nous avons réalisé ⚙️
