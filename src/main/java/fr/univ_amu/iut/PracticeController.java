@@ -1,5 +1,6 @@
 package fr.univ_amu.iut;
 
+import fr.univ_amu.iut.tools.Daos;
 import fr.univ_amu.iut.tools.PlayController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,7 +14,7 @@ import java.io.IOException;
  */
 public class PracticeController extends PlayController {
     private int level;
-    private final int MAX_PRACTICE_QUESTIONS = 15;
+    private final long MAX_PRACTICE_QUESTIONS = Daos.daoQuestions.findNumberQuestionsByRoom(super.getCurrentRoom());
     private Label levelLabel;
 
     /**
@@ -27,7 +28,7 @@ public class PracticeController extends PlayController {
         this.level = level;
 
         //setting up the level Label
-        levelLabel = new Label("Niveau : "+((level-1)/3+1));
+        levelLabel = new Label("Niveau : "+level);
         levelLabel.setId("levelNumber");
         getTopHbox().getChildren().add(levelLabel);
     }
@@ -96,6 +97,6 @@ public class PracticeController extends PlayController {
      * Method used to update the levelLabel
      */
     public void updateLevelLabel(){
-        levelLabel.setText("Niveau : "+((level-1)/3+1));
+        levelLabel.setText("Niveau : "+level);
     }
 }
