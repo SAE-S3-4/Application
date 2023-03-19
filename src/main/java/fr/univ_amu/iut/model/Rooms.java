@@ -2,6 +2,8 @@ package fr.univ_amu.iut.model;
 
 import jakarta.persistence.*;
 
+import java.sql.Date;
+
 @NamedQueries({
         @NamedQuery(name = "Rooms.findAll", query = "SELECT r FROM Rooms r"),
         @NamedQuery(name = "Rooms.getById", query = "SELECT r FROM Rooms r WHERE r.id = :id"),
@@ -16,11 +18,15 @@ public class Rooms {
 
     @Column(name = "NAME")
     String name;
-    @Column(name = "STARTED")
-    boolean started;
 
     @Column(name = "ADMIN_ID")
     String admin_id;
+
+    @Column(name = "START_DATE")
+    Date start_date;
+
+    @Column(name = "END_DATE")
+    Date end_date;
 
     public String getId() {
         return id;
@@ -38,14 +44,6 @@ public class Rooms {
         this.name = name;
     }
 
-    public boolean isStarted() {
-        return started;
-    }
-
-    public void setStarted(boolean started) {
-        this.started = started;
-    }
-
     public String getAdmin_id() {
         return admin_id;
     }
@@ -54,13 +52,30 @@ public class Rooms {
         this.admin_id = admin_id;
     }
 
+    public Date getStart_date() {
+        return start_date;
+    }
+
+    public void setStart_date(Date start_date) {
+        this.start_date = start_date;
+    }
+
+    public Date getEnd_date() {
+        return end_date;
+    }
+
+    public void setEnd_date(Date end_date) {
+        this.end_date = end_date;
+    }
+
     @Override
     public String toString() {
         return "Rooms{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", started=" + started +
                 ", admin_id='" + admin_id + '\'' +
+                ", start_date=" + start_date +
+                ", end_date=" + end_date +
                 '}';
     }
 }
