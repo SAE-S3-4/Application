@@ -3,6 +3,7 @@ package fr.univ_amu.iut.model;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.time.OffsetDateTime;
 
 @NamedQueries({
         @NamedQuery(name = "Rooms.findAll", query = "SELECT r FROM Rooms r"),
@@ -23,10 +24,10 @@ public class Rooms {
     String admin_id;
 
     @Column(name = "START_DATE")
-    Date start_date;
+    OffsetDateTime start_date;
 
     @Column(name = "END_DATE")
-    Date end_date;
+    OffsetDateTime end_date;
 
     public String getId() {
         return id;
@@ -52,19 +53,19 @@ public class Rooms {
         this.admin_id = admin_id;
     }
 
-    public Date getStart_date() {
+    public OffsetDateTime getStart_date() {
         return start_date;
     }
 
-    public void setStart_date(Date start_date) {
+    public void setStart_date(OffsetDateTime start_date) {
         this.start_date = start_date;
     }
 
-    public Date getEnd_date() {
+    public OffsetDateTime getEnd_date() {
         return end_date;
     }
 
-    public void setEnd_date(Date end_date) {
+    public void setEnd_date(OffsetDateTime end_date) {
         this.end_date = end_date;
     }
 

@@ -49,13 +49,13 @@ public abstract class  PlayController extends BorderPane {
      * @param page
      * @param event
      */
-    public PlayController(int level, String page, ActionEvent event)  {
+    public PlayController(int level, String page, String roomId, ActionEvent event)  {
         this.level = level;
         this.page = page;
 
         loadFXML(page,event);
 
-        initLevel(level,page);
+        initLevel(level,roomId);
 
         setSolution();
         //Text Style

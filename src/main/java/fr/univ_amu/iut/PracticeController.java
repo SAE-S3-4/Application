@@ -24,7 +24,7 @@ public class PracticeController extends PlayController {
      * @param event
      */
     public PracticeController(int level, ActionEvent event) {
-        super(level, "practice", event);
+        super(level, "practice","practice", event);
         this.level = level;
 
         //setting up the level Label
