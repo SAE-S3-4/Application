@@ -38,7 +38,7 @@ public class GameController extends PlayController {
      * @param event
      */
     public GameController(int level,String roomId, ActionEvent event) {
-        super(level,roomId, event);
+        super(level,"game",roomId, event);
         this.roomId = roomId;
         this.level = level;
         initUserScore();
