@@ -111,12 +111,14 @@ public class TestPractice {
     @Test
     public void verifyThatHasSolutionTextLevel1(FxRobot robot) {
         Questions question = Daos.daoQuestions.getByRoomAndNum(practiceRoom,1);
+        robot.clickOn("#solutionBtn");
         verifyThat("#text", hasText(question.getAnswer()));
     }
 
     @Test
     public void verifyThatHasSuggestionTextLevel1(FxRobot robot) {
         Questions question = Daos.daoQuestions.getByRoomAndNum(practiceRoom,1);
+        robot.clickOn("#suggestionBtn");
         verifyThat("#text", hasText(question.getSuggestion()));
     }
 
