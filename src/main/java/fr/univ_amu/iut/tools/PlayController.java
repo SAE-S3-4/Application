@@ -45,8 +45,9 @@ public abstract class  PlayController extends BorderPane {
     /**
      * The controller used for the scenes where the user can play the game (practice and play)
      *
-     * @param level
-     * @param page
+     * @param level the level of the room selected
+     * @param page the template of the view (fxml) to use
+     * @param roomId the id of the room to join
      * @param event
      */
     public PlayController(int level, String page, String roomId, ActionEvent event)  {

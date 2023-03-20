@@ -44,12 +44,10 @@ public class LoginController {
      * Method used to verify if the user is in the DataBase
      *
      * @param event
-     * @throws SQLException
-     * @throws IOException
      * @throws NoSuchAlgorithmException
      */
     @FXML
-    public void secureSwitchTo(ActionEvent event) throws SQLException, IOException, NoSuchAlgorithmException {
+    public void secureSwitchTo(ActionEvent event) throws NoSuchAlgorithmException {
         Boolean connected = false;
         String inputNickname;
         String inputPassword;

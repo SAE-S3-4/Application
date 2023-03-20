@@ -78,6 +78,9 @@ public class PracticeController extends PlayController {
         });
     }
 
+    /**
+     * Initialize the actions of the suggestion and solution buttons (to show the respectives texts)
+     */
     @Override
     public void initActions(){
         getSuggestionBtn().setOnAction(new EventHandler<ActionEvent>() {

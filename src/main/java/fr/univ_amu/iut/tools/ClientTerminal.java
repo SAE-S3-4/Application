@@ -4,10 +4,7 @@ import javafx.scene.control.Alert;
 
 import javax.net.ssl.*;
 import java.io.*;
-import java.net.Socket;
 import java.net.UnknownHostException;
-import java.security.*;
-import java.security.cert.CertificateException;
 import java.util.ArrayList;
 import java.util.List;
 
