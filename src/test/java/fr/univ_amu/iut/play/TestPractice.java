@@ -17,7 +17,6 @@ import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
-import java.sql.SQLException;
 import java.util.concurrent.TimeoutException;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -52,9 +51,9 @@ public class TestPractice {
     public void accessToPracticePane(FxRobot robot) {
         robot.clickOn("#switchToPaneButtonLogin");
         robot.clickOn("#loginForm_nickname");
-        robot.write("johndoe");
+        robot.write("ComptePourTests");
         robot.clickOn("#loginForm_password");
-        robot.write("password");
+        robot.write("JeSuisUnMdp0#");
         robot.clickOn("#buttonLogin_login");
         robot.clickOn("#switchToPaneButtonPracticeLogged");
         robot.clickOn("#questionButton1");

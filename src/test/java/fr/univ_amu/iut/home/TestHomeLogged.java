@@ -18,6 +18,7 @@ import org.testfx.framework.junit5.Start;
 import java.util.concurrent.TimeoutException;
 
 import static fr.univ_amu.iut.LoginController.userLogged;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.isVisible;
 
@@ -30,9 +31,9 @@ public class TestHomeLogged {
     public void logIn(FxRobot robot) {
         robot.clickOn("#switchToPaneButtonLogin");
         robot.clickOn("#loginForm_nickname");
-        robot.write("johndoe");
+        robot.write("ComptePourTests");
         robot.clickOn("#loginForm_password");
-        robot.write("password");
+        robot.write("JeSuisUnMdp0#");
         robot.clickOn("#buttonLogin_login");
     }
 
@@ -87,5 +88,11 @@ public class TestHomeLogged {
     public void practiceButtonShouldRedirectToPracticeMenu(FxRobot robot){
         robot.clickOn("#switchToPaneButtonPracticeLogged");
         verifyThat("#questionButton1", isVisible());
+    }
+
+    @Test
+    public void shouldHaveJoinRoomBtn(FxRobot robot) {
+        robot.clickOn("#switchToPaneButtonRoomLogged");
+        assertThat(stage.isShowing());
     }
 }

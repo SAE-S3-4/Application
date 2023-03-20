@@ -14,7 +14,6 @@ import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
-import java.sql.SQLException;
 import java.util.concurrent.TimeoutException;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -100,9 +99,9 @@ public class TestLogin {
     public void shouldLogin(FxRobot robot){
         robot.clickOn("#switchToPaneButtonLogin");
         robot.clickOn("#loginForm_nickname");
-        robot.write("johndoe");
+        robot.write("ComptePourTests");
         robot.clickOn("#loginForm_password");
-        robot.write("password");
+        robot.write("JeSuisUnMdp0#");
         robot.clickOn("#buttonLogin_login");
         verifyThat("#switchToPaneButtonGameLogged", isVisible());
     }
@@ -111,10 +110,9 @@ public class TestLogin {
     public void shouldAbortConnection(FxRobot robot){
         robot.clickOn("#switchToPaneButtonLogin");
         robot.clickOn("#loginForm_nickname");
-        //TODO: Changer utilisateur
-        robot.write("johndoe");
+        robot.write("ComptePourTests");
         robot.clickOn("#loginForm_password");
-        robot.write("password");
+        robot.write("JeSuisUnMdp0#");
         robot.clickOn("#buttonAbort_login");
         verifyThat("#switchToPaneButtonGame", isVisible());
     }

@@ -23,6 +23,14 @@ public class Whitelist {
     @JoinColumn(name = "ROOM_ID")
     Rooms room;
 
+    public Whitelist() {
+    }
+
+    public Whitelist(Users user, Rooms room) {
+        this.user = user;
+        this.room = room;
+    }
+
     public int getId() {
         return id;
     }
