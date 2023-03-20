@@ -1,9 +1,7 @@
 package fr.univ_amu.iut.home;
 
 import fr.univ_amu.iut.Main;
-import fr.univ_amu.iut.database.Database;
-import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
-import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
+import fr.univ_amu.iut.tools.Daos;
 import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
@@ -17,7 +15,6 @@ import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
-import java.sql.SQLException;
 import java.util.concurrent.TimeoutException;
 
 import static org.testfx.api.FxAssert.verifyThat;
@@ -32,16 +29,9 @@ public class TestPracticeMenu {
     public void accessToPracticeMenu(FxRobot robot) {
         robot.clickOn("#switchToPaneButtonLogin");
         robot.clickOn("#loginForm_nickname");
-        robot.write("a");
+        robot.write("johndoe");
         robot.clickOn("#loginForm_password");
-        robot.write("a");
-        Database.initDBConnection();
-        try {
-            DAOUsersJDBC.initDAOUsersJDBC();
-            DAOQuestionJDBC.initDAOQuestionsJDBC();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        robot.write("password");
         robot.clickOn("#buttonLogin_login");
         robot.clickOn("#switchToPaneButtonPracticeLogged");
     }
@@ -62,6 +52,7 @@ public class TestPracticeMenu {
                 e.printStackTrace();
             }
         });
+        Daos.initDaos();
     }
 
     @AfterEach
@@ -73,31 +64,31 @@ public class TestPracticeMenu {
 
     @Test
     public void shouldHaveLevelOneButtonVisible() {
-        verifyThat("#level1Btn", isVisible());
+        verifyThat("#questionButton1", isVisible());
     }
 
     @Test
     public void shouldHaveLevelTwoButtonVisible() {
-        verifyThat("#level2Btn", isVisible());
+        verifyThat("#questionButton2", isVisible());
     }
 
     @Test
     public void shouldHaveLevelThreeButtonVisible() {
-        verifyThat("#level3Btn", isVisible());
+        verifyThat("#questionButton4", isVisible());
     }
 
     @Test
     public void shouldHaveLevelFourButtonVisible() {
-        verifyThat("#level4Btn", isVisible());
+        verifyThat("#questionButton3", isVisible());
     }
 
     @Test
     public void shouldHaveLevelFiveButtonVisible() {
-        verifyThat("#level5Btn", isVisible());
+        verifyThat("#questionButton5", isVisible());
     }
 
     @Test
     public void shouldAccessToLevelOne(FxRobot robot){
-        robot.clickOn("#level1Btn");
+        robot.clickOn("#questionButton1");
     }
 }

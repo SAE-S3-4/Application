@@ -18,6 +18,7 @@ public class PracticeMenuController {
             b.setText("Question " + i);
             b.getStyleClass().add("questionButton");
             b.setUserData(i + ",practice");
+            b.setId("questionButton"+i);
             levels.getChildren().add(b);
         }
     }

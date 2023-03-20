@@ -1,9 +1,7 @@
 package fr.univ_amu.iut.home;
 
 import fr.univ_amu.iut.Main;
-import fr.univ_amu.iut.database.Database;
-import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
-import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
+import fr.univ_amu.iut.tools.Daos;
 import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
@@ -44,6 +42,7 @@ public class TestLogin {
                 e.printStackTrace();
             }
         });
+        Daos.initDaos();
     }
 
     @AfterEach
@@ -101,16 +100,9 @@ public class TestLogin {
     public void shouldLogin(FxRobot robot){
         robot.clickOn("#switchToPaneButtonLogin");
         robot.clickOn("#loginForm_nickname");
-        robot.write("a");
+        robot.write("johndoe");
         robot.clickOn("#loginForm_password");
-        robot.write("a");
-        Database.initDBConnection();
-        try {
-            DAOUsersJDBC.initDAOUsersJDBC();
-            DAOQuestionJDBC.initDAOQuestionsJDBC();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        robot.write("password");
         robot.clickOn("#buttonLogin_login");
         verifyThat("#switchToPaneButtonGameLogged", isVisible());
     }
@@ -120,9 +112,9 @@ public class TestLogin {
         robot.clickOn("#switchToPaneButtonLogin");
         robot.clickOn("#loginForm_nickname");
         //TODO: Changer utilisateur
-        robot.write("a");
+        robot.write("johndoe");
         robot.clickOn("#loginForm_password");
-        robot.write("a");
+        robot.write("password");
         robot.clickOn("#buttonAbort_login");
         verifyThat("#switchToPaneButtonGame", isVisible());
     }

@@ -1,9 +1,7 @@
 package fr.univ_amu.iut.home;
 
 import fr.univ_amu.iut.Main;
-import fr.univ_amu.iut.database.Database;
-import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
-import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
+import fr.univ_amu.iut.tools.Daos;
 import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
@@ -17,7 +15,6 @@ import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
-import java.sql.SQLException;
 import java.util.concurrent.TimeoutException;
 
 import static fr.univ_amu.iut.LoginController.userLogged;
@@ -33,16 +30,9 @@ public class TestHomeLogged {
     public void logIn(FxRobot robot) {
         robot.clickOn("#switchToPaneButtonLogin");
         robot.clickOn("#loginForm_nickname");
-        robot.write("a");
+        robot.write("johndoe");
         robot.clickOn("#loginForm_password");
-        robot.write("a");
-        Database.initDBConnection();
-        try {
-            DAOUsersJDBC.initDAOUsersJDBC();
-            DAOQuestionJDBC.initDAOQuestionsJDBC();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        robot.write("password");
         robot.clickOn("#buttonLogin_login");
     }
 
@@ -62,6 +52,7 @@ public class TestHomeLogged {
                 e.printStackTrace();
             }
         });
+        Daos.initDaos();
     }
 
     @AfterEach
@@ -83,7 +74,7 @@ public class TestHomeLogged {
 
     @Test
     public void userLoggedShouldHaveUsername() {
-        userLogged.getNickname().equals("a");
+        userLogged.getId().equals("johndoe");
     }
 
     @Test
@@ -95,6 +86,6 @@ public class TestHomeLogged {
     @Test
     public void practiceButtonShouldRedirectToPracticeMenu(FxRobot robot){
         robot.clickOn("#switchToPaneButtonPracticeLogged");
-        verifyThat("#level1Btn", isVisible());
+        verifyThat("#questionButton1", isVisible());
     }
 }
