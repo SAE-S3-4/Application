@@ -1,10 +1,9 @@
 package fr.univ_amu.iut.play;
 
 import fr.univ_amu.iut.Main;
-import fr.univ_amu.iut.database.Database;
-import fr.univ_amu.iut.database.Question;
-import fr.univ_amu.iut.database.jdbc.DAOQuestionJDBC;
-import fr.univ_amu.iut.database.jdbc.DAOUsersJDBC;
+import fr.univ_amu.iut.model.Questions;
+import fr.univ_amu.iut.model.Rooms;
+import fr.univ_amu.iut.tools.Daos;
 import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
@@ -18,7 +17,6 @@ import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
-import java.sql.SQLException;
 import java.util.concurrent.TimeoutException;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -27,7 +25,8 @@ import static org.testfx.util.NodeQueryUtils.hasText;
 
 @ExtendWith(ApplicationExtension.class)
 public class TestGame {
-    Stage stage;
+    private Stage stage;
+    private Rooms gameRoom;
 
     @Start
     public void start(Stage stage) throws Exception {
@@ -45,22 +44,17 @@ public class TestGame {
                 e.printStackTrace();
             }
         });
+        Daos.initDaos();
+        gameRoom = Daos.daoRooms.getById("game");
     }
 
     @BeforeEach
     public void accessToPracticePane(FxRobot robot) {
         robot.clickOn("#switchToPaneButtonLogin");
         robot.clickOn("#loginForm_nickname");
-        robot.write("a");
+        robot.write("ComptePourTests");
         robot.clickOn("#loginForm_password");
-        robot.write("a");
-        Database.initDBConnection();
-        try {
-            DAOUsersJDBC.initDAOUsersJDBC();
-            DAOQuestionJDBC.initDAOQuestionsJDBC();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        robot.write("JeSuisUnMdp0#");
         robot.clickOn("#buttonLogin_login");
         robot.clickOn("#switchToPaneButtonGameLogged");
     }
@@ -92,45 +86,23 @@ public class TestGame {
 
     @Test
     public void verifyThatHasLevel1Title(FxRobot robot) {
-        Database.initDBConnection();
-        try {
-            DAOUsersJDBC.initDAOUsersJDBC();
-            DAOQuestionJDBC.initDAOQuestionsJDBC();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
-        Question question = DAOQuestionJDBC.getDAOQuestionsJDB().findQuestionById(16);
+        Questions question = Daos.daoQuestions.getByRoomAndNum(gameRoom,1);
         verifyThat("#title", hasText(question.getTitle()));
     }
 
     @Test
     public void verifyThatHasLevel1Text(FxRobot robot) {
-        Database.initDBConnection();
-        try {
-            DAOUsersJDBC.initDAOUsersJDBC();
-            DAOQuestionJDBC.initDAOQuestionsJDBC();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        Question question = DAOQuestionJDBC.getDAOQuestionsJDB().findQuestionById(16);
-        verifyThat("#text", hasText(question.getText()));
+        Questions question = Daos.daoQuestions.getByRoomAndNum(gameRoom,1);
+        verifyThat("#text", hasText(question.getAssignement()));
     }
 
     @Test
     public void verifyThatTerminalWorks(FxRobot robot){
-        Database.initDBConnection();
-        try {
-            DAOUsersJDBC.initDAOUsersJDBC();
-            DAOQuestionJDBC.initDAOQuestionsJDBC();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        Question question = DAOQuestionJDBC.getDAOQuestionsJDB().findQuestionById(16);
+        Questions question = Daos.daoQuestions.getByRoomAndNum(gameRoom,1);
 
         robot.clickOn("#terminalInputZone");
-        robot.write(question.getSolution());
+        robot.write(question.getAnswer());
         robot.press(KeyCode.ENTER).release(KeyCode.ENTER);
 
         robot.clickOn("#nextQuestionButton");
@@ -139,20 +111,13 @@ public class TestGame {
 
     @Test
     public void verifyThatAllLevelsWork(FxRobot robot){
-        Database.initDBConnection();
-        try {
-            DAOUsersJDBC.initDAOUsersJDBC();
-            DAOQuestionJDBC.initDAOQuestionsJDBC();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
-        for (int i =16; i<DAOQuestionJDBC.daoQuestionJDBC.getGetTotalNumberOfQuestions();++i){
+        for (int i =16; i<Daos.daoQuestions.findNumberQuestionsByRoom(gameRoom);++i){
 
-            Question question = DAOQuestionJDBC.getDAOQuestionsJDB().findQuestionById(i);
+            Questions question = Daos.daoQuestions.getByRoomAndNum(gameRoom,1);
 
             robot.clickOn("#terminalInputZone");
-            robot.write(question.getSolution());
+            robot.write(question.getAnswer());
             robot.press(KeyCode.ENTER).release(KeyCode.ENTER);
 
             robot.clickOn("#nextQuestionButton");

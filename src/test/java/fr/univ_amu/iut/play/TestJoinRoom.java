@@ -1,6 +1,8 @@
-package fr.univ_amu.iut.home;
+package fr.univ_amu.iut.play;
 
 import fr.univ_amu.iut.Main;
+import fr.univ_amu.iut.model.Rooms;
+import fr.univ_amu.iut.model.Whitelist;
 import fr.univ_amu.iut.tools.Daos;
 import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
@@ -17,33 +19,21 @@ import org.testfx.framework.junit5.Start;
 
 import java.util.concurrent.TimeoutException;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.isVisible;
 
 @ExtendWith(ApplicationExtension.class)
-public class TestPracticeMenu {
-    Stage stage;
-
-    //TODO: Ajouter le lancement du server terminal
-    @BeforeEach
-    public void accessToPracticeMenu(FxRobot robot) {
-        robot.clickOn("#switchToPaneButtonLogin");
-        robot.clickOn("#loginForm_nickname");
-        robot.write("ComptePourTests");
-        robot.clickOn("#loginForm_password");
-        robot.write("JeSuisUnMdp0#");
-        robot.clickOn("#buttonLogin_login");
-        robot.clickOn("#switchToPaneButtonPracticeLogged");
-    }
-
+public class TestJoinRoom {
+    private Stage stage;
     @Start
     public void start(Stage stage) throws Exception {
         Platform.runLater(() -> {
-            TestPracticeMenu.this.stage = new Stage();
+            TestJoinRoom.this.stage = new Stage();
             try {
                 FxToolkit.setupStage((sta) -> {
                     try {
-                        new Main().start(TestPracticeMenu.this.stage);
+                        new Main().start(TestJoinRoom.this.stage);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -55,6 +45,17 @@ public class TestPracticeMenu {
         Daos.initDaos();
     }
 
+    @BeforeEach
+    public void accessToPracticePane(FxRobot robot) {
+        robot.clickOn("#switchToPaneButtonLogin");
+        robot.clickOn("#loginForm_nickname");
+        robot.write("ComptePourTests");
+        robot.clickOn("#loginForm_password");
+        robot.write("JeSuisUnMdp0#");
+        robot.clickOn("#buttonLogin_login");
+        robot.clickOn("#switchToPaneButtonRoomLogged");
+    }
+
     @AfterEach
     void afterEachTest(FxRobot robot) throws TimeoutException {
         FxToolkit.cleanupStages();
@@ -63,32 +64,25 @@ public class TestPracticeMenu {
     }
 
     @Test
-    public void shouldHaveLevelOneButtonVisible() {
-        verifyThat("#questionButton1", isVisible());
+    public void shouldHaveAJoinBtn(FxRobot robot){
+        verifyThat("#joinRoomBtn", isVisible());
     }
 
     @Test
-    public void shouldHaveLevelTwoButtonVisible() {
-        verifyThat("#questionButton2", isVisible());
+    public void shouldHaveRoomIdTxtField(FxRobot robot){
+        verifyThat("#roomId", isVisible());
     }
 
     @Test
-    public void shouldHaveLevelThreeButtonVisible() {
-        verifyThat("#questionButton4", isVisible());
-    }
+    public void canJoinTestRoom(FxRobot robot){
+        robot.clickOn("#roomId");
+        robot.write("N9HJRL");
+        robot.clickOn("#joinRoomBtn");
 
-    @Test
-    public void shouldHaveLevelFourButtonVisible() {
-        verifyThat("#questionButton3", isVisible());
-    }
+        //Adding back the test user for the next test
+        Whitelist whitelist = new Whitelist(Daos.daoUser.getById("ComptePourTests"),Daos.daoRooms.getById("N9HJRL"));
+        Daos.daoWhitelist.insert(whitelist);
 
-    @Test
-    public void shouldHaveLevelFiveButtonVisible() {
-        verifyThat("#questionButton5", isVisible());
-    }
-
-    @Test
-    public void shouldAccessToLevelOne(FxRobot robot){
-        robot.clickOn("#questionButton1");
+        verifyThat("#terminalInputZone", isVisible());
     }
 }
