@@ -53,6 +53,9 @@ public class ScoreBoardController extends BorderPane {
 
     /**
      * Constructor used to create the LeaderBoard scene
+     *
+     * @param page
+     * @param e
      */
     public ScoreBoardController(String page, ActionEvent e) {
         loadFXML(e);
@@ -63,6 +66,9 @@ public class ScoreBoardController extends BorderPane {
         initialize();
     }
 
+    /**
+     * Method used to initialize the text of the podium and the user's score
+     */
     public void initialize() {
         name.setText(userLogged.getId());
         score.setText(String.valueOf(GameController.userScore.getScore()));

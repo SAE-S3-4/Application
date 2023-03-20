@@ -1,6 +1,5 @@
 package fr.univ_amu.iut;
 
-import fr.univ_amu.iut.components.SwitchToPlayButton;
 import fr.univ_amu.iut.model.Scores;
 import fr.univ_amu.iut.tools.Daos;
 import fr.univ_amu.iut.tools.PlayController;
@@ -35,6 +34,7 @@ public class GameController extends PlayController {
      * Constructor of the GameController
      *
      * @param level
+     * @param roomId
      * @param event
      */
     public GameController(int level,String roomId, ActionEvent event) {
@@ -107,6 +107,9 @@ public class GameController extends PlayController {
         });
     }
 
+    /**
+     * Initialize the actions of the suggestion and solution buttons (to show the respectives texts)
+     */
     @Override
     public void initActions(){
         getSuggestionBtn().setOnAction(new EventHandler<ActionEvent>() {
@@ -124,6 +127,9 @@ public class GameController extends PlayController {
         });
     }
 
+    /**
+     * Initialize a new User score to calculate and store the new score of the user in the room game into the DB
+     */
     public void initUserScore(){
         userScore = new Scores((int) (1000 * (MAX_GAME_QUESTIONS)),userLogged,super.getCurrentRoom());
     }

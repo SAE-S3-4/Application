@@ -10,9 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.time.OffsetDateTime;
-import java.time.ZoneId;
 
-
+/**
+ * Class that represents the controller of the page "Join Room"
+ */
 public class JoinRoomController{
 
     @FXML
@@ -23,9 +24,16 @@ public class JoinRoomController{
 
     private Whitelist userWhitelistAccess;
 
+    /**
+     * Method used to join a room
+     *
+     * @param e
+     */
     @FXML
     public void joinRoom(ActionEvent e){
         Rooms roomToJoin = Daos.daoRooms.getById(roomId.getText());
+
+        //Checks if the user is allowed and if the room is still accessible (start date and end date)
         if( checkIfUserIsAllowed() &&
             OffsetDateTime.now().isAfter(roomToJoin.getStart_date()) &&
             OffsetDateTime.now().isBefore(roomToJoin.getEnd_date())){
@@ -43,6 +51,11 @@ public class JoinRoomController{
 
     }
 
+    /**
+     * Method used to check if the logged user has been invited to the room
+     *
+     * @return boolean that indicates if the user is allowed
+     */
     private boolean checkIfUserIsAllowed(){
         try {
             userWhitelistAccess = Daos.daoWhitelist.getByUserAndRoom( LoginController.userLogged,  Daos.daoRooms.getById(roomId.getText()) );
