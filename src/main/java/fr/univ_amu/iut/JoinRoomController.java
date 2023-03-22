@@ -22,8 +22,6 @@ public class JoinRoomController{
     @FXML
     Button joinRoomBtn;
 
-    private Whitelist userWhitelistAccess;
-
     /**
      * Method used to join a room
      *
@@ -39,8 +37,6 @@ public class JoinRoomController{
             OffsetDateTime.now().isBefore(roomToJoin.getEnd_date())){
 
             joinRoomBtn.setUserData(roomId.getText()+",room");
-
-            Daos.daoWhitelist.delete( userWhitelistAccess );
 
             SwitchTo switchTo = new SwitchTo();
             switchTo.switchToController(e);
@@ -58,7 +54,7 @@ public class JoinRoomController{
      */
     private boolean checkIfUserIsAllowed(){
         try {
-            userWhitelistAccess = Daos.daoWhitelist.getByUserAndRoom( LoginController.userLogged,  Daos.daoRooms.getById(roomId.getText()) );
+            Daos.daoWhitelist.getByUserAndRoom( LoginController.userLogged,  Daos.daoRooms.getById(roomId.getText()) );
             return true;
         }catch (Exception e){
             return false;

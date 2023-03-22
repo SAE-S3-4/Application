@@ -79,10 +79,6 @@ public class TestJoinRoom {
         robot.write("N9HJRL");
         robot.clickOn("#joinRoomBtn");
 
-        //Adding back the test user for the next test
-        Whitelist whitelist = new Whitelist(Daos.daoUser.getById("ComptePourTests"),Daos.daoRooms.getById("N9HJRL"));
-        Daos.daoWhitelist.insert(whitelist);
-
         verifyThat("#terminalInputZone", isVisible());
     }
 }

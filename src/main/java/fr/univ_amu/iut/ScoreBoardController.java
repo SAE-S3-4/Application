@@ -64,6 +64,8 @@ public class ScoreBoardController extends BorderPane {
         this.podium = Daos.daoScores.getBestByRoom(this.room);
 
         initialize();
+
+        deleteFromWhiteList(page);
     }
 
     /**
@@ -108,4 +110,14 @@ public class ScoreBoardController extends BorderPane {
         }
     }
 
+    /**
+     * Method used to delete a user from the whitelist for the multiplayer rooms
+     *
+     * @param page
+     */
+    public void deleteFromWhiteList(String page){
+        if(!(page.equals("game") || (!page.equals("practice")) )){
+            Daos.daoWhitelist.delete( Daos.daoWhitelist.getByUserAndRoom( LoginController.userLogged,  Daos.daoRooms.getById(page) ) );
+        }
+    }
 }
