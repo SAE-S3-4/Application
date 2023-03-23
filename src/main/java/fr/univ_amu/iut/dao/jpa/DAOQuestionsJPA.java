@@ -6,6 +6,7 @@ import jakarta.persistence.TypedQuery;
 import fr.univ_amu.iut.model.Questions;
 import fr.univ_amu.iut.model.Rooms;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,10 +58,9 @@ public class DAOQuestionsJPA implements DAOQuestions {
      * @return Questions object with the given id
      */
     @Override
-    public Questions getById(Integer q_id) {
-        TypedQuery<Questions> query = entityManager.createNamedQuery("Questions.getById", Questions.class);
-        query.setParameter("q_id", q_id);
-        return query.getSingleResult();
+    public Questions getById(ArrayList<Object> q_id) {
+        //Was not implemented because it isn't used in the application
+        return null;
     }
 
     /**
@@ -70,11 +70,8 @@ public class DAOQuestionsJPA implements DAOQuestions {
      */
     @Override
     public Questions insert(Questions obj) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(obj);
-        entityManager.getTransaction().commit();
-
-        return entityManager.find(Questions.class, obj.getId());
+        //Was not implemented because it isn't used in the application
+        return null;
     }
 
     /**

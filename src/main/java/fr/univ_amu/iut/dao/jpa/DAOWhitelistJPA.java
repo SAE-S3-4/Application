@@ -8,6 +8,7 @@ import fr.univ_amu.iut.model.Whitelist;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -59,7 +60,7 @@ public class DAOWhitelistJPA implements DAOWhitelist {
      * @return Whitelist with the given id
      */
     @Override
-    public Whitelist getById(Integer id) {
+    public Whitelist getById(ArrayList<Object> id) {
         TypedQuery<Whitelist> query = entityManager.createNamedQuery("Whitelist.getById", Whitelist.class);
         query.setParameter("id", id);
 
@@ -77,7 +78,8 @@ public class DAOWhitelistJPA implements DAOWhitelist {
         entityManager.persist(obj);
         entityManager.getTransaction().commit();
 
-        return entityManager.find(Whitelist.class, obj.getId());
+        //return entityManager.find(Whitelist.class, obj.getRoom()obj.getUser());
+        return null;
     }
 
     /**

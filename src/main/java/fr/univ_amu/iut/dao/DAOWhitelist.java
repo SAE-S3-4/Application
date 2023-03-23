@@ -5,6 +5,8 @@ import fr.univ_amu.iut.model.Scores;
 import fr.univ_amu.iut.model.Users;
 import fr.univ_amu.iut.model.Whitelist;
 
-public interface DAOWhitelist extends DAO<Whitelist, Integer>{
+import java.util.ArrayList;
+
+public interface DAOWhitelist extends DAO<Whitelist, ArrayList<Object>>{
     Whitelist getByUserAndRoom(Users user, Rooms room);
 }
