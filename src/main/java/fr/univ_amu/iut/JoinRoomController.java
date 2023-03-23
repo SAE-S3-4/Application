@@ -41,7 +41,7 @@ public class JoinRoomController{
             SwitchTo switchTo = new SwitchTo();
             switchTo.switchToController(e);
         }else {
-            Alert invalidInput = new Alert(Alert.AlertType.ERROR, "Vous n'avez pas acces à cet Salon");
+            Alert invalidInput = new Alert(Alert.AlertType.ERROR, "Vous ne pouvez pas rejoindre ce Salon");
             invalidInput.show();
         }
 
