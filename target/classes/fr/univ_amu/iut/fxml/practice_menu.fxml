@@ -41,10 +41,10 @@
         </HBox>
     </bottom>
     <right>
-        <ScrollPane minWidth="200" fitToWidth="true" id="questionsButtonPane">
+        <ScrollPane minWidth="300" fitToWidth="true" id="questionsButtonPane">
             <VBox fx:id="levels" id="levelsBox" alignment="CENTER"/>
             <BorderPane.margin>
-                <Insets right="300" top="120"/>
+                <Insets right="250" top="120"/>
             </BorderPane.margin>
         </ScrollPane>
     </right>

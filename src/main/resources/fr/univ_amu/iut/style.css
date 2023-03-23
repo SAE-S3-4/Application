@@ -76,6 +76,10 @@
     -fx-font-size: 20;
 }
 
+.questionButton {
+    -fx-min-width: 250;
+}
+
 #questionsButtonPane > .viewport {
     -fx-background-color: transparent;
 }
