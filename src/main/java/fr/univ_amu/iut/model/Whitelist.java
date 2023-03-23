@@ -4,21 +4,19 @@ import jakarta.persistence.*;
 
 @NamedQueries({
         @NamedQuery(name = "Whitelist.findAll", query = "SELECT w FROM Whitelist w"),
-        @NamedQuery(name = "Whitelist.getById", query = "SELECT w FROM Whitelist w WHERE w.id = :id"),
         @NamedQuery(name = "Whitelist.getByUserAndRoom", query = "SELECT w FROM Whitelist w WHERE w.user = :user AND w.room = :room")
 })
 
 @Table(name = "WHITELIST")
 @Entity
 public class Whitelist {
-    @Id
-    @Column(name="ID")
-    int id;
 
+    @Id
     @OneToOne
     @JoinColumn(name = "USER_ID")
     Users user;
 
+    @Id
     @OneToOne
     @JoinColumn(name = "ROOM_ID")
     Rooms room;
@@ -29,14 +27,6 @@ public class Whitelist {
     public Whitelist(Users user, Rooms room) {
         this.user = user;
         this.room = room;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Users getUser() {

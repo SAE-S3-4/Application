@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 @NamedQueries({
         @NamedQuery(name = "Questions.findAll", query = "SELECT q FROM Questions q"),
-        @NamedQuery(name = "Questions.getById", query = "SELECT q FROM Questions q WHERE q.id = :id"),
         @NamedQuery(name = "Questions.getByRoom", query = "SELECT q FROM Questions q WHERE q.room = :room"),
         @NamedQuery(name = "Questions.findNumberQuestionsByRoom", query = "SELECT COUNT(q) FROM Questions q WHERE q.room = :room"),
         @NamedQuery(name = "Questions.getByRoomAndNum", query = "SELECT q FROM Questions q WHERE q.order_question = :order_question AND q.room = :room"),
@@ -13,10 +12,8 @@ import jakarta.persistence.*;
 @Table(name = "QUESTIONS")
 @Entity
 public class Questions {
-    @Id
-    @Column(name = "ID")
-    int id;
 
+    @Id
     @Column(name = "ORDER_QUESTION")
     int order_question;
 
@@ -32,17 +29,10 @@ public class Questions {
     @Column(name = "ANSWER")
     String answer;
 
+    @Id
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ROOM_ID")
     Rooms room;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getOrder_question() {
         return order_question;
@@ -95,8 +85,7 @@ public class Questions {
     @Override
     public String toString() {
         return "Questions{" +
-                "id=" + id +
-                ", order_question=" + order_question +
+                " order_question=" + order_question +
                 ", assignement='" + assignement + '\'' +
                 ", title='" + title + '\'' +
                 ", suggestion='" + suggestion + '\'' +

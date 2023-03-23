@@ -116,7 +116,7 @@ public class ScoreBoardController extends BorderPane {
      * @param page
      */
     public void deleteFromWhiteList(String page){
-        if(!(page.equals("game") || (!page.equals("practice")) )){
+        if((!page.equals("game") && (!page.equals("practice")) )){
             Daos.daoWhitelist.delete( Daos.daoWhitelist.getByUserAndRoom( LoginController.userLogged,  Daos.daoRooms.getById(page) ) );
         }
     }
