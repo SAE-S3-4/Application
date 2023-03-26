@@ -2,6 +2,8 @@ package fr.univ_amu.iut.components;
 
 import fr.univ_amu.iut.LoginController;
 import fr.univ_amu.iut.tools.ClientTerminal;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,6 +24,8 @@ public class ChatPane extends BorderPane {
     private TextArea textField;
     private TextField inputZone;
 
+    private Timeline timeline;
+
     /**
      * Constructor of the widget TerminalPane used to create a linux console
      */
@@ -34,6 +38,8 @@ public class ChatPane extends BorderPane {
         ClientTerminal client = new ClientTerminal("findthebreach.sytes.net", 10013);
         client.connect();
         client.listen();
+
+        client.send("chat");
 
         //Initialize the widgets
         inputZone = new TextField("");
@@ -49,9 +55,28 @@ public class ChatPane extends BorderPane {
             @Override
             public void handle(KeyEvent ke) {
                 if (ke.getCode().equals(KeyCode.ENTER)) {
+                    client.send(inputZone.getText());
                     textField.appendText("\n" + userLogged.getName() + " : " + inputZone.getText());
                     inputZone.setText("");
                     //Implement the global chat
+
+                    //Launch chrono
+                    timeline = new Timeline(
+                            new KeyFrame(Duration.seconds(1.0), e -> {
+                                List<String> buffReceived = client.getBufferReceived();
+                                if(buffReceived != null && !buffReceived.isEmpty()){
+                                    textField.appendText("\nLlama l'IA : ");
+                                    for (String line : buffReceived) {
+                                        textField.appendText(line);
+                                    }
+                                    textField.setScrollTop(Double.MAX_VALUE);
+
+                                    timeline.stop();
+                                }
+                            })
+                    );
+                    timeline.setCycleCount(Timeline.INDEFINITE);
+                    timeline.play();
                 }
             }
         });

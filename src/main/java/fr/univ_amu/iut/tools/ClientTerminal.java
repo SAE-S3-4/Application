@@ -120,4 +120,15 @@ public class ClientTerminal {
         txtReceived = new ArrayList<String>();
         return buffReceived;
     }
+
+    /**
+     * Method used to close the connection with the server
+     */
+    public void closeConnection(){
+        try {
+            socketClient.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

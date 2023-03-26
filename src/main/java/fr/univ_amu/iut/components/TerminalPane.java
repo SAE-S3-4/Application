@@ -29,6 +29,8 @@ public class TerminalPane extends BorderPane {
         client.connect();
         client.listen();
 
+        client.send("terminal");
+
         //Initialize the widgets
         inputZone = new TextField("");
         inputZone.setStyle("-fx-background-color: transparent");
