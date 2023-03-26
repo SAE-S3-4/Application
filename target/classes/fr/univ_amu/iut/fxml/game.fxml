@@ -13,7 +13,9 @@
 <?import fr.univ_amu.iut.components.SwitchToPaneButton?>
 
 <?import fr.univ_amu.iut.components.SwitchToPlayButton?>
-<fx:root id="game" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+
+<fx:root id="game" type="javafx.scene.layout.StackPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <BorderPane id="game" fx:id="mainPane">
     <left>
         <VBox>
             <BorderPane.margin>
@@ -29,6 +31,7 @@
                 <Insets top="115" left="10" right="125" bottom="30" />
             </BorderPane.margin>
             <TerminalPane fx:id="terminalPane" id="terminalPane"/>
+            <Button id="openMsgBtn" fx:id="openMsgBtn">←</Button>
         </HBox>
     </right>
     <bottom>
@@ -85,4 +88,5 @@
             <ChronoLabel id="chrono" fx:id="chronoGame"/>
         </HBox>
     </top>
+    </BorderPane>
 </fx:root>
