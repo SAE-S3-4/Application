@@ -2,6 +2,7 @@ package fr.univ_amu.iut.components;
 
 import fr.univ_amu.iut.LoginController;
 import fr.univ_amu.iut.tools.ClientTerminal;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -10,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
 
 import java.util.List;
 
@@ -57,7 +59,15 @@ public class ChatPane extends BorderPane {
         Button changeBtn = new Button("⟶");
         changeBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                ChatPane.super.toBack();
+                TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1),ChatPane.this);
+                translateTransition.setFromX(300);
+                translateTransition.setToX(1280);
+                translateTransition.setOnFinished(new EventHandler<ActionEvent>() {
+                    @Override public void handle(ActionEvent e) {
+                        ChatPane.super.toBack();
+                    }
+                });
+                translateTransition.play();
             }
         });
 

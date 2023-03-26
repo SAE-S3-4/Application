@@ -5,6 +5,7 @@ import fr.univ_amu.iut.components.ChatPane;
 import fr.univ_amu.iut.components.TerminalPane;
 import fr.univ_amu.iut.model.Questions;
 import fr.univ_amu.iut.model.Rooms;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -89,6 +91,10 @@ public abstract class  PlayController extends StackPane {
         pane.toBack();
         openMsgBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
+                TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1),pane);
+                translateTransition.setFromX(1280);
+                translateTransition.setToX(300);
+                translateTransition.play();
                 pane.toFront();
             }
         });
