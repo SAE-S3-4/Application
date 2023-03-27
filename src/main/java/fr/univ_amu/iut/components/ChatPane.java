@@ -20,11 +20,8 @@ import java.util.List;
 import static fr.univ_amu.iut.LoginController.userLogged;
 
 public class ChatPane extends BorderPane {
-    private String reponse;
     private TextArea textField;
     private TextField inputZone;
-
-    private Timeline timeline;
 
     /**
      * Constructor of the widget TerminalPane used to create a linux console
@@ -59,27 +56,24 @@ public class ChatPane extends BorderPane {
                     textField.appendText("\n" + userLogged.getName() + " : " + inputZone.getText());
                     inputZone.setText("");
                     //Implement the global chat
-
-                    //Launch chrono
-                    timeline = new Timeline(
-                            new KeyFrame(Duration.seconds(1.0), e -> {
-                                List<String> buffReceived = client.getBufferReceived();
-                                if(buffReceived != null && !buffReceived.isEmpty()){
-                                    textField.appendText("\nLlama l'IA : ");
-                                    for (String line : buffReceived) {
-                                        textField.appendText(line);
-                                    }
-                                    textField.setScrollTop(Double.MAX_VALUE);
-
-                                    timeline.stop();
-                                }
-                            })
-                    );
-                    timeline.setCycleCount(Timeline.INDEFINITE);
-                    timeline.play();
                 }
             }
         });
+
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(1.0), e -> {
+                    List<String> buffReceived = client.getBufferReceived();
+                    if(buffReceived != null && !buffReceived.isEmpty()){
+                        textField.appendText("\nLlama l'IA : ");
+                        for (String line : buffReceived) {
+                            textField.appendText(line);
+                        }
+                        textField.setScrollTop(Double.MAX_VALUE);
+                    }
+                })
+        );
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
 
         Button changeBtn = new Button("⟶");
         changeBtn.setOnAction(new EventHandler<ActionEvent>() {
