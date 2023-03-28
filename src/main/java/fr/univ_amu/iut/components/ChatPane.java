@@ -37,6 +37,7 @@ public class ChatPane extends BorderPane {
         client.listen();
 
         client.send("chat");
+        client.send(userLogged.getName());
 
         //Initialize the widgets
         inputZone = new TextField("");
@@ -47,6 +48,7 @@ public class ChatPane extends BorderPane {
         textField.setEditable(false);
         textField.setStyle("-fx-background-color: transparent");
         textField.setId("terminalTxtField");
+        textField.setWrapText(true);
 
         inputZone.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -64,7 +66,7 @@ public class ChatPane extends BorderPane {
                 new KeyFrame(Duration.seconds(1.0), e -> {
                     List<String> buffReceived = client.getBufferReceived();
                     if(buffReceived != null && !buffReceived.isEmpty()){
-                        textField.appendText("\nLlama l'IA : ");
+                        textField.appendText("\n");
                         for (String line : buffReceived) {
                             textField.appendText(line);
                         }
@@ -92,7 +94,7 @@ public class ChatPane extends BorderPane {
 
         super.setCenter(textField);
         super.setBottom(inputZone);
-        super.setRight(changeBtn);
+        super.setLeft(changeBtn);
     }
 
 }
