@@ -26,7 +26,7 @@
                 <left>
                     <HBox>
                         <BorderPane.margin>
-                            <Insets top="115" left="10" right="110" bottom="30" />
+                            <Insets top="115" left="10" right="62" bottom="30" />
                         </BorderPane.margin>
                         <TerminalPane fx:id="terminalPane" id="terminalPane"/>
                     </HBox>
