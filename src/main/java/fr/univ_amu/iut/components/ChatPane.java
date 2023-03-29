@@ -1,6 +1,7 @@
 package fr.univ_amu.iut.components;
 
 import fr.univ_amu.iut.LoginController;
+import fr.univ_amu.iut.Main;
 import fr.univ_amu.iut.tools.ClientTerminal;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -37,7 +38,7 @@ public class ChatPane extends BorderPane {
         super.setMaxWidth(600);
 
         // Initialize the connection
-        ClientTerminal client = new ClientTerminal("findthebreach.sytes.net", 10013);
+        ClientTerminal client = new ClientTerminal(Main.SERVER_ADDRESS,Main.SERVER_PORT );
         client.connect();
         client.listen();
 
@@ -98,15 +99,22 @@ public class ChatPane extends BorderPane {
                 translateTransition.play();
             }
         });
+
+        //Initialize the title
         Label title = new Label("Chat global");
         title.setStyle("-fx-font-size: 30;");
+
+        //The Horizontal Container of all the chatPane elements
         HBox titleContainer = new HBox(title);
         titleContainer.setAlignment(Pos.CENTER);
         titleContainer.setStyle("-fx-background-color: #7e7ef8;");
+
+        //The Vertical Container for all the chat elements
         VBox chatContainer = new VBox(titleContainer, textField, inputZone);
         chatContainer.setAlignment(Pos.CENTER);
         HBox container = new HBox(changeBtn, chatContainer);
         container.setAlignment(Pos.CENTER);
+
         super.setRight(container);
     }
 

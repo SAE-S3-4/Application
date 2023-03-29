@@ -13,6 +13,17 @@ import java.awt.*;
 import java.io.IOException;
 
 public class Main extends Application {
+
+    /**
+     * The address of the application server
+     */
+    public static final String SERVER_ADDRESS = "findthebreach.sytes.net";
+
+    /**
+     * The port of the application server
+     */
+    public static final int SERVER_PORT = 10013;
+
     /**
      * Method used to launch the application
      *
@@ -44,6 +55,7 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.show();
     }
+
     public static void main(String[] args) {
         Daos.initDaos();
         launch();

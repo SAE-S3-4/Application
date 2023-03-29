@@ -1,5 +1,6 @@
 package fr.univ_amu.iut.components;
 
+import fr.univ_amu.iut.Main;
 import fr.univ_amu.iut.tools.ClientTerminal;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextArea;
@@ -25,7 +26,7 @@ public class TerminalPane extends BorderPane {
         super();
 
         // Initialize the connection
-        ClientTerminal client = new ClientTerminal("findthebreach.sytes.net", 10013);
+        ClientTerminal client = new ClientTerminal(Main.SERVER_ADDRESS,Main.SERVER_PORT);
         client.connect();
         client.listen();
 
