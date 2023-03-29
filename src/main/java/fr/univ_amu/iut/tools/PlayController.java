@@ -1,6 +1,5 @@
 package fr.univ_amu.iut.tools;
 
-import fr.univ_amu.iut.ServerTerminal;
 import fr.univ_amu.iut.components.ChatPane;
 import fr.univ_amu.iut.components.TerminalPane;
 import fr.univ_amu.iut.model.Questions;
@@ -16,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
