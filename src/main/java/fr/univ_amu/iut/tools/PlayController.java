@@ -1,9 +1,13 @@
 package fr.univ_amu.iut.tools;
 
+import fr.univ_amu.iut.ServerTerminal;
+import fr.univ_amu.iut.components.ChatPane;
 import fr.univ_amu.iut.components.TerminalPane;
 import fr.univ_amu.iut.model.Questions;
 import fr.univ_amu.iut.model.Rooms;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,7 +16,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -20,7 +27,7 @@ import java.io.IOException;
 /**
  * Abstract class used as the controller of the "play" scenes
  */
-public abstract class  PlayController extends BorderPane {
+public abstract class  PlayController extends StackPane {
     private Stage stage;
     private Scene scene;
     @FXML
@@ -37,6 +44,10 @@ public abstract class  PlayController extends BorderPane {
     HBox botBtns;
     @FXML
     HBox topHbox;
+    @FXML
+    BorderPane mainPane;
+    @FXML
+    Button openMsgBtn;
     private int level;
     private Questions question;
     private String page;
@@ -67,6 +78,26 @@ public abstract class  PlayController extends BorderPane {
         title.setWrapText(true);
         title.setMaxWidth(360);
         title.setMaxHeight(200);
+
+        initChat();
+    }
+
+    /**
+     * Method used to initialize the "chat" section
+     */
+    public void initChat(){
+        ChatPane pane = new ChatPane();
+        PlayController.super.getChildren().add(pane);
+        pane.toBack();
+        openMsgBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1),pane);
+                translateTransition.setFromX(1280);
+                translateTransition.setToX(339);
+                translateTransition.play();
+                pane.toFront();
+            }
+        });
     }
 
     /**

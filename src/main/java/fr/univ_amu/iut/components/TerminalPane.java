@@ -29,9 +29,12 @@ public class TerminalPane extends BorderPane {
         client.connect();
         client.listen();
 
+        client.send("terminal");
+
         //Initialize the widgets
         inputZone = new TextField("");
         inputZone.setStyle("-fx-background-color: transparent");
+        inputZone.setPromptText("Écrivez votre commande ici");
         inputZone.setId("terminalInputZone");
 
         textField = new TextArea("Ecrire ./help pour plus d'informations");

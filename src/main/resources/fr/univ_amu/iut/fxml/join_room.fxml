@@ -23,19 +23,13 @@
                     </ImageView>
                 </graphic>
             </SwitchToPaneButton>
-            <SwitchToPlayButton styleClass="bar_button" userData="1,game">
+            <SwitchToPaneButton id="switchToPaneButtonPracticeLogged" styleClass="bar_button" userData="fxml/practice_menu.fxml">
                 <graphic>
-                    <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                        <HBox.margin>
-                            <Insets/>
-                        </HBox.margin>
+                    <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true">
                         <Image url="@../pictures/practice_button.png"/>
                     </ImageView>
                 </graphic>
-                <HBox.margin>
-                    <Insets/>
-                </HBox.margin>
-            </SwitchToPlayButton>
+            </SwitchToPaneButton>
             <SwitchToPlayButton styleClass="bar_button" userData="1,game">
                 <graphic>
                     <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
