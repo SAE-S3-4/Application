@@ -44,21 +44,21 @@ ___
 
 Sur cette page, vous pouvez avoir un aperçu de notre application. Tous les boutons redirigent vers la page connection.
 
-![Image page d'accueil de l'application](readmePictures/home.jpg "Page d'accueil")
+![Image page d'accueil de l'application](readmePictures/ImageAcceuil.png "Page d'accueil")
 
 - Connection
 
 Vous devez vous connecter avec le compte créé précédemment sur le site https://findthebreach.ddns.net</br>
 Le compte avec lequel vous vous connectez se verra attribué le score de votre partie de jeu.
 
-![Image page connection](readmePictures/login.jpg "Page de connection")
+![Image page connection](readmePictures/ImageConnexion.png "Page de connection")
 
 - Page d'accueil utilisateur connecté
 
 Vous pouvez maintenant choisir votre mode de jeu. Vous pouvez accéder à la partie apprentissage ou la partie jeu. 
 Nous vous conseillons de commencer par la partie apprentissage afin de vous entraîner.
 
-![Image page d'accueil connecté](readmePictures/home_logged.jpg "Page d'acceuil utilisateur connecté")
+![Image page d'accueil connecté](readmePictures/Imageconnecte.png "Page d'acceuil utilisateur connecté")
 
 - Menu d'apprentissage
 
@@ -84,6 +84,13 @@ Votre score est calculé en fonction du temps écoulé et des bonus utilisés.
 
 ![Image page jeu](readmePictures/play.jpg  "Page jeu")
 
+- Multijoueurs
+
+Il est aussi possible de jouer avec d'autres personnes. En effet, il suffit d'écrire le code qu'on a recu par mail afin d'accéder au salon.
+
+![Image page MultiJoueur](readmePictures/pictureMulti.png  "Page jeu")
+
+
 - Tableau des scores
 
 Quand votre partie est finie, vous accédez au tableau des scores avec votre score et le classement des 5 meilleurs joueurs.
@@ -93,8 +100,7 @@ Vous pouvez redémarrer une partie, retourner vous entraîner ou quitter l'appli
 
 ### Mesures d'amélioration
 
-Pour améliorer notre projet, nous aurions pu chercher à perfectionner l'aspect sécurisation vis à vis du Terminal distant.
-La mise en place d'un mode multijoueur aurait été aussi une perspective d'évolution.
+
 
 ## Membres du projet 🧑‍💻
 
