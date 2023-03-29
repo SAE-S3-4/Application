@@ -7,12 +7,17 @@ import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 import java.util.List;
@@ -41,14 +46,15 @@ public class ChatPane extends BorderPane {
 
         //Initialize the widgets
         inputZone = new TextField("");
-        inputZone.setStyle("-fx-background-color: transparent");
-        inputZone.setId("terminalInputZone");
+        inputZone.setStyle("-fx-background-color: #7e7ef8");
+        inputZone.setPromptText("Écrire ici pour envoyer le message");
 
-        textField = new TextArea("Ecrire dans le chat");
+        textField = new TextArea("Écrire dans le chat");
         textField.setEditable(false);
         textField.setStyle("-fx-background-color: transparent");
-        textField.setId("terminalTxtField");
+        textField.setId("chatTxtField");
         textField.setWrapText(true);
+        textField.setStyle("-fx-border-color: grey; -fx-border-width: 1");
 
         inputZone.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -77,11 +83,12 @@ public class ChatPane extends BorderPane {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
-        Button changeBtn = new Button("⟶");
+        Button changeBtn = new Button("→");
+        changeBtn.getStyleClass().add("chatBtn");
         changeBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1),ChatPane.this);
-                translateTransition.setFromX(300);
+                translateTransition.setFromX(399);
                 translateTransition.setToX(1280);
                 translateTransition.setOnFinished(new EventHandler<ActionEvent>() {
                     @Override public void handle(ActionEvent e) {
@@ -91,10 +98,16 @@ public class ChatPane extends BorderPane {
                 translateTransition.play();
             }
         });
-
-        super.setCenter(textField);
-        super.setBottom(inputZone);
-        super.setLeft(changeBtn);
+        Label title = new Label("Chat global");
+        title.setStyle("-fx-font-size: 30;");
+        HBox titleContainer = new HBox(title);
+        titleContainer.setAlignment(Pos.CENTER);
+        titleContainer.setStyle("-fx-background-color: #7e7ef8;");
+        VBox chatContainer = new VBox(titleContainer, textField, inputZone);
+        chatContainer.setAlignment(Pos.CENTER);
+        HBox container = new HBox(changeBtn, chatContainer);
+        container.setAlignment(Pos.CENTER);
+        super.setRight(container);
     }
 
 }

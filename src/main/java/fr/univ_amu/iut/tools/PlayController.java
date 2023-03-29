@@ -93,7 +93,7 @@ public abstract class  PlayController extends StackPane {
             @Override public void handle(ActionEvent e) {
                 TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1),pane);
                 translateTransition.setFromX(1280);
-                translateTransition.setToX(300);
+                translateTransition.setToX(339);
                 translateTransition.play();
                 pane.toFront();
             }

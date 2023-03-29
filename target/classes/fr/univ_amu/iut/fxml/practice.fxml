@@ -22,13 +22,21 @@
             </VBox>
         </left>
         <right>
-            <HBox>
-                <BorderPane.margin>
-                    <Insets top="92" left="10" right="125" bottom="30" />
-                </BorderPane.margin>
-                <TerminalPane id="teminalPane" fx:id="terminalPane"/>
-                <Button id="openMsgBtn" fx:id="openMsgBtn">←</Button>
-            </HBox>
+            <BorderPane>
+                <left>
+                    <HBox>
+                        <BorderPane.margin>
+                            <Insets top="115" left="10" right="110" bottom="30" />
+                        </BorderPane.margin>
+                        <TerminalPane fx:id="terminalPane" id="terminalPane"/>
+                    </HBox>
+                </left>
+                <right>
+                    <VBox alignment="CENTER">
+                        <Button id="openMsgBtn" fx:id="openMsgBtn" styleClass="chatBtn" text="←"></Button>
+                    </VBox>
+                </right>
+            </BorderPane>
         </right>
         <bottom>
             <HBox spacing="320" alignment="CENTER">

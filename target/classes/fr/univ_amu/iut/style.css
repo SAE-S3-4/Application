@@ -68,7 +68,7 @@
     -fx-background-radius: 30;
 }
 
-#buttonLogin_login, #buttonAbort_login, #joinRoomBtn, .questionButton {
+#buttonLogin_login, #buttonAbort_login, #joinRoomBtn, .questionButton, .chatBtn {
     -fx-border-color: black;
     -fx-background-color: white;
     -fx-border-radius: 10;
