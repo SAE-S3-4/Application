@@ -36,6 +36,16 @@ ___
 ### Lancer l'application depuis un IDE
 Pour lancer l'application via un IDE il suffit de compiler le projet ou éxecuter la methode main se trouvant dans la classe Main à la racine du projet.
 
+Pour des soucis de sécurité si vous voulez lancez le projet depuis un IDE il faudra aller dans le répertoire “src/main/resources/META-IF/” et modifier le fichier persistence.xml. 
+
+Vous allez trouver à la ligne 11 cette ligne : 
+
+```xml
+<property name="jakarta.persistence.jdbc.password" value=""/> 
+```
+
+Il faudra mettre entre les guillemets après value le mot de passe de la base de données qu'on vous as passé sur Ametice.  
+
 Pour que l'application fonctionne il faut éxecuter également le Serveur se trouvant sur le repertoire : https://github.com/SAE-S3-4/Serveur
 ___
 ## Utilisation 🎮
@@ -84,22 +94,23 @@ Votre score est calculé en fonction du temps écoulé et des bonus utilisés.
 
 ![Image page jeu](readmePictures/play.jpg  "Page jeu")
 
-- Multijoueurs
+- Multijoueur
 
-Il est aussi possible de jouer avec d'autres personnes. En effet, il suffit d'écrire le code qu'on a recu par mail afin d'accéder au salon.
+Il est possible de rejoindre des salons de jeu multijoueur en utilisant un code qui nous sera automatiquement envoyé par mail par le système lorsqu’un administrateur crée et nous invite à rejoindre son salon. Une fois le salon ouvert les utilisateurs invitées peuvent commencer la partie. 
 
 ![Image page MultiJoueur](readmePictures/pictureMulti.png  "Page jeu")
 
+- Onglet de conversation globale 
+
+Nous avons également ajouté sur toutes les pages de jeu un onglet de conversation global entre les joueurs qui peut être ouvert à l’aide d’une flèche à droite de l’écran. Dans cet onglets les joueurs pourront discuter entre eux, et si le mode est activé ils pourront également interagir avec une IA. 
+
+![Image onglet Conversation](readmePictures/pictureChat.png  "Onglet chat")
 
 - Tableau des scores
 
-Quand votre partie est finie, vous accédez au tableau des scores avec votre score et le classement des 5 meilleurs joueurs.
-Vous pouvez redémarrer une partie, retourner vous entraîner ou quitter l'application en la fermant.
+Quand votre partie en mode solo ou multijoueur est finie, vous accédez au tableau des scores avec votre score et le classement des 5 meilleurs joueurs. Ce score sera également visualisable depuis le site Web dans l’onglet “Mon profil”. 
 
 ![Image page tableau des scores](readmePictures/leaderBoard.jpg  "Page tableau des scores")
-
-### Mesures d'amélioration
-
 
 
 ## Membres du projet 🧑‍💻
