@@ -75,7 +75,7 @@ Nous vous conseillons de commencer par la partie apprentissage afin de vous entr
 Vous avez cliqué sur apprentissage a l'étape précédente, maintenant il faut choisir le niveau à effectuer. 
 Vous pouvez naviguer librement entre les niveaux et reprendre là où vous vous êtes arrétés.
 
-![Image menu apprentissage](readmePictures/practice_menu.jpg "Page menu apprentissage")
+![Image menu apprentissage](readmePictures/practice_menu.png "Page menu apprentissage")
 
 - Apprentissage
 
@@ -84,7 +84,7 @@ Vous pouvez utiliser le terminal à droite pour chercher les réponses et les in
 Les boutons solution et indice sont disponible si vous êtes bloqués.
 Vous pouvez cliquer sur l'icone "play" une fois que vous êtes prêts pour lancer la partie enquête.
 
-![Image page apprentissage](readmePictures/practice.jpg  "Page apprentissage")
+![Image page apprentissage](readmePictures/practice.png  "Page apprentissage")
 
 - Jeu
 
@@ -92,7 +92,7 @@ Vous faites maintenant votre recherche de l'utilisateur qui a laissé une trace.
 Les boutons indice et solution apparaissent qu'au bout de 5 minutes et 10 minutes respectivement.
 Votre score est calculé en fonction du temps écoulé et des bonus utilisés.
 
-![Image page jeu](readmePictures/play.jpg  "Page jeu")
+![Image page jeu](readmePictures/play.png  "Page jeu")
 
 - Multijoueur
 
