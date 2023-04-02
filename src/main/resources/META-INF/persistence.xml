@@ -8,7 +8,7 @@
             <!-- database connection properties -->
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://kandula.db.elephantsql.com/dyfslksj"/>
             <property name="jakarta.persistence.jdbc.user" value="dyfslksj"/>
-            <property name="jakarta.persistence.jdbc.password" value="E__SWO4Kvj3Luu3YyYXoxsCHJhqGYm17"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
 
             <property name="eclipselink.ddl-generation.output-mode" value="database"/>
             <property name="eclipselink.ddl-generation" value="create-tables"/>
