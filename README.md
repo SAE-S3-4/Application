@@ -34,7 +34,7 @@ L'application a été réalisée à l'aide de la bibliothèque **JavaFx** qui n'
 Pour résoudre ce problème nous vous conseillons d'utiliser un JDK avec la bibliothèque **JavaFx** comme ceux proposés sur le site : https://bell-sw.com/pages/downloads/ dans la section JDK 17 LTS. Il suffit de télécharger le JDK 17 correspondant à votre système d'exploitation et apres vous allez pouvoir utiliser l'application sous son format *.jar* ou la compiler depuis un IDE.
 ___
 ### Lancer l'application depuis un IDE
-Pour lancer l'application via un IDE il suffit de compiler le projet ou éxecuter la methode main se trouvant dans la classe Main à la racine du projet.
+Pour lancer l'application via un IDE il suffit de compiler le projet ou executer la methode main se trouvant dans la classe Main à la racine du projet.
 
 Pour des soucis de sécurité si vous voulez lancez le projet depuis un IDE il faudra aller dans le répertoire “src/main/resources/META-IF/” et modifier le fichier persistence.xml. 
 
@@ -46,7 +46,7 @@ Vous allez trouver à la ligne 11 cette ligne :
 
 Il faudra mettre entre les guillemets après value le mot de passe de la base de données qu'on vous as passé sur Ametice.  
 
-Pour que l'application fonctionne il faut éxecuter également le Serveur se trouvant sur le repertoire : https://github.com/SAE-S3-4/Serveur
+Pour que l'application fonctionne il faut executer également le Serveur se trouvant sur le repertoire : https://github.com/SAE-S3-4/Serveur
 ___
 ## Utilisation 🎮
 
@@ -72,8 +72,8 @@ Nous vous conseillons de commencer par la partie apprentissage afin de vous entr
 
 - Menu d'apprentissage
 
-Vous avez cliqué sur apprentissage a l'étape précédente, maintenant il faut choisir le niveau à effectuer. 
-Vous pouvez naviguer librement entre les niveaux et reprendre là où vous vous êtes arrétés.
+Vous avez cliqué sur apprentissage a l'étape précédente, maintenant il faut choisir la question à effectuer. 
+Vous pouvez naviguer librement entre les questions et reprendre là où vous vous en êtes arrétés.
 
 ![Image menu apprentissage](readmePictures/practice_menu.png "Page menu apprentissage")
 
